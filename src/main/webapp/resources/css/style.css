@@ -1,0 +1,332 @@
+/***************************************
+PROJECT :: SoundLAB
+Created: 2018.10.??
+****************************************/
+
+/*
+font-family: 'Roboto Slab', serif;
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100);
+/*
+font-family: 'Lato', sans-serif;
+*/
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic);
+/*
+font-family: 'Raleway', sans-serif;
+*/
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
+/*
+font-family: 'Open Sans', sans-serif;
+*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700,800,800italic);
+@import url(https://fonts.googleapis.com/css?family=Cute+Font);
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
+/*
+font-family: 'Roboto', sans-serif;
+font-family: 'Cute Font', cursive;
+font-family: 'Do Hyeon', sans-serif;
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+/*header*/
+/* nav에 가려지는 부분 */
+.header {
+     /* margin-top:16rem; */
+}
+/* height: 35px!important; */
+.navbar-nav > li > a,
+.navbar-collapse.collapse {padding-top:0 !important; padding-bottom:5px !important; }
+ /* 로그인,회원가입,차트,... 글씨 컬러 */
+.navbar-default .navbar-nav>li>a {
+     color: #1c3120;
+}
+/* nav 배치 */
+.navbar-collapse {
+    float: right !important;
+    /* display: inline-block;  */
+    /* vertical-align: middle; */
+    /* white-space: nowrap;  */
+}
+
+
+#contents {
+	padding-top: 18rem; 
+}
+
+#userBox {
+     float: none !important;
+     margin: 0rem 2rem 0rem 1rem;
+}
+#serviceBox {
+     float: none !important;
+}
+#logoImg {
+     float: none !important;
+}
+#searchBox {
+     text-align:center;
+     height: 8rem;
+}
+/*--- nav 배치 ----*/
+.navbar-header {
+     
+     /* padding-top: 0px;  */
+}
+.loginBtn,
+.joinBtn {
+    color: #4DA91C;
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Do Hyeon', sans-serif;
+    margin: 1rem 1rem 0rem 0rem;
+}
+.chartBtn,
+.albumBtn,
+.djBtn,
+.forBtn {
+    color: #1c3120;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Do Hyeon', sans-serif;
+    margin: 0rem 1rem 0rem 0rem;
+}
+/* .searchBox {background: #7BA7AB;} */
+.searchBox:after {content:""; clear:both; display:table}
+.searchBox {
+  position: relative;
+  width: auto;
+  float: right;
+  text-align:center;
+}
+.searchBox input {
+  margin-top: 4rem;
+  /* width: 270px; */
+  width: 36rem;
+  height: 4.5rem;
+  padding-left: 1.5rem;
+  border-radius: 4.2rem;
+  border: 0.2rem solid #324b4e; /* 검색창테두리 */
+  background: #F9F0DA;
+  outline: none;
+  position: relative;
+  transition: .2s linear;
+}
+#searchInput:focus {
+  /* width: 290px; */
+  width: 40rem;
+}
+.searchBox button {
+  margin-top: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: none;
+  border: none;
+  position: absolute;
+  top: -0.2rem;
+  right: 0rem;   /* 돋보기 위치 */
+}
+.searchBox button:before{
+  content: "\f002";
+  font-family: FontAwesome;
+  color: #324b4e;
+}
+/* 네비폰트관련 *//* 네비밑줄 */
+.header_menu ul.main_menu li:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 0.3rem;
+    width: 0rem;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+.header_menu ul.main_menu li:hover:after,
+.header_menu ul.main_menu li.active:after {
+    width: 12.2rem;
+    background: #4DA91C;
+}
+/*-- 네비밑줄 --*/
+/*Back to Top*/
+ #back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    width: 3.2rem;
+    height: 3.2rem;
+    text-align: center;
+    line-height: 3rem;
+    background: rgba(84, 225, 0, 0.18);
+    color: #ffffff;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    opacity: 0;
+    display: none;
+    background: #43a906;
+}
+#back-to-top:hover {
+    color: #fff;
+    border-radius: 50%;
+}
+#back-to-top.show { opacity: 1; }
+.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: #fff;
+    padding-top:0rem;
+}
+
+
+/* 로그인화면 */
+.loginSec {
+	border: 1px solid #ccc;
+	border-top: 3px solid #00cd3c;
+	height: 91rem;
+	width: 100%;
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+.loginLogo {
+	height: 16rem;
+	margin: 0rem 3rem 3rem 8rem;
+}
+.loginBox {
+	margin: 4rem 0 20rem 0;
+	padding: 0rem 2rem 0rem 2rem;
+}
+.logoForm {
+	padding-left: 3rem; 
+}
+.loginForm {
+    width: 450px;
+    border: 2px solid #ccc;
+    padding: 2rem 2rem 5rem 2rem;
+}
+.loginInput {
+	padding-left: 1rem;
+	height: 5rem;
+	width: 40rem;
+	font-size: 2.1rem;
+}
+.loginConf {
+	margin-top: 1rem;
+	height: 5rem;
+	width: 40rem;
+	font-size: 2.5rem;
+}
+.kakaoBtn {
+	margin-top: 1rem;
+	height: 5rem;
+	width: 40rem;
+	font-size: 2.5rem;
+}
+.findJoin {	margin-left: 12rem; }
+.findJoinBtn {
+	margin-left: 2.5rem; 
+	height: 5rem;
+	width: 20rem;
+	font-size: 2.1rem;
+}
+.loginInst {
+	font-size: 2.8rem;
+    margin: 0rem 2rem 3rem 2rem;
+}
+
+/*--로그인화면 --*/
+
+/* 조인화면 */
+.joinSec {
+	min-width: 640px;
+	border: 1px solid #ccc;
+	border-top: 3px solid #00cd3c;
+	width: 100%;
+	font-family: 'Do Hyeon', sans-serif;
+}
+.joinBox {
+	margin: 4rem 0rem 5rem 0rem; 
+	padding: 0rem 2rem 0rem 2rem;
+	font-size: 2.3rem;	
+}
+.joinForm {
+	width: 550px;
+    border: 2px solid #ccc;
+    padding: 2rem 1.5rem 5rem 1.5rem;
+}
+
+.joinLogo {
+	height: 16rem;
+	margin: 0rem 3rem 3rem 13rem;
+}
+
+.joinInput {
+	margin: 1rem 0rem 1rem 3rem;
+	padding-left: 1rem;
+	margin-bottom: 1rem;
+	height: 5rem;
+	width: 40rem;
+	font-size: 2.3rem;
+}
+.joinId {
+	margin-left: 3.5rem;
+	width: 25rem;
+}
+.dupleCheck {
+	height: 5rem;
+	width: 14rem;
+	font-size: 2.5rem;
+	margin-left: 1rem;
+}
+.joinPass {	margin-left: 1.7rem; }
+.joinPass2 { margin-left: 8.7rem; }
+.joinName {	margin-left: 5.2rem; }
+.joinNick {	margin-left: 3.5rem; }
+.joinSsn { margin-left: 1.5rem; }
+.joinMan { margin-left: 5rem; }
+.joinWoman {
+	margin-left: 6rem;
+	margin-right: 26rem;
+}
+.joinMail {	
+	margin-left: 3.5rem;
+	width: 20rem;
+	height: 5rem;		
+}
+.mailDomain {
+	height: 5rem;
+}
+.joinPhone { margin-left: 3.6rem; }
+.selectGenre{ margin-left: 10rem; }
+.genre { margin-right: 3rem; }
+.joinConf {
+	    margin: 4rem 1rem 0rem 15rem;
+	height: 5rem;
+	width: 20rem;
+	font-size: 2.7rem;
+}
+.inst1 { margin-right: 38rem; }
+.inst2 { margin-right: 32rem; }
+.inst3 { margin-right: 29.5rem; }
+
+/*--조인화면 --*/
+
+/* 배너 */
+.carousel-inner>.item>img {
+    display: block;
+    width:100%; 
+    height: 90rem;
+}
+/*-- 배너 --*/
+
+
+/* 진태 search 결과 */
+.searchArtistImg {width: 20rem; height: 30rem;}
+.searchAlbumImg {width: 20rem; height: 30rem;}
+.searchMv {width: 60rem; height: 40rem;}
+
+/*-- 진태 search 결과 --*/

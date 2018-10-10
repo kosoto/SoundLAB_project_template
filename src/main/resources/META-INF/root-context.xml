@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+ <!-- 객체       메소드 --> 
+	<mvc:annotation-driven /> <!-- mvc객체가 어노테이션 살펴보고 new Controller 해서 객체를 담아옴 -->
+
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/WEB-INF/views/" />
+					<property name="suffix" value=".jsp" />
+				</bean>
+			</list>
+		</property>
+	
+	</bean>
+	
+	<context:component-scan base-package="com.soundlab.web" />
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+		<property name="url" value="jdbc:mariadb://localhost:3306/mariadb"/>
+		<property name="username" value="mariadb"/>
+		<property name="password" value="mariadb"/>
+	</bean>
+	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"/>
+   </bean> 
+	<!--fm 설정
+	 <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation"
+			value="classpath:config/mybatis-config.xml"
+		></property>
+	</bean> -->
+	<!-- 간소화된 설정 -->
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>														
+																<!-- ~+대문자M apper 다 적용 --> 
+		<property name="mapperLocations" value="classpath:com/soundlab/web/**/*Mapper.xml"></property>
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactoryBean"/>
+	</bean>
+	<mybatis-spring:scan base-package="com.soundlab.web"/>
+	
+	<!-- 파일업로드 -->
+	<!-- <bean id="uploadPath" class="java.lang.String">
+		<constructor-arg value="C:\\Users\\1027\\spring5_workspace\\SoundLAB\\src\\main\\webapp\\resources\\img"/>
+	</bean> -->
+	<!-- 파일업로드 -->
+	
+	<!-- 파일업로드 -->
+	<!-- <bean id="multipartResolver"
+	   class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	   one of the properties available; the maximum file size in bytes
+	   <property name="maxUploadSize" value="10000000" />
+	 </bean> -->
+	 <!-- 파일업로드 -->
+	 
+	 <!-- 메일보내는것 -->
+	 <!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="hanbit"/>
+		<property name="password" value="hanbit"/>
+		The name of the property, following JavaBean naming conventions
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean> -->
+	<!-- 메일보내는것 -->
+	
+	
+	<!-- 인터셉터 로그인 -->
+	<bean id="sampleInterceptor" class="com.soundlab.web.interceptors.LoginInterceptor"/>
+	<mvc:interceptors>
+			<mvc:interceptor>
+				<mvc:mapping path="/member/forYou"/>
+				<ref bean="sampleInterceptor"/>
+			</mvc:interceptor>
+	</mvc:interceptors> 
+	<!-- 인터셉터 로그인 -->
+	
+	<!-- 노래,유튜브 등등 플레이어 MediaType-->
+	<!-- <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManager">
+        <constructor-arg>
+            <bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+                <constructor-arg>
+                    <map>
+                        <entry key="atom">
+                            <util:constant static-field="org.springframework.http.MediaType.APPLICATION_ATOM_XML"/>
+                        </entry>
+                    </map>
+                </constructor-arg>
+            </bean>
+        </constructor-arg>
+    </bean> -->
+	<!-- 노래,유튜브 등등 플레이어 -->
+	
+	<tx:annotation-driven/>	
+</beans>
