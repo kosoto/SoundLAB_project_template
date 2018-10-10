@@ -26,7 +26,7 @@ sh = (()=>{
 	     $('#bannerItem').carousel({
 	    	 interval: 2000
 	     });
-	     ui.btn({ id : 'admin', txt : '관리자테스트', at : $('userBox')});
+	     ui.btn({ id : 'admin', txt : '관리자테스트', at : $('#userBox')});
          if($.cookie("loginID") != null){
               console.log('sh.home::priv::memberId = '+$.cookie("loginID"));
               $('#loginBtn').attr('id','logoutBtn').text('logout').click(()=>{
