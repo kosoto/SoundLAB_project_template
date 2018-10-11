@@ -202,6 +202,7 @@ var banner =()=> '<section id="banner" class="banner">'
 		+'</a>'
 		+'</div>'
      +'</section>';
+
 var cloud =()=> '<section id="cloud" class="cloud" style="text-align:center">'
      +'</br>'
      +'</br>'
@@ -211,6 +212,7 @@ var cloud =()=> '<section id="cloud" class="cloud" style="text-align:center">'
      +'</br>'
      +'<h1>단어구름</h1>'
      +'</section>';
+     
 var topFive =()=>'<section id="topFive" class="topFive" style="text-align:center">'
      +'</br>'
      +'</br>'
