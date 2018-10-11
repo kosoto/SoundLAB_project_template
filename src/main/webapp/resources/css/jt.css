@@ -1,0 +1,56 @@
+
+#jt_nav-box{
+	padding-top: 40px;
+}
+
+
+#jt_content{
+	padding-top: 50px;
+}
+
+#jt_search_music{
+	padding-top: 50px;
+}
+#jt_music_tb{
+	padding-top: 20px;
+}
+#jt_search_album{
+	padding-top: 50px;
+}
+#jt_search_mv{
+	padding-top: 50px;
+}
+#jt_content{
+	margin-top: 5px;
+}
+.img-rounded{
+	width: 150px;
+	height: auto;
+}
+.jt_comment{
+	display: block;
+    position: relative;
+    margin-bottom: 24px;
+    padding: 15px 101px 8px 28px;
+    background-color: #f5f5f5;
+    border: 1px solid #d1d1d1;
+    z-index: 40;
+    zoom: 1;
+	
+}
+.jt_comment_img{
+	width: 70px;
+	height: 70px;
+}
+.jt_comment_textarea{
+	float: right;
+    width: 804px;
+}
+.textarea{
+	position: relative;
+    padding-bottom: 60px;
+    border: 1px solid #d1d1d1;
+    background-color: #fff;
+    color: #666;
+  
+

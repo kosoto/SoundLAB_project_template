@@ -319,14 +319,7 @@ font-family: 'Do Hyeon', sans-serif;
 .carousel-inner>.item>img {
     display: block;
     width:100%; 
-    height: 90rem;
+    height: 49rem;
 }
 /*-- 배너 --*/
 
-
-/* 진태 search 결과 */
-.searchArtistImg {width: 20rem; height: 30rem;}
-.searchAlbumImg {width: 20rem; height: 30rem;}
-.searchMv {width: 60rem; height: 40rem;}
-
-/*-- 진태 search 결과 --*/
