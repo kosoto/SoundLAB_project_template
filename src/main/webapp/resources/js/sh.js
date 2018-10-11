@@ -14,7 +14,8 @@ sh = (()=>{
             $.getScript(sh.js()+'/compo.js'),
             $.getScript(sh.js()+'/sj.js'),
             $.getScript(sh.js()+'/ls.js'),
-            $.getScript(sh.js()+'/jt.js')
+            $.getScript(sh.js()+'/jt.js'),
+            $.getScript(sh.js()+'/nr.js')
          ).done(d=>{
         	 home(); 
          });
@@ -26,7 +27,10 @@ sh = (()=>{
 	     $('#bannerItem').carousel({
 	    	 interval: 2000
 	     });
-	     ui.btn({ id : 'admin', txt : '관리자테스트', at : $('#userBox')});
+	     ui.btn({ id : 'admin', txt : '관리자테스트', at : $('#userBox')})
+	     .click(e=>{
+	    	 nr.init();
+	     });
          if($.cookie("loginID") != null){
               console.log('sh.home::priv::memberId = '+$.cookie("loginID"));
               $('#loginBtn').attr('id','logoutBtn').text('logout').click(()=>{

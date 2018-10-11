@@ -69,7 +69,7 @@ nr = (()=>{
     		document.head.appendChild(nrstyle);
     	
     	w.html(sideNav()+nav()+secCount());
-    	secVisit().appendTo($('.page'));
+    	secVisit().appendTo('.page');
     	
     	$('#visitBtn').click(()=>{
              alert('nr.home.visitBtn::');
@@ -89,9 +89,15 @@ nr = (()=>{
             w.empty();
        });
     	
+    	
+    	
     };
 	
     
+    
+	
+	
+	
 	
 	
 	var sideNav =()=>'<!-- Side Navbar -->'
@@ -106,7 +112,7 @@ nr = (()=>{
 	        +'<span>비고</span>'
 	      +'</div>'
 	      +'<!-- Small Brand information, appears on minimized sidebar-->'
-	      +'<div class="sidenav-header-logo"><a href="#" class="brand-small text-center">' 
+	      +'<div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">' 
 	        +'<strong>S</strong><strong class="text-primary">D</strong></a></div>'
 	    +'</div>'
 	    +'<!-- Sidebar Navigation Menus-->'
@@ -159,28 +165,20 @@ nr = (()=>{
     +'</div>'
   +'</section>';
     
-  var secVisit=()=>{
-    	/*<!-- Header Section-->
-    	let secV = $('<section>').addClass("dashboard-header section-padding").attr({id:'secV'});
-    	$('<div/>').addClass("container-fluid").appendTo(secV).append(
-			$('<div/>').addClass("row d-flex align-items-md-stretch").append(
-				<!-- Line Chart -->
-		    	$('<div/>').addClass("col-lg-6 col-md-12 flex-lg-last flex-md-first align-self-baseline").append(
-	    			 var whiteCard=$('<div/>').attr({ id : 'whiteCard'}).addClass("card sales-report");
-    			    	whiteCard.html('<h2>방문자 통계</h2>'
-			    			+'<p>차트를 입력해주세요</p>'
-			    			+'<div class="line-chart"></div>'
-			    			+'<canvas id="lineChart"></canvas>').appendTo(lineChart));
-					));
-    	*/
+    var secVisit=()=>{
+    	/*<!-- Header Section-->*/
+    	let secV = $('<section>').addClass("dashboard-header section-padding").attr({id:secV});
+    	$('<div/>').addClass("container-fluid").appendTo(secV);
+    	$('<div/>').addClass("row d-flex align-items-md-stretch").appendTo(secV);
     	
-		/*$('<h2/>').addClass("display h4").html("방문자 통계").appendTo($('#whiteCard'));*/
-		/*$('<p/>').html("차트를 입력해주세요").appendTo($('#whiteCard'));
-		$('<div/>').addClass("line-chart").appendTo($('#whiteCard'));
-		$('<canvas/>').attr({id:"lineChart"}).appendTo($('#whiteCard'));*/
-    	
-    	
-    	
+    	/*<!-- Line Chart -->*/
+    	let lineChart=	$('<div/>').addClass("col-lg-6 col-md-12 flex-lg-last flex-md-first align-self-baseline")
+    	.appendTo(secV);
+    		$('<div/>').addClass("card sales-report").appendTo(lineChart);
+    		$('<h2/>').addClass("display h4").html("방문자 통계").appendTo(lineChart);
+    		$('<p/>').html("차트를 입력해주세요").appendTo(lineChart);
+    		$('<div/>').addClass("line-chart").appendTo(lineChart);
+    		$('<canvas/>').attr({id:"lineCahrt"}).appendTo(lineChart);
     	/*'<!-- Header Section-->'
         +'<section class="dashboard-header section-padding">'
         +'<div class="container-fluid">'
@@ -197,9 +195,9 @@ nr = (()=>{
             +'</div>'
           +'</div>'
         +'</div>'
-      +'</section>'
-    	*/
-     /* return secV;*/
+      +'</section>'*/
+    	
+      return secV;
     }  
   ;
 	return {
