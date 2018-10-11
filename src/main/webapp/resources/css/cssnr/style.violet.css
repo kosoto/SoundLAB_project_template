@@ -604,7 +604,11 @@ nav.navbar a.menu-btn:hover {
     width: calc(100% - 70px);
   }
   .side-navbar {
+<<<<<<< HEAD
     left: -70px;
+=======
+    /* left: -70px; */
+>>>>>>> refs/remotes/origin/master
     width: 70px;
     text-align: center;
   }

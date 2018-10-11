@@ -56,23 +56,25 @@ sh = (()=>{
         
          $('#searchBtn').click(e=>{
     		 jt.search();
-    		 fn.scroll($("#search"));
+    		 fn.scroll({ id : $("#jt_search"), len : 400});
     	 });
     	 $('#searchInput').keyup(e=>{
     		 if(e.keyCode == 13) { 
     			 jt.search();
-    			 fn.scroll($("#search"));
+    			 fn.scroll({ id : $("#jt_search"), len : 400});
     		 } 
     	 });
          
     	 $('#chartBtn').click(e=>{
 			 ls.chart();
+			 fn.scroll({ id : $("#chartSec"), len : 200});
          });
          $('#albumBtn').click(e=>{
       		 ls.album();
          });
          $('#djBtn').click(e=>{
     		 sj.dj();
+    		 fn.scroll({ id : $("#djSec"), len : 200});
          });
          $('#forBtn').click(e=>{
 			 $.ajax({
@@ -165,6 +167,11 @@ sh = (()=>{
     +'<!--End of Scroll to top-->'
     +'<div id="contents">';
 var banner =()=> '<section id="banner" class="banner">'
+		+'<div class="container-fluid">'
+		+'<div class="col-md-2">'
+	     /*--여백--*/
+	     +'</div>'
+	     +'<div class="col-md-8" id="bannerBox">'
 		+'<div id="bannerItem" class="carousel slide" data-ride="carousel" data-interval="2000">'
 		+'<ol class="carousel-indicators">'
 		  +'<li data-target="#bannerItem" data-slide-to="0" class="active"></li>'
@@ -175,24 +182,24 @@ var banner =()=> '<section id="banner" class="banner">'
 		  +'<div class="item active">'
 		    +'<img class="d-block img-fluid" src="'+$img+'/gmf2018_poster.jpg" alt="First slide">'
 		    +'<div class="carousel-caption">'
-			+'<h2>2018 Grand Mint Festival</h2>'
-			+'<h3>일시 : 2018년 10월 20일(토요일)- 10월 21일(일요일)</h3>'
-			+'<h3>위치 : 올림픽 공원 (서울 송파구 올림픽로 424 올림픽공원)</h3>'
+			+'<h4>2018 Grand Mint Festival</h2>'
+			+'<h5>일시 : 2018년 10월 20일(토요일)- 10월 21일(일요일)</h3>'
+			+'<h5>위치 : 올림픽 공원 (서울 송파구 올림픽로 424 올림픽공원)</h3>'
 		    +'</div>'
 		  +'</div>'
 		  +'<div class="item">'
 		    +'<img class="d-block img-fluid" src="'+$img+'/starlight2018_poster.jpg" alt="Second slide">'
 		    +'<div class="carousel-caption">'
-		    +'<h2>2018 스타라이트 뮤지컬 페스티벌</h2>'
-			+'<h3>일시 : 2018년 10월 20일(토요일)-10월 21일(일요일)</h3>'
-			+'<h3>위치 : 인천 파라다이스 시티 호텔 (인천광역시 중구 영종해안남로321번길 186)</h3>'
+		    +'<h4>2018 스타라이트 뮤지컬 페스티벌</h2>'
+			+'<h5>일시 : 2018년 10월 20일(토요일)-10월 21일(일요일)</h3>'
+			+'<h5>위치 : 인천 파라다이스 시티 호텔 (인천광역시 중구 영종해안남로321번길 186)</h3>'
 		    +'</div>'
 		  +'</div>'
 		  +'<div class="item">'
 		    +'<img class="d-block img-fluid" src="'+$img+'/seoulfashion2018_poster.jpg" alt="Third slide">'
 		    +'<div class="carousel-caption">'
-		    +'<h2>할로윈 레드문 서울 패션 페스티벌 2018</h2>'
-			+'<h3>일시 : 2018년 10월 27일(토요일)</h3>'
+		    +'<h4>할로윈 레드문 서울 패션 페스티벌 2018</h2>'
+			+'<h5>일시 : 2018년 10월 27일(토요일)</h3>'
 		    +'</div>'  
 		  +'</div>'
 		+'</div>'
@@ -204,6 +211,11 @@ var banner =()=> '<section id="banner" class="banner">'
 		  +'<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'
 		  +'<span class="sr-only">Next</span>'
 		+'</a>'
+		+'</div>'
+		+'</div>'
+		+'<div class="col-md-2">'
+	     /*--여백--*/
+	     +'</div>'
 		+'</div>'
      +'</section>';
 var cloud =()=> '<section id="cloud" class="cloud" style="text-align:center">'
@@ -364,55 +376,56 @@ sh.service ={
      login : ()=>{
          console.log('sh.service.login::');
          $(sh.w()).html(sh.login());
-         $.getScript(sh.js()+'/compo.js',()=>{
-              let $loginForm = $('#loginForm');
-              ui.br({len : 1, at : $loginForm});
-              ui.span({ clazz : 'findJoin', at : $loginForm});
-              ui.a({ id : 'findIdBtn', clazz : 'findJoinBtn', txt : '아이디/비밀번호 찾기', at : $('.findJoin')});
-              ui.a({ id : 'joinBtn', clazz : 'findJoinBtn', txt : '회원가입', at : $('.findJoin')})
+        
+          let $loginForm = $('#loginForm');
+          ui.br({len : 1, at : $loginForm});
+          ui.span({ clazz : 'findJoin', at : $loginForm});
+          ui.a({ id : 'findIdBtn', clazz : 'findJoinBtn', txt : '아이디/비밀번호 찾기', at : $('.findJoin')});
+          ui.a({ id : 'joinBtn', clazz : 'findJoinBtn', txt : '회원가입', at : $('.findJoin')})
+          .click(e=>{
+                   alert('join::');
+                   sh.service.join();
+              });
+          ui.br({len : 2, at : $loginForm});
+          ui.btn({ id : 'loginConf', clazz : 'success loginConf', txt : '로그인', at : $loginForm})
               .click(e=>{
-                       alert('join::');
-                       sh.service.join();
-                  });
-              ui.br({len : 2, at : $loginForm});
-              ui.btn({ id : 'loginConf', clazz : 'success loginConf', txt : '로그인', at : $loginForm})
-                  .click(e=>{
-                       alert('id : '+$('#memberId').val());
-                       alert('pass : '+$('#pass').val());
-                       alert('url ::: '+ sh.ctx()+'/member/login');
+                   alert('id : '+$('#memberId').val());
+                   alert('pass : '+$('#pass').val());
+                   alert('url ::: '+ sh.ctx()+'/member/login');
+                   if(fn.loginValidation({ id : $('#memberId').val(), pass : $('#pass').val()})){
                        $.ajax({
-                    	  url : sh.ctx()+'/member/login',
-                    	  method : 'post',
-                    	  contentType : 'application/json',
-                    	  data : JSON.stringify({
-                    		  memberId : $('#memberId').val(),
-                    		  pass : $('#pass').val()
-                    	  }),
-                    	  success : d=>{
-                    		  console.log('login success in :::');
-                    		  if(d.isAuth){
-                    			 $.cookie("loginID",d.id);
-                    			 sh.home();
-                    		  }else{
-                    			 console.log("인증실패 다시 로그인폼으로");
-                    			 sh.service.login(); 
-                    		  }
+                           url : sh.ctx()+'/member/login',
+                           method : 'post',
+                           contentType : 'application/json',
+                           data : JSON.stringify({
+                               memberId : $('#memberId').val(),
+                               pass : $('#pass').val()
+                           }),
+                           success : d=>{
+                               console.log('login success in :::');
+                               if(d.isAuth){
+                                   $.cookie("loginID",d.id);
+                                   sh.home();
+                               }else{
+                                   console.log("인증실패 다시 로그인폼으로");
+                                   sh.service.login();
+                               }
+                           },
+                           error : ()=>{
+                               alert('로그인 실패 error.jsp');
+                           }
+                         });
+                    }
+          });
+          ui.br({len : 1, at : $loginForm});
+          ui.btn({ 'id' : 'kakaoBtn', clazz : 'warning kakaoBtn', txt : '카카오계정 로그인', at : $loginForm})
+          .click(e=>{
+               alert('id : '+$('#userId').val());
+               alert('pass : '+$('#password').val());
+               sh.home({ state : 'priv', userId : $('#userId').val()});
+          });
 
-                    	  },
-                    	  error : ()=>{
-                    		  alert('로그인 실패 error.jsp');
-                    	  }
-                       });
-              });
-              ui.br({len : 1, at : $loginForm});
-              ui.btn({ 'id' : 'kakaoBtn', clazz : 'warning kakaoBtn', txt : '카카오계정 로그인', at : $loginForm})
-              .click(e=>{
-                   alert('id : '+$('#userId').val());
-                   alert('pass : '+$('#password').val());
-                   sh.home({ state : 'priv', userId : $('#userId').val()});
-              });
-
-         });
+        
          $('#logoImg').click(e=>{
               alert('logo::');
               sh.home();
@@ -422,27 +435,41 @@ sh.service ={
      join : ()=>{
          console.log('sh.service.join::');
          $(sh.w()).html(sh.join());
-         $.getScript(sh.js()+'/compo.js',()=>{
-             let $joinForm = $('#joinForm');
-             ui.btn({
-            	 clazz : 'success dupleCheck',
-            	 txt : '중복확인',
-                 at : $('#idInput')
-             });
-             
-             ui.btn({
-            	 clazz : 'success joinConf',
-            	 txt : '회원가입',
-                 at : $joinForm
-             })
-             .click(e=>{
-            	 alert('회원가입!!');
-            	 $('input:checkbox[class=genre]:checked').each((i,o)=>{
-                   	 alert(o.value);
-                 });
-             });
-             
+         
+         let $joinForm = $('#joinForm');
+         ui.btn({
+        	 clazz : 'success dupleCheck',
+        	 txt : '중복확인',
+             at : $('#idInput')
          });
+         
+         ui.btn({
+        	 clazz : 'success joinConf',
+        	 txt : '회원가입',
+             at : $joinForm
+         })
+         .click(e=>{
+        	 alert('회원가입!!');
+        	 if(fn.joinValidation(
+                     { id : $('#memberId').val(),
+                       pass : $('#pass').val(),
+                       pass2 : $('#pass2').val(),
+                       name : $('#name').val(),
+                       nick : $('#nick').val(),
+                       ssn : $('#ssn').val(),
+                       email : $('#email').val()+'@'+$('#mail').val(),
+                       phone : $('#phone').val()
+                     })){
+                alert('true logic');
+                $('input:checkbox[class=genre]:checked').each((i,o)=>{
+                          alert(o.value);
+                  });
+            }else{
+                alert('false logic');
+            }
+         });
+             
+         
          
          $('#logoImg').click(e=>{
               alert('logo::');
