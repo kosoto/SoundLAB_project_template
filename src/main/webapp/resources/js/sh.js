@@ -52,12 +52,12 @@ sh = (()=>{
         
          $('#searchBtn').click(e=>{
     		 jt.search();
-    		 fn.scroll($("#search"));
+    		 fn.scroll($("#jt_search"));
     	 });
     	 $('#searchInput').keyup(e=>{
     		 if(e.keyCode == 13) { 
     			 jt.search();
-    			 fn.scroll($("#search"));
+    			 fn.scroll($("#jt_search"));
     		 } 
     	 });
          

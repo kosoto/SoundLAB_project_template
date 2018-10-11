@@ -41,5 +41,5 @@ ui={
 }
 
 fn = {
-	scroll : x=>{ $('html, body').animate({scrollTop : $(x).offset().top-400}, 400);}	
+		scroll : x=>{ $('html, body').animate({scrollTop : $(x.id).offset().top-x.len}, 400);}
 }
