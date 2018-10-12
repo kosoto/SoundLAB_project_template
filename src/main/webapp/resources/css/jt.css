@@ -1,56 +1,96 @@
 
+/* 맨위 네비박스 */
 #jt_nav-box{
-	padding-top: 40px;
+	padding-top: 30px;
 }
 
-
+/* 내용들 */
 #jt_content{
 	padding-top: 50px;
+	margin-top: 5px;
 }
 
+/* 곡차트 */
 #jt_search_music{
-	padding-top: 50px;
+	padding-top: 30px;
 }
+
+/* 곡차트 테이블 */
 #jt_music_tb{
 	padding-top: 20px;
 }
+
+/* 서치앨범 */
 #jt_search_album{
-	padding-top: 50px;
+	padding-top: 30px;
 }
+
+/* 서치영상 */
 #jt_search_mv{
-	padding-top: 50px;
+	padding-top: 30px;
 }
-#jt_content{
-	margin-top: 5px;
-}
+
+
+/* 모서리 동그란 이미지 */
 .img-rounded{
 	width: 150px;
 	height: auto;
 }
-.jt_comment{
-	display: block;
-    position: relative;
-    margin-bottom: 24px;
-    padding: 15px 101px 8px 28px;
-    background-color: #f5f5f5;
-    border: 1px solid #d1d1d1;
-    z-index: 40;
-    zoom: 1;
+
+/* 앨범디테일 */
+.jt_album_detail{
+	 cursor: pointer;
+}
+
+/* 댓글 등록버튼 */
+#jt_cmt_bt{
+	margin-bottom: 5px;
+}
+
+/* 조회수 */
+#jt_cmt_counts{
+	 margin-right: 850px;
+	 margin-left: 10px; 
+}
+
+/* 최신수 추천수 답글순 */
+.jt_cmt_array{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* 댓글 읽기 프로필 */
+.img-circle{
+	width: 100px;
+	height: auto;
+	margin-left: 10px;
+	margin-right:20px;
 	
 }
-.jt_comment_img{
-	width: 70px;
-	height: 70px;
-}
-.jt_comment_textarea{
-	float: right;
-    width: 804px;
-}
-.textarea{
-	position: relative;
-    padding-bottom: 60px;
-    border: 1px solid #d1d1d1;
-    background-color: #fff;
-    color: #666;
-  
 
+/* 노래좋아요 */
+.jt_user_content{
+	margin: 0px 650px 0px 0px;
+}
+
+/* 좋아요 버튼 */
+.jt_user_up{
+	margin-top: 20px;
+	margin-left: 10px; 
+}
+
+.jt_user_down{
+	margin-left: 20px; 
+}
+
+/* 웹플레이어 로고 */
+.jt_logo_img{
+	width: 100px;
+	height: auto;
+}
+
+.jt_player_img{
+	width: 70px;
+	height:auto;
+	margin-left:20px;
+}

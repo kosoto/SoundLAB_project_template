@@ -159,9 +159,9 @@ sj ={
 				).appendTo($('#djCarousel'));
 				
 				$('#djCarousel').carousel({
-					  interval: 10000
+					  interval: 3000
 					})
-				$('.carousel .item').each(function(){
+				$('#djCarousel .item').each(function(){
 				  var next = $(this).next();
 				  if (!next.length) {
 				    next = $(this).siblings(':first');
@@ -175,6 +175,57 @@ sj ={
 				    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
 				  }
 				});
+				
+				$('<div/>').addClass('featured-album-area section-padding-5r clearfix').append(
+						$('<div/>').addClass('container').append(
+								$('<div/>').addClass('row').append(
+										$('<div/>').addClass('col-xs-12').append(
+												$('<div/>').addClass('featured-album-content d-flex flex-wrap').append(
+														$('<div/>')
+														.addClass('album-thumbnail h-100 bg-img')
+														.attr({'style':'background-image: url('+$.ctx()+'/resources/img/sj/dj-2.jpg);'}),
+														$('<div/>').addClass('album-songs h-100').append(
+																$('<div/>').addClass('album-info mb-10 d-flex flex-wrap align-items-center justify-content-between').append(
+																		$('<div/>').addClass('album-title').append(
+																				$('<h4/>').html('늦은 여름에 떠나는 여행'),
+																				$('<h6/>').html('soundLAB'),
+																				$('<h6/>').html('#여름 #신나는 #여행')
+																		),
+																		$('<div/>').addClass('album-buy-now album-title').append(
+																				$('<h6/>').html('조회수'),
+																				$('<a/>').attr({href:'#'}).addClass('btn musica-btn').append(
+																						$('<span/>').addClass('glyphicon glyphicon-heart')
+																				)
+																		)
+																),
+																$('<div/>').addClass('album-all-songs').attr({id:'album-scroll'}),
+																$('<div/>').addClass('now-playing d-flex flex-wrap align-items-center justify-content-between').append(
+																		$('<h4/>').attr({'style':'color:white;'}).html('전체듣기 / 선택듣기 / 담기 / 나의 추가')
+																)
+														)
+												)
+										)
+								)
+						)
+				).appendTo($djSec);
+				
+				let $pl = $('<div/>').addClass('music-playlist').appendTo($('#album-scroll'));
+				for(let i=1;i<=10;i++){
+					$('<div/>').addClass('single-music').append(
+							$('<div/>').addClass('single-music-item row').append(
+									$('<label/>').attr({id:'check-con'}).addClass('col-xs-1 container').append(
+											$('<input/>').attr({type:'checkbox'}),
+											$('<span/>').addClass('checkmark')
+									),
+									$('<div/>').addClass('col-xs-5').html(i + '. Drop that beat'),
+									$('<div/>').addClass('col-xs-3').html('Artist'),
+									$('<div/>').addClass('col-xs-3').html('Button')
+							)
+					).appendTo($pl)
+				}
+				
+				
+				
 			}
 		},
 		forYou : ()=>{
