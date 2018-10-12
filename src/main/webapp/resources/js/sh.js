@@ -56,20 +56,18 @@ sh = (()=>{
         
          $('#searchBtn').click(e=>{
     		 jt.search();
-<<<<<<< HEAD
-    		 fn.scroll($("#jt_search"));
-=======
+    	
+
     		 fn.scroll({ id : $("#jt_search"), len : 400});
->>>>>>> refs/remotes/origin/master
+
     	 });
     	 $('#searchInput').keyup(e=>{
     		 if(e.keyCode == 13) { 
     			 jt.search();
-<<<<<<< HEAD
-    			 fn.scroll($("#jt_search"));
-=======
+    			
+
     			 fn.scroll({ id : $("#jt_search"), len : 400});
->>>>>>> refs/remotes/origin/master
+
     		 } 
     	 });
          

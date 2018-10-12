@@ -39,11 +39,9 @@ ui={
      input : x=>$("<input/>").attr({id : x.id, type: x.type,  placeholder: x.holder }).addClass(x.clazz).appendTo(x.at),
      
 }
-
 fn = {
-<<<<<<< HEAD
-		scroll : x=>{ $('html, body').animate({scrollTop : $(x.id).offset().top-x.len}, 400);}
-=======
+		scroll : x=>{ $('html, body').animate({scrollTop : $(x.id).offset().top-x.len}, 400);},
+		
 	scroll : x=> $('html, body').animate({scrollTop : $(x.id).offset().top-x.len}, 400),
 	loginValidation : x=>{
         let auth = true;
@@ -93,6 +91,7 @@ fn = {
         }
         return auth;
     },
+    
     idValidation : x=>{
         let regexr = /^[A-Za-z0-9]{4,10}$/;
         return regexr.test(x);
@@ -104,8 +103,7 @@ fn = {
     emailValidation : x=>{
         var regexr = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
         return regexr.test(x);
-    }
-    ,
+    },
     phoneValidation : x=>{
         let regexr = /^\d{3}\d{3,4}\d{4}$/;
         return regexr.test(x);
@@ -122,5 +120,5 @@ fn = {
         let regexr = /^[가-힣]+$/;
         return regexr.test(x);
     }
->>>>>>> refs/remotes/origin/master
+
 }
