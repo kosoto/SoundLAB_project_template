@@ -71,6 +71,7 @@ sh = (()=>{
          });
          $('#albumBtn').click(e=>{
       		 ls.album();
+      		 fn.scroll({ id : $("#albumSec"), len : 200});
          });
          $('#djBtn').click(e=>{
     		 sj.dj();
