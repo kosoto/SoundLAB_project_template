@@ -41,12 +41,9 @@ sh = (()=>{
               });
               $('#joinBtn').attr('id','myPageBtn').text('My page').click(()=>{
                   alert('mypage::');
-                  //sh.service.join();
+                  sh.service.mypage();
               });
          }
-         $('#logoImg').click(()=>{
-              home();
-         });
          $('#loginBtn').click(()=>{
               sh.service.login();
          });
@@ -99,6 +96,10 @@ sh = (()=>{
 		       	  }
 	    	 });
          });
+         
+        $('#logoImg').click(()=>{
+             home();
+        });
 
      };
      var nav =()=> '<header id="header" class="header">'
@@ -346,6 +347,13 @@ var join = ()=> '<section id="joinSec" class="joinSec">'
      +'</br>'
      +'<p class="inst3">-선호 아티스트(최대 3명)</p>'
      +'<div id="selectArtist" class="selectArtist">'
+     +'<span class="artist"><input type="checkbox" class="artist" value="선미" checked="checked" />   선미 </span>'
+     +'<span class="artist"><input type="checkbox" class="artist" value="빈지노" />   빈지노 </span>'
+     +'<span class="artist"><input type="checkbox" class="artist" value="아이유" />   아이유 </span>'
+     +'<span class="artist"><input type="checkbox" class="artist" value="임창정" />   임창정 </span>'
+     +'</br>'
+     +'<span class="artist"><input type="checkbox" class="artist" value="방탄소년단" />   방탄소년단 </span>'
+     +'<span class="artist"><input type="checkbox" class="artist" value="에이핑크" />   에이핑크 </span>'
      +'</div>'
      +'</div>'
      /*joinForm end*/
@@ -355,6 +363,53 @@ var join = ()=> '<section id="joinSec" class="joinSec">'
 	 +'</div>'
 	 +'</div>'
      +'</section>';
+var mypage =()=>'<section id="mypageSec" class="joinSec">'
+	 +'<div class="container-fluid">'
+	 +'<div class="col-md-4">'
+	 +'</div>'
+	 +'<div class="col-md-5">'
+	 +'<div id="joinBox" class="joinBox">'
+	 +'<div id="logoForm" class="logoForm">'
+	 +'<p><img src="'+$.img()+'/logo.png" id="logoImg" class="joinLogo"></p>'
+	 +'</div>'
+	 +'<div id="joinForm" class="joinForm">'
+	 +'아이디'
+	 +'<span id="idInput"><input id="memberId" class="joinInput joinId" type="text" readonly/></span></br>'
+	 +'비밀번호'
+	 +'<input id="pass" type="password" class="joinInput joinPass"  placeholder="새로운 비밀번호" required/></br>'
+	 +'<input id="pass2" type="password" class="joinInput joinPass2" placeholder="비밀번호 재입력" required/></br>'
+	 +'</br>'
+	 +'이메일'
+	 +'<input id="email" class="joinMail" placeholder="이메일 입력" required/> @ '
+	 +'<select name="domain" class="mailDomain" id="mail">'
+	   +' <option value="">선택</option>'
+	   +' <option value="nate.com" selected="selected"> nate.com</option>'
+	   +' <option value="naver.com"> naver.com</option>'
+	   +' <option value="daum.net"> daum.net</option>'
+	   +' <option value="gmail.com"> gmail.com</option>'
+	   +' <option value="hanmail.net"> hanmail.net</option>'
+	   +' <option value="yahoo.com"> yahoo.com</option>'
+	   +' <option value="lycos.co.kr"> lycos.co.kr</option>'
+	   +' <option value="cyworld.com"> cyworld.com</option>'
+	   +' <option value="paran.com"> paran.com</option>'
+	   +' <option value="empal.com"> empal.com</option>'
+	   +' <option value="dreamwiz.com"> dreamwiz.com</option>'
+	   +' <option value="korea.com"> korea.com</option>'
+	   +' <option value="hanmir.com"> hanmir.com</option>'
+	   +' <option value="hitel.net"> hitel.net</option>'
+	   +' <option value="freechal.com"> freechal.com</option>'
+	 +'</select>'
+	 +'</br>'
+	 +'휴대폰'
+	 +'<input id="phone" class="joinInput joinPhone" required/></br>'
+	 +'</br>'
+	 +'</div>'
+	 +'</div>'
+	 +'</div>'
+	 +'<div class="col-md-3">'
+	 +'</div>'
+	 +'</div>'
+	 +'</section>';
      return {
          ctx : ()=>$ctx,
          js : ()=>$js,
@@ -369,7 +424,8 @@ var join = ()=> '<section id="joinSec" class="joinSec">'
          topFive : topFive,
          footer : footer,
          login : login,
-         join : join   
+         join : join,
+         mypage : mypage
       };
 })();
 /*$('#wrapper').on("click",'#loginBtn',function(event){
@@ -475,9 +531,6 @@ sh.service ={
                 alert('false logic');
             }
          });
-             
-         
-         
          $('#logoImg').click(e=>{
               alert('logo::');
               sh.home();
@@ -490,6 +543,50 @@ sh.service ={
                 }
                 
           });
+          $('input:checkbox[class=artist]').click(function() { 
+              let artistCnt = $('input:checkbox[class=artist]:checked').length;
+              if(artistCnt>3){
+               alert('최대 3명까지 선택 가능합니다.')
+               $(this).prop('checked', false);
+              }
+              
+        });
+     },
+     mypage : ()=>{
+         console.log('sh.service.mypage::');
+         $(sh.w()).html(sh.mypage());
+         let $mypageForm = $('#joinForm');
+         ui.btn({
+        	 clazz : 'success dupleCheck',
+        	 txt : '정보수정',
+             at : $('#idInput')
+         }).click(e=>{
+        	 if(fn.mypageValidation(
+                     { id : $('#memberId').val(),
+                       pass : $('#pass').val(),
+                       pass2 : $('#pass2').val(),
+                       email : $('#email').val()+'@'+$('#mail').val(),
+                       phone : $('#phone').val()
+                     })){
+                alert('true logic');
+            }else{
+                alert('false logic');
+            }
+         });
+         
+         ui.btn({
+        	 clazz : 'success joinConf',
+        	 txt : '회원탈퇴',
+             at : $mypageForm
+         }).click(e=>{
+        	 alert('탈퇴되었습니다.');
+         });
+         
+         $('#logoImg').click(e=>{
+              alert('logo::');
+              sh.home();
+         });
+         
      },
      removeSec : x=>{
     	 let secs = ['#djSec','#albumSec','#foryouSec','#chartSec','#searchSec','#albumDetailSec'];

@@ -302,9 +302,11 @@ font-family: 'Do Hyeon', sans-serif;
 }
 .joinPhone { margin-left: 3.6rem; }
 .selectGenre{ margin-left: 10rem; }
+.selectArtist{ margin-left: 10rem; }
 .genre { margin-right: 3rem; }
+.artist { margin-right: 3rem; }
 .joinConf {
-	    margin: 4rem 1rem 0rem 15rem;
+	margin: 4rem 1rem 0rem 15rem;
 	height: 5rem;
 	width: 20rem;
 	font-size: 2.7rem;

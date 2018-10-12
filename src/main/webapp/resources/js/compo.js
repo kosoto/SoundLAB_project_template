@@ -90,6 +90,27 @@ fn = {
         }
         return auth;
     },
+    mypageValidation : x=>{
+        let auth = true;
+        
+        if(!fn.passValidation(x.pass)){
+             auth = false;
+             alert('비밀번호를 올바르게 입력하세요.');
+        }
+        if(x.pass2!==x.pass){
+             auth = false;
+             alert('비밀번호가 서로 다릅니다.');
+        }
+        if(!fn.emailValidation(x.email)){
+             auth = false;
+             alert('이메일을 올바르게 입력하세요.');
+        }
+        if(!fn.phoneValidation(x.phone)){
+             auth = false;
+             alert('전화번호를 올바르게 입력하세요.');
+        }
+        return auth;
+    },
     idValidation : x=>{
         let regexr = /^[A-Za-z0-9]{4,10}$/;
         return regexr.test(x);

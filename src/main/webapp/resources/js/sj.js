@@ -159,9 +159,9 @@ sj ={
 				).appendTo($('#djCarousel'));
 				
 				$('#djCarousel').carousel({
-					  interval: 10000
+					  interval: 3000
 					})
-				$('.carousel .item').each(function(){
+				$('#djCarousel .item').each(function(){
 				  var next = $(this).next();
 				  if (!next.length) {
 				    next = $(this).siblings(':first');
