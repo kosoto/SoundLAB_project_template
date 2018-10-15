@@ -23,7 +23,7 @@ sj ={
 								$('<h4/>').attr({'style':'font-weight: bold;'}).addClass('col-md-2').html('장르')
 						),
 						$('<div/>').addClass('row').append(
-								$('<div/>').attr({id : 'hb1','data-toggle':'buttons'}).addClass('col-md-offset-1 col-md-2 btn-group-vertical'),
+								$('<div/>').attr({id : 'hb1','data-toggle':'buttons'}).addClass('ls_test col-md-offset-1 col-md-2 btn-group-vertical'),
 								$('<div/>').attr({id : 'hb2','data-toggle':'buttons'}).addClass('col-md-2 btn-group-vertical'),
 								$('<div/>').attr({id : 'hb3','data-toggle':'buttons'}).addClass('col-md-2 btn-group-vertical'),
 								$('<div/>').attr({id : 'hb4','data-toggle':'buttons'}).addClass('col-md-2 btn-group-vertical'),

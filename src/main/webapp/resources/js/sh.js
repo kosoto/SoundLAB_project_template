@@ -80,6 +80,7 @@ sh = (()=>{
       		 ls.album();
       		 sh.service.removeSec('#albumSec');
 			 fn.scroll({ id : $("#albumSec"), len : 150});
+
          });
          $('#djBtn').click(e=>{
         	 $('#contents').html(banner()+cloud()+topFive());
@@ -235,6 +236,7 @@ var banner =()=> '<section id="banner" class="banner">'
 	     +'</div>'
 		+'</div>'
      +'</section>';
+
 var cloud =()=> '<section id="cloud" class="cloud" style="text-align:center">'
      +'</br>'
      +'</br>'
@@ -244,6 +246,7 @@ var cloud =()=> '<section id="cloud" class="cloud" style="text-align:center">'
      +'</br>'
      +'<h1>단어구름</h1>'
      +'</section>';
+     
 var topFive =()=>'<section id="topFive" class="topFive" style="text-align:center">'
      +'</br>'
      +'</br>'
