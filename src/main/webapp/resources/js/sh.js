@@ -24,6 +24,7 @@ sh = (()=>{
      var home =()=>{
          console.log('sh.home ::');
 	     w.html(nav()+banner()+cloud()+topFive()+footer());
+	     
 	     $('#bannerItem').carousel({
 	    	 interval: 2000
 	     });
@@ -44,7 +45,6 @@ sh = (()=>{
               });
          }
          $('#logoImg').click(()=>{
-              alert('logo::');
               home();
          });
          $('#loginBtn').click(()=>{
@@ -67,23 +67,28 @@ sh = (()=>{
          
     	 $('#chartBtn').click(e=>{
 			 ls.chart();
-			 fn.scroll({ id : $("#chartSec"), len : 200});
+			 sh.service.removeSec('#chartSec');
+			 fn.scroll({ id : $("#chartSec"), len : 150});
          });
          $('#albumBtn').click(e=>{
       		 ls.album();
-      		 fn.scroll({ id : $("#albumSec"), len : 200});
+      		 sh.service.removeSec('#albumSec');
+			 fn.scroll({ id : $("#albumSec"), len : 150});
+
          });
          $('#djBtn').click(e=>{
     		 sj.dj();
-    		 fn.scroll({ id : $("#djSec"), len : 200});
+    		 sh.service.removeSec('#djSec');
+			 fn.scroll({ id : $("#djSec"), len : 200});
          });
          $('#forBtn').click(e=>{
 			 $.ajax({
 	    		 url : sh.ctx()+'/member/forYou',
 		       	  method : 'get',
 		       	  success : d=>{
-		       		alert('인증완료');
 		       		sj.forYou();
+		       		sh.service.removeSec('#foryouSec');
+					fn.scroll({ id : $("#foryouSec"), len : 200});
 		       	  },
 		       	  error : m=>{
 		       		alert('로그인먼저해주세요');
@@ -181,7 +186,7 @@ var banner =()=> '<section id="banner" class="banner">'
 		+'</ol>'
 		+'<div class="carousel-inner" role="listbox">'
 		  +'<div class="item active">'
-		    +'<img class="d-block img-fluid" src="'+$img+'/gmf2018_poster.jpg" alt="First slide">'
+		    +'<img class="img-responsive center-block" src="'+$img+'/gmf2018_poster.jpg" alt="First slide">'
 		    +'<div class="carousel-caption">'
 			+'<h4>2018 Grand Mint Festival</h2>'
 			+'<h5>일시 : 2018년 10월 20일(토요일)- 10월 21일(일요일)</h3>'
@@ -189,7 +194,7 @@ var banner =()=> '<section id="banner" class="banner">'
 		    +'</div>'
 		  +'</div>'
 		  +'<div class="item">'
-		    +'<img class="d-block img-fluid" src="'+$img+'/starlight2018_poster.jpg" alt="Second slide">'
+		    +'<img class="img-responsive center-block" src="'+$img+'/starlight2018_poster.jpg" alt="Second slide">'
 		    +'<div class="carousel-caption">'
 		    +'<h4>2018 스타라이트 뮤지컬 페스티벌</h2>'
 			+'<h5>일시 : 2018년 10월 20일(토요일)-10월 21일(일요일)</h3>'
@@ -197,7 +202,7 @@ var banner =()=> '<section id="banner" class="banner">'
 		    +'</div>'
 		  +'</div>'
 		  +'<div class="item">'
-		    +'<img class="d-block img-fluid" src="'+$img+'/seoulfashion2018_poster.jpg" alt="Third slide">'
+		    +'<img class="img-responsive center-block" src="'+$img+'/seoulfashion2018_poster.jpg" alt="Third slide">'
 		    +'<div class="carousel-caption">'
 		    +'<h4>할로윈 레드문 서울 패션 페스티벌 2018</h2>'
 			+'<h5>일시 : 2018년 10월 27일(토요일)</h3>'
@@ -234,10 +239,12 @@ var topFive =()=>'<section id="topFive" class="topFive" style="text-align:center
      +'</br>'
      +'</br>'
      +'</br>'
-     +'</br>'
-     +'</br>'
-     +'</br>'
      +'<h1>topFive</h1>'
+     +'</br>'
+     +'</br>'
+     +'</br>'
+     +'</br>'
+     +'</br>'
      +'</section>';
 var footer =()=> '</div>'
      +'<section id="footer"  style="text-align:center">'
@@ -425,7 +432,7 @@ sh.service ={
           .click(e=>{
                alert('id : '+$('#userId').val());
                alert('pass : '+$('#password').val());
-               sh.home({ state : 'priv', userId : $('#userId').val()});
+               sh.home();
           });
 
         
@@ -486,5 +493,14 @@ sh.service ={
                 }
                 
           });
+     },
+     removeSec : x=>{
+    	 let secs = ['#djSec','#albumSec','#foryouSec','#chartSec','#searchSec','#albumDetailSec'];
+    	 let len = secs.length;
+    	 for(let i=0;i<len;i++){
+    		 if(secs[i] !== x){
+    			 $(secs[i]).remove();
+    		 }
+    	 }
      }
 };

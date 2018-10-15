@@ -2,409 +2,399 @@
 var ls = ls || {};
 ls ={
 		chart :()=>{
-			alert('ls chart');
 			if(!($("#chartSec").length >0)){ 
 				let $chartSec = $('<section/>').attr({id:'chartSec'});
-				$chartSec.appendTo($('#contents'));
-				  $.getScript(sh.js()+'/compo.js',()=>{
-			    	    $('<div/>').attr({id : 'chPanel',style :'text-align:left' }).addClass("panel panel-dafalt container").appendTo($('#chartSec'));
-			    	    $('<h1/>').attr({id : 'ph',style :'text-align:left'}).addClass("panel-heading").html('SoundLAB TOP 100').appendTo($('#chPanel'));
-			    	
-			    	    $('<div/>').attr({id : 'nav-box',style :'text-align:left' }).addClass('container').appendTo($('#ph'));
-			            $('<ul/>').attr({id : 'nav'}).addClass("nav nav-tabs nav-justified").appendTo($('#nav-box'));
-			            $('<li/>').attr({id : 'li1'}).appendTo($('#nav'));
-			            $('<li/>').attr({id : 'li2'}).appendTo($('#nav'));
-			            $('<li/>').attr({id : 'li3'}).appendTo($('#nav'));
-			            $('<a/>').attr({href:'#',id : 'liveChr'}).html('실시간').css("font-size","18px").appendTo($('#li1'));
-			            $('<a/>').attr({href:'#', id : 'wklChr'}).html('주간').css("font-size","18px").appendTo($('#li2'));
-			            $('<a/>').attr({href:'#',id : 'dayChr'}).html('일간').css("font-size","18px").appendTo($('#li3'));
-			            
-			            $('#liveChr').click(()=>{
-			            	
-			            	alert('liveChr click');
-			            });
-			            $('#wklChr').click(()=>{
-			            	alert('wklChr click');
-			            });
-			            $('#dayChr').click(()=>{
-			            	alert('dayChr click');
-			            });
-			    	  
-			    	   $('<br><img src="'+$.img()+'/chart.png" width="100%" height="100%">').appendTo($('#ph'));
-			    
-			           
-			            
-			    	  /* let t = $('<br><br><table/>').attr({id : 'table'}).addClass($('#table'));
-		        		let thead = $('<thead/>');
-		        		let tr = $('<tr/>');
-		        		let tbody =$('<tbody/>');
-		        		let checkBox = $('<input type="checkbox"/>');
-		        		   let menu = ['체크박스','NO','앨범사진', '제목', '아티스트', '재생', '좋아요', '뮤비','싫어요'];
-		        		   let arr = [checkBox,'a',];
-		        		   
-		        		$.each(menu, (i, j)=>{
-		        			$('<th/>').attr('width','10%').css("font-size","30px").html(j).appendTo(thead);
-								//$('<td/>').html(arr).appendTo(tr);
-							$('<tr/>').append(
-									$('<td/>').attr('width','10%').css("font-size","30px").html('a')
-									
-									
-							).appendTo(tbody);
+				$chartSec.appendTo($('#contents')).append(
+						// Top100 헤더
+						$('<div/>').addClass("ls_char_panel_top Panel panel-dafalt container").append(
+								$('<h1/>').html('TOP 100')
+						),
+						// 차트
+						$('<div/>').addClass("ls_char_panel_top Panel panel-dafalt container").append(
+								$('<br><img src="'+$.img()+'/chart.png">')
+						),
+						//nav-sort
+						$('<br><br><div/>').attr({id : 'chart-content' }).addClass("ls_char_panel panel panel-dafalt container").append(
+								$('<div/>').append(
+										 $('<ul/>').addClass("ls_chart_nav nav nav-tabs nav-justified").append(
+												 $('<li/>').append(
+														 $('<a/>').attr({id : 'liveChr'}).html('실시간'))
+														 .click(()=>{ 
+															 alert('liveChr click'); 
+															 
+														 }),
+												 $('<li/>').append(
+														 $('<a/>').attr({id : 'wklChr'}).html('일간'))
+														 .click(()=>{ 
+															 alert('wklChr click'); 
+															 
+															 }),
+												 $('<li/>').append(
+														$('<a/>').attr({id : 'dayChr'}).html('주간'))
+														.click(()=>{ 
+															alert('dayChr click'); 
+															
+															})
+														
+														
 
-		        		});
-		        
-		        		$('<td/>').appendTo(tr);
-		        		tr.appendTo(thead);
-		        		thead.appendTo(t);
-		        		tbody.appendTo(thead);
-		        		t.appendTo($('#panel'));*/
-			    	   ls.music_list();
-			           
-			       });
+										 )
+								)
+						),
 
-			}
+					
+						
+						
+						$('<div/>').attr({id : 'chart-top100' }).addClass("ls_char_panel Panel panel-dafalt container")
+				)
+					
+							$('<div/>').attr({id :'ls_panel'}).addClass("ls_char_panel panel panel-default").append(
+								
+											$('<div/>').addClass("pull-left").attr({id :'pull-left'}).append(
+													$('<div/>').addClass("btn-group").append(
+															$('<button/>').attr({id : 'listenChoose'})
+															.addClass("btn btn-default btn-filter").html('선택듣기')
+															.click(()=>{ 
+																 alert('listenChoose click'); 
+																 
+															 }),
+															$('<button/>').attr({id : 'listenAll'})
+															.addClass("btn btn-default btn-filter").html('전체듣기')
+															.click(()=>{ 
+															 alert('listenAll click'); 
+															 
+															 }),
+															$('<button/>').attr({id : 'addToList'})
+															.addClass("btn btn-default btn-filter").html('담기')
+															.click(()=>{ 
+																 alert('addToList click'); 
+																 
+																 })
+													)
+											
+									)
+			).appendTo($('#chart-top100'));
+				
 			
-		     
-		      
-		},
+			//Top 100 table
+			$('<section/>').addClass("ls_topTable table-container").append(
+					$('<table/>').addClass("ls_table table ls_table-filter").attr({id :'topTable'})
+			).appendTo($('#pull-left'));
+			
+			$('<tbody/>').append(
+					$('<tr/>').attr({id : 'ls_topTable_tr'}).append(
+							$('<td/>').attr('width','2%').append(
+									$('<th/>').addClass('ls_ckbox').append(
+											$('<input/>').attr({type : 'checkbox', id :'allCheck' }),
+											$('<label for="allCheck">')
+									)
+							),
+							$('<th/>').attr('width','5%').html('NO'),
+							$('<th/>').attr('width','10%').html('앨범사진'),
+							$('<th/>').attr('width','30%').html('제목'),
+							$('<th/>').attr('width','15%').html('아티스트'),
+							$('<th/>').attr('width','15%').html('앨범명'),
+							$('<th/>').attr('width','5%').html('듣기'),
+							$('<th/>').attr('width','5%').html('하트'),
+							$('<th/>').attr('width','5%').html('영상'),
+							$('<th/>').attr('width','5%').html('싫어요')
+					)
+			).appendTo($('#topTable'));
+			
+			
+			let arrTop100 = [
+				{src : '선미사이렌.png',
+					musTtl : '사이렌',
+					atist : '선미',
+					title : 'WARNING'
+				},
+				{src : '로이킴.jpg',
+					musTtl : '우리 그만하자',
+					atist : '로이킴',
+					title : '우리 그만하자'
+				},
+				{src : '바이브.jpg',
+					musTtl : '가을 타나 봐 ',
+					atist : '바이브',
+					title : '가을 타나 봐 '
+				},
+				{src : '소유.jpg',
+					musTtl : '까만밤 (PROD. GroovyRoom, OREO)',
+					atist : '소유',
+					title : 'RE:FRESH'
+				},
+				{src : '아이유.jpg',
+					musTtl : '삐삐',
+					atist : '아이유',
+					title : '삐삐'
+				},
+				{src : '폴킴.jpg',
+					musTtl : '모든 날, 모든 순간',
+					atist : '폴킴',
+					title : '키스 먼저 할까요?'}
+			];
+			
 		
+			$.each(arrTop100,(i,v)=>{
+				
+				$('<tr/>').append(
+						$('<td/>').append(
+								$('<div/>').addClass('ckbox').append(
+										$('<input/>').attr({type : 'checkbox', id :'checkbox'+i, name :'chk'}),
+										$('<label for="checkbox'+i+'">') 
+								)
+						),
+						$('<td/>').attr('width','5%').html(i+1).append(
+						),
+						$('<td/>').append(
+										$('<img/>').attr({
+											src : $.ctx()+'/resources/img/ls/'+v.src,
+											id : 'ls_album_photo'
+										}).click(()=>{
+											alert('앨범 사진 클릭');
+										})
+						),
+						$('<td/>').html(v.musTtl).click(()=>{
+							alert('제목 클릭');
+						}),
+						$('<td/>').html(v.atist).click(()=>{
+							alert('아티스트 클릭');
+						}),
+						$('<td/>').html(v.title).click(()=>{
+							alert('앨범명 클릭');
+						}),
+						$('<td/>').append(
+								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-play')
+								.click(()=>{
+									alert('듣기 클릭');
+								})),
+						$('<td/>').append(
+								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-heart')
+								.click(()=>{
+									alert('하트 클릭');
+								})),
+						$('<td/>').append(
+								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-facetime-video')
+								.click(()=>{
+									alert('뮤비 클릭');
+								})),
+						$('<td/>').append(
+								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-thumbs-down')
+								.click(()=>{
+									alert('싫어요 클릭');
+								}))
+				).appendTo($('#topTable'));
+			})
+		//전체선택 클릭시
+		$('#allCheck').click(()=>{
+				if($("#allCheck").is(':checked')){
+					$('input[name = chk]:checkbox').prop('checked',true);
+				}else{
+					$('input[name = chk]:checkbox').prop('checked',false);
+				}
+			});
+			
+			
+			
+			}
+		},
+				
 		album :()=>{
-			alert('ls album');
 			
 			if(!($("#albumSec").length >0)){ 
 				let $albumSec = $('<section/>').attr({id:'albumSec'});
-				$albumSec.appendTo($('#contents'));
-				$('<div/>').attr({id : 'alPanel',style :'text-align:left' }).addClass("panel panel-dafalt container").appendTo($('#albumSec'));
-				$('<h1/>').attr({id : 'alph',style :'text-align:left'}).addClass("panel-heading").html('최신앨범').appendTo($('#alPanel'));
+				$albumSec.appendTo($('#contents')).append(
+						// 앨범헤더
+						$('<div/>').addClass("ls_album_panel container").append(
+								$('<h1/>').html('최신앨범')
+						),
+						// 앨범 캐러셀
+						$('<div/>').addClass('container').append(
+								$('<div/>').addClass('row').append(
+										$('<div/>').addClass('col-xs-12').append(
+												$('<h2/>').attr('style','margin-left: 1.2rem;').addClass('my-4'),
+												$('<div/>').attr({id : 'alCarousel'}).addClass('carousel slide ls_featured-shows-slides')
+										)
+								)
+						),
 						
-				
-				$('<div/>').attr({id : 'multi-item-example'}).addClass("carousel slide carousel-multi-item").addClass('carousel').appendTo($('#alph'));
-				$('<div/>').attr({id : 'controls-top'}).addClass("controls-top").appendTo($('#multi-item-example'));
-				$('<a href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left">').addClass("btn-floating").appendTo($('#controls-top'));
-				$('<a href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right">').addClass("btn-floating").appendTo($('#controls-top'));
-				
-				$('<ol/>').addClass("controls-indicators").attr({id : 'controls-indicators'}).appendTo($('#controls-top'));
-				$('<li data-target="#multi-item-example" data-slide-to="0">').addClass("active").appendTo($('#controls-indicators'));
-				$('<li data-target="#multi-item-example" data-slide-to="1">').addClass("active").appendTo($('#controls-indicators'));
-				$('<li data-target="#multi-item-example" data-slide-to="2">').appendTo($('#controls-indicators'));
-				
-				   for(var i=0; i<=5; i++){
-					   
-						$('<div role="listbox">').addClass("carousel-inner").attr({id : 'carousel-inner'+i,style:"float: left; width: 33%;"}).appendTo($('#multi-item-example'));
+						// 앨범 컨텐츠
+						$('<br><br><div/>').attr({id : 'album-content' }).addClass("ls_album_panel container").append(
+								$('<div/>').append(
+										 $('<ul/>').addClass("ls_album_nav nav nav-tabs nav-justified").append(
+												 $('<li/>').attr({id : 'ali1'}).append(
+														 $('<a/>').attr({href:'#',id : 'ls_alDateSort'}).html('발매일')),
+												 $('<li/>').attr({id : 'ali2'}).append(
+														 $('<a/>').attr({href:'#', id : 'ls_alUpSort'}).html('좋아요'))
+										 )
+								)
+						),
+						//top100 목록
+						$('<div/>').attr({id : 'new-album'}).addClass("ls_album_panel container"),
+						$('<div/>').attr({id : 'morePage'}).addClass("ls_album_panel container").append(
+								$('<button/>').attr({id : 'al_morePage'}).addClass("btn btn-brand btn-primary").html('더보기')
+								.click(()=>{ 
+								 alert('al_morePage click'); 
+								 
+								 })		
+						)
+							
 						
-						$('<div/>').addClass("item active").attr({id : 'item-active'+i}).appendTo($('#carousel-inner'+i));
 						
-						$('<div/>').addClass("col-md-4").attr({id : 'col-md-4'+i}).appendTo($('#item-active'+i));
-						$('<div/>').addClass("col-md-2").attr({id : 'col-md-2'+i}).appendTo($('#col-md-4'+i));
-						//$('<div/>').addClass("carousel-item").attr({id : 'carousel-item'+i}).appendTo($('#carousel-inner'+i));
-						$('<img src="'+$.img()+'/폴킴.jpg" width="300px" height="300px">').addClass("card-img-top").attr({id : 'card-img-top'+i}).appendTo($('#col-md-2'+i));
-						$('<div/>').addClass("card-body").attr({id : 'card-body'+i}).appendTo($('#col-md-2'+i));
-						$('<h4/>').addClass("card-title").html('폴킴').appendTo($('#card-body'+i));
-					   
-				   }
+						
+				);
 				
+			 
+				let arrNewAl = [
+					{src : '선미사이렌.png',
+						musTtl : '사이렌',
+						atist : '선미',
+						title : 'WARNING'
+					},
+					{src : '로이킴.jpg',
+						musTtl : '우리 그만하자',
+						atist : '로이킴',
+						title : '우리 그만하자'
+					},
+					{src : '바이브.jpg',
+						musTtl : '가을 타나 봐 ',
+						atist : '바이브',
+						title : '가을 타나 봐 '
+					},
+					{src : '소유.jpg',
+						musTtl : '까만밤 (PROD. GroovyRoom, OREO)',
+						atist : '소유',
+						title : 'RE:FRESH'
+					},
+					{src : '아이유.jpg',
+						musTtl : '삐삐',
+						atist : '아이유',
+						title : '삐삐'
+					},
+					{src : '폴킴.jpg',
+						musTtl : '모든 날, 모든 순간',
+						atist : '폴킴',
+						title : '키스 먼저 할까요?'}
+				];
+			
+				$.each(arrNewAl,(i,v)=>{
+				 	$('<div/>').attr({id : 'ls_allpl'+i,style : 'float: left;width: 33%;margin :0 auto'})
+				 		.appendTo($('#new-album')).addClass('ls_allpl');	
+				 	$('<div/>').attr({id : 'ls_alrow'+i,style : 'margin : 0 auto'}).addClass('row container')
+				 		.appendTo($('#ls_allpl'+i)).append(
+				 			$('<span/>').attr({id : 'ls_alcol'+i,style :'float: left;margin :0 auto'})
+				 			.addClass('ls_alcol col-md-3').append(
+				 					$('<span/>')
+				 					.attr({id : 'thumbnail'+i,style :'width: 300px;height: 480px ;padding:20px' })
+				 					.addClass('ls_thumbnail thumbnail').append(
+				 							$('<img/>').attr({
+				 								src : $.ctx()+'/resources/img/ls/'+v.src}).addClass('ls_alimg'),
+				 							$('<span/>').attr({id : 'caption'+i}).addClass('caption').append(
+				 									$('<h4/>')
+				 									.html(v.musTtl).attr({title :v.musTtl }).addClass('ls_card-description card-description'),
+				 									$('<h4/>')
+				 									.html(v.atist).attr({title :v.atist }).addClass('card-description'),
+				 									$('<h4/>').attr({id : 'date'+i}).addClass('card-description').html('2018.09.04'),
+				 									$('<h4/>').attr({id : 'like'+i}).addClass('card-description')
+				 										.addClass("glyphicon glyphicon-thumbs-up").html('878'),
+				 									$('<h4/>').addClass('card-description')
+				 									.attr({id : 'trackCount'+i,style :'text-align: left;width: 80px; float:left'}).html('1곡'),
+				 									
+				 									$('<br><br><div/>').addClass("btn-group").append(
+															$('<button/>').attr({id : 'albumlis'+i})
+															.addClass("albumlis").html('앨범듣기')
+															.click(()=>{ 
+																 alert('albumlis click'); 
+																 
+															 }),
+															$('<button/>').attr({id : 'addMyList'+i})
+															.addClass("addMyList").html('담기')
+															.click(()=>{ 
+															 alert('addMyList click'); 
+															 
+															 })
+															
+													)
+				 							)
+				 					)
+				 			)
+				 	)
+				});
+		
+
+					 
+			  
+			 //캐러셀
+			  let item = $('<div/>').addClass('carousel-inner')
+			  item.appendTo($('#alCarousel'));
+			  
+			  let newal = [
+					{
+						title : '폴킴의 타이틀',
+						name : '폴킴',
+					},
+					{
+						title : 'ABOUT ME',
+						name : '바이브',
+					},
+					{
+						title : '삐삐',
+						name : '아이유',
+					},
+					];
+			  
+			  $.each(newal,(i,v)=>{ $('<div/>').addClass('item'+((i===0)?' active':'')).append(
+					  $('<div/>').addClass('col-md-4 col-sm-6 col-xs-12 single-featured-shows').append( 
+							  $('<img/>').attr({src : $.ctx()+'/resources/img/ls/'+v.name+'.jpg'}).addClass('img-responsive'),
+							  $('<div/>').attr({style :'hight ="40%"'}).addClass('featured-shows-content').append(
+									  $('<div/>').addClass('shows-text').append( 
+											  $('<h4/>').html(v.title), 
+											  $('<p/>').html(v.name), 
+											  $('<div/>').addClass('bg-gradients') ) ) ) )
+											  
+											  .appendTo(item).click(e=>{
+													// 밑에 dj detail 열리는 event 걸기
+												});
+											});
+	
+			  	$('<a/>')
+				.attr({href:'#alCarousel', 'data-slide':'prev'})
+				.addClass('left carousel-control')
+				.append(
+						$('<i/>').addClass('glyphicon glyphicon-chevron-left')
+				).appendTo($('#alCarousel'));
+				$('<a/>')
+				.attr({href:'#alCarousel', 'data-slide':'next'})
+				.addClass('right carousel-control')
+				.append(
+						$('<i/>').addClass('glyphicon glyphicon-chevron-right')
+				).appendTo($('#alCarousel'));
 				
-				
+				$('#alCarousel').carousel({
+					  interval: 10000
+					})
+				$('.carousel .item').each(function(){
+				  var next = $(this).next();
+				  if (!next.length) {
+				    next = $(this).siblings(':first');
+				  }
+				  next.children(':first-child').clone().appendTo($(this));
+
+				  if (next.next().length>0) {
+				    next.next().children(':first-child').clone().appendTo($(this));
+				  }
+				  else {
+				    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+				  }
+				});
 
 				
-				
-				/*'<!--Carousel Wrapper-->'
-                +'<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">'
-                +'  <!--Controls-->'
-                +'  <div class="controls-top">'
-                +'    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>'
-                +'    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>'
-                +'  </div>'
-                +'  <!--/.Controls-->'
-                +'  <!--Indicators-->'
-                +'  <ol class="carousel-indicators">'
-                +'    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>'
-                +'    <li data-target="#multi-item-example" data-slide-to="1"></li>'
-                +'    <li data-target="#multi-item-example" data-slide-to="2"></li>'
-                +'  </ol>'
-                +'  <!--/.Indicators-->'
-                +'  <!--Slides-->'
-                +'  <div class="carousel-inner" role="listbox">'
-                +'    <!--First slide-->'
-                +'    <div class="item active">'
-                +'      <div class="col-md-4">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              cards content.</p>'
-                +'            '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'      <div class="col-md-4 clearfix d-none d-md-block">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              card content.</p>'
-                +'            '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'      <div class="col-md-4 clearfix d-none d-md-block">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              card content.</p>'
-                +'            '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'    </div>'
-                +'    <!--/.First slide-->'
-                +'    <!--Second slide-->'
-                +'    <div class="item">'
-                +'      <div class="col-md-4">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              card content.</p>'
-                +'         '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'      <div class="col-md-4 clearfix d-none d-md-block">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              card content.</p>'
-                +'          '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'      <div class="col-md-4 clearfix d-none d-md-block">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              card content.</p>'
-                +'         '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'    </div>'
-                +'    <!--/.Second slide-->'
-                +'    <!--Third slide-->'
-                +'    <div class="item">'
-                +'      <div class="col-md-4">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              card content.</p>'
-                +'          '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'      <div class="col-md-4 clearfix d-none d-md-block">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              card content.</p>'
-                +'         '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'      <div class="col-md-4 clearfix d-none d-md-block">'
-                +'        <div class="card mb-2">'
-                +'          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"'
-                +'            alt="Card image cap">'
-                +'          <div class="card-body">'
-                +'            <h4 class="card-title">Card title</h4>'
-                +'            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the'
-                +'              card content.</p>'
-                +'       '
-                +'          </div>'
-                +'        </div>'
-                +'      </div>'
-                +'    </div>'
-                +'    <!--/.Third slide-->'
-                +'  </div>'
-                +'  <!--/.Slides-->'
-                +'</div>'
-                +'<!--/.Carousel Wrapper-->'*/
-				
-				
-				
-			 $('<div/>').attr({id : 'alNav-box',style :'text-align:left' }).addClass('container').appendTo($('#alph'));
-	            $('<ul/>').attr({id : 'alNav'}).addClass("nav nav-tabs nav-justified").appendTo($('#alNav-box'));
-	            $('<li/>').attr({id : 'ali1'}).appendTo($('#alNav'));
-	            $('<li/>').attr({id : 'ali2'}).appendTo($('#alNav'));
-	            $('<li/>').attr({id : 'ali3'}).appendTo($('#alNav'));
-	            $('<li/><br>').attr({id : 'ali4'}).appendTo($('#alNav'));
-	            $('<a/>').attr({href:'#',id : 'alDateSort'}).html('발매일').css("font-size","18px").appendTo($('#ali1'));
-	            $('<a/>').attr({href:'#', id : 'alUpSort'}).html('좋아요').css("font-size","18px").appendTo($('#ali2'));
-	            
-	            $('#allAlbum').click(()=>{
-	            	alert('allAlbum click');
-	            });
-	            $('#balladAl').click(()=>{
-	            	alert('balladAl click');
-	            });
-	            $('#danceAl').click(()=>{
-	            	alert('danceAl click');
-	            });
-	            $('#hipAl').click(()=>{
-	            	alert('hipAl click');
-	            });
-	           
-	            
-	      
-	            
-	            for(var i=0; i<=5; i++){
-	            	$('<div/>').attr({id : 'allpl'+i,style:"border: 1px solid none; float: left; width: 33%;"}).appendTo($('#alph'));
-	            	$('<div/>').attr({id : 'row'+i}).addClass('row container').appendTo($('#allpl'+i));
-					$('<span/>').attr({id : 'col'+i,style:'float: left; width: 40%'}).addClass('col-md-4').appendTo('#row'+i);
-					$('<span/>').attr({id : 'thumbnail'+i,style:'float: left; width: 80%;padding: 25px'}).addClass('thumbnail round').appendTo('#col'+i);
-					$('<span/><img src="'+$.img()+'/선미사이렌.png" width="100%" height="100%">').appendTo('#thumbnail'+i);
-					$('<span/>').attr({id : 'caption'+i}).addClass('caption').appendTo('#thumbnail'+i);
-					
-					$('<h3/>').attr({id : 'album'+i,style :'text-align:left'}).html('사이렌').appendTo('#caption'+i);
-					$('<h3/>').attr({id : 'artist'+i,style :'text-align:left'}).html('선미').appendTo('#caption'+i);
-					$('<h4/>').attr({id : 'date'+i,style :'text-align:left; width: 110px; float:left'}).html('2018.09.04').appendTo('#caption'+i);
-					$('<h4/>').attr({id : 'like'+i,style :'text-align:left; width: 80px; float:left'}).addClass("glyphicon glyphicon-thumbs-up").html('878').appendTo('#caption'+i);
-					$('<h4/>').attr({id : 'trackCount'+i,style :'text-align: left;width: 80px; float:left'}).html('1곡').appendTo('#caption'+i);
-					$('<br><button type="button">').attr({style: 'margin-right: 20px'}).addClass("btn btn-default").addClass("glyphicon glyphicon-play").html('앨범듣기').css("font-size","18px").appendTo($('#caption'+i));
-					$('<button type="button">').addClass("btn btn-default").addClass("glyphicon glyphicon-plus").html('담기').css("font-size","18px").appendTo($('#caption'+i));
-	            }
-	            
-				
-				
-				
-				
-				
-			};
+		}
 			
 			
-			  
-			
-		
-		
-		
 		},
 
-		
-		 music_list : ()=>{
-				$('<div/>').attr({id: 'jt_search_music'}).addClass('container').appendTo($('#contents'));
-				$('<h3/>').html('곡').appendTo($('#jt_search_music'));
-				$('<div/>')
-				.attr({id:'jt_music_btn_toolbar','role':'toolbar'})
-				.addClass('btn-toolbar')
-				.appendTo($('#jt_search_music'));
-				$('<div/>')
-				.attr({id:'jt_music_btn_bar1','role':'group'})
-				.addClass('btn-group mr-2')
-				.appendTo($('#jt_music_btn_toolbar'));
-				$('<button/>')
-				.attr({'data-toggle':'modal','data-target':'#player'})
-				.addClass('btn btn-light')
-				.append(
-						$('<span/>').addClass('glyphicon glyphicon-play').html('전체듣기')
-
-				).appendTo($('#jt_music_btn_bar1'))
-				.click(e=>{
-					jt.player()
-				});
-				$('<div/>')
-				.attr({id:'jt_music_btn_bar2','role':'group'})
-				.addClass('btn-group mr-2')
-				.appendTo($('#jt_music_btn_toolbar'));
-				$('<button/>')
-				.addClass('btn btn-light')
-				.append(
-						$('<span/>').addClass('glyphicon glyphicon-play').html('선택듣기')
-				).appendTo($('#jt_music_btn_bar2'));
-				
-				$('<div/>')
-				.attr({id:'jt_music_btn_bar3','role':'group'})
-				.addClass('btn-group mr-2')
-				.appendTo($('#jt_music_btn_toolbar'));
-				$('<button/>')
-				.addClass('btn btn-light')
-				.append(
-						$('<span/>').addClass('glyphicon glyphicon-plus').html('담기')
-				).appendTo($('#jt_music_btn_bar3'));
-				$('<br>').appendTo($('#jt_search_music'));
-				$('<table/>').attr({id : 'jt_music_tb'}).addClass('table table-sm').appendTo($('#jt_search_music'));
-				$('<thead/>').appendTo($('#jt_music_tb'));
-				$('<tr/>').attr({id : 'jt_music_tb_meta'}).appendTo($('#jt_music_tb'));
-				$('<th/>').attr({scope : 'col' }).html('No').appendTo($('#jt_music_tb_meta'));
-				$('<th/>').attr({scope : 'col' }).html('체크박스').appendTo($('#jt_music_tb_meta'));
-				$('<th/>').attr({scope : 'col' }).html('곡명').appendTo($('#jt_music_tb_meta'));
-				$('<th/>').attr({scope : 'col' }).html('아티스트').appendTo($('#jt_music_tb_meta'));
-				$('<th/>').attr({scope : 'col' }).html('앨범').appendTo($('#jt_music_tb_meta'));
-				
-				$('<th/>').attr({scope : 'col' }).html(' ').appendTo($('#jt_music_tb_meta'));
-				$('<tbody/>').attr({id : 'jt_music_tbody'}).appendTo($('#jt_music_tb'));
-				$('<tr/>').attr({id : 'jt_music_tb_row1'}).appendTo($('#jt_music_tbody'));
-				$('<th/>').attr({scope : 'row'}).html('1').appendTo($('#jt_music_tb_row1'));
-				$('<td/>').html(' ').appendTo($('#jt_music_tb_row1'));
-				$('<td/>').html('선미').appendTo($('#jt_music_tb_row1'));
-				$('<td/>').appendTo($('#jt_music_tb_row1'))
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>');
-			
-				$('<tr/>').attr({id : 'jt_music_tb_row2'}).appendTo($('#jt_music_tbody'));
-				$('<th/>').attr({scope : 'row'}).html('2').appendTo($('#jt_music_tb_row2'));
-				$('<td/>').html(' ').appendTo($('#jt_music_tb_row2'));
-				$('<td/>').html('선미').appendTo($('#jt_music_tb_row2'));
-				$('<td/>').appendTo($('#jt_music_tb_row2'))
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>');
-				
-				$('<tr/>').attr({id : 'jt_music_tb_row3'}).appendTo($('#jt_music_tbody'));
-				$('<th/>').attr({scope : 'row'}).html('3').appendTo($('#jt_music_tb_row3'));
-				$('<td/>').html(' ').appendTo($('#jt_music_tb_row3'));
-				$('<td/>').html('선미').appendTo($('#jt_music_tb_row3'));
-				$('<td/>').appendTo($('#jt_music_tb_row3'))
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>');
-				
-				$('<tr/>').attr({id : 'jt_music_tb_row4'}).appendTo($('#jt_music_tbody'));
-				$('<th/>').attr({scope : 'row'}).html('4').appendTo($('#jt_music_tb_row4'));
-				$('<td/>').html(' ').appendTo($('#jt_music_tb_row4')); 
-				$('<td/>').html('선미').appendTo($('#jt_music_tb_row4'));
-				$('<td/>').appendTo($('#jt_music_tb_row4'))
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span></button>')
-				.append('<button style="margin-right:5px" class="btn btn-light"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>');
-	
-	       }
-		
-		
+		 
 }
 
 			

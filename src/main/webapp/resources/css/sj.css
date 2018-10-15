@@ -2,3 +2,119 @@
 class랑 아이디 이름 줄 때 
 sj을 포함시켜서 겹치지 않게 부탁드려요 
 */
+
+.single-featured-shows {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; }
+  .single-featured-shows img {
+    -webkit-transition-duration: 800ms;
+    transition-duration: 800ms; }
+  .single-featured-shows .featured-shows-content {
+    -webkit-transition-duration: 800ms;
+    transition-duration: 800ms;
+    position: absolute;
+    background-color: rgba(255,255,255,0.7);
+    width: calc(100% - 60px);
+    bottom: 30px;
+    left: 30px;
+    z-index: 99; }
+    .single-featured-shows .featured-shows-content .shows-text {
+      padding: 15px 35px; }
+      .single-featured-shows .featured-shows-content .shows-text h4 {
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        line-height: 1; }
+      .single-featured-shows .featured-shows-content .shows-text p {
+        color: #333;
+        font-style: italic;
+        font-size: 14px;
+        margin-bottom: 4px; }
+      .single-featured-shows .featured-shows-content .shows-text .buy-tickets-btn {
+        display: block;
+        color: #181818;
+        font-size: 14px;
+        margin-bottom: 0;
+        text-decoration: underline;
+        font-style: italic;
+        font-weight: 700;
+        text-decoration-color: #6a6a6a; }
+        .single-featured-shows .featured-shows-content .shows-text .buy-tickets-btn:hover, .single-featured-shows .featured-shows-content .shows-text .buy-tickets-btn:focus {
+          color: #bd177a; }
+  .single-featured-shows:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
+  .single-featured-shows:hover .featured-shows-content {
+    bottom: 80px; }
+    .single-featured-shows:hover .featured-shows-content .shows-text h4 {
+      color: #bd177a; }
+
+.featured-shows-slides {
+  position: relative;
+  z-index: 1; }
+  .featured-shows-slides .owl-prev,
+  .featured-shows-slides .owl-next {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    background: #f3f3f3;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #262626;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    margin-top: -20px; }
+    @media only screen and (max-width: 767px) {
+      .featured-shows-slides .owl-prev,
+      .featured-shows-slides .owl-next {
+        left: 0; } }
+    .featured-shows-slides .owl-prev:hover,
+    .featured-shows-slides .owl-next:hover {
+      background: #cc1573;
+      background: -webkit-linear-gradient(to right, #cc1573, #5722a9);
+      background: linear-gradient(to right, #cc1573, #5722a9);
+      color: #ffffff; }
+  .featured-shows-slides .owl-next {
+    left: auto;
+    right: -20px; }
+    @media only screen and (max-width: 767px) {
+      .featured-shows-slides .owl-next {
+        right: 0; } }
+
+
+
+.carousel-control        { width:  4%; }
+.carousel-control.left {margin-right:15px;background-image:none;}
+.carousel-control.right {margin-left:15px;background-image:none;}
+
+.carousel-inner .item.right,.carousel-inner .item.left {transform: translateX(0);}
+
+@media (max-width: 767px) {
+  .img-responsive{margin:0 auto;}
+  .active > div { display:none; }
+  .active > div:first-child { display:block; }
+  .carousel-inner .item.left.active { transform: translateX(-100%);}
+  .carousel-inner .item.right.active {transform: translateX(100%);}
+  .carousel-inner .item.next {transform: translateX(100%)}
+  .carousel-inner .item.prev {transform: translateX(-100%)}
+}
+@media (min-width: 767px) and (max-width: 992px ) {
+  .active > div { display:none; }
+  .active > div:first-child { display:block; }
+  .active > div:first-child + div { display:block; }
+  .carousel-inner .item.left.active { transform: translateX(-50%);}
+  .carousel-inner .item.right.active {transform: translateX(50%);}
+  .carousel-inner .item.next {transform: translateX(50%)}
+  .carousel-inner .item.prev {transform: translateX(-50%)}
+}
+@media (min-width: 992px ) {
+  .carousel-inner .item.left.active { transform: translateX(-33%);}
+  .carousel-inner .item.right.active {transform: translateX(33%);}
+  .carousel-inner .item.next {transform: translateX(33%)}
+  .carousel-inner .item.prev {transform: translateX(-33%)}
+}
