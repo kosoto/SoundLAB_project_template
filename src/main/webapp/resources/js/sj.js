@@ -1,9 +1,9 @@
 "use strict";
 var sj = sj || {};
 sj ={
-		dj :()=>{
-			console.log('sj dj');
+		dj : ()=>{
 			if(!($("#djSec").length >0)){   //exist
+		
 				let $contents = $('#contents');
 				let $djSec = $('<section/>').attr({id:'djSec'});
 				$djSec.appendTo($contents);
@@ -54,15 +54,15 @@ sj ={
 						).appendTo($('#hb'+v.at))
 						.click(function(e){
 							
-								if($(this).hasClass('active')){
-									$(this)
-									.removeClass('btn-success')
-									.addClass('btn-link')
-								}else{
-									$(this)
-									.removeClass('btn-link')
-									.addClass('btn-success')
-								}
+							if($(this).hasClass('active')){
+								$(this)
+								.removeClass('btn-success')
+								.addClass('btn-link')
+							}else{
+								$(this)
+								.removeClass('btn-link')
+								.addClass('btn-success')
+							}
 							
 						});
 					})
@@ -79,144 +79,106 @@ sj ={
 					}
 					$('#selHash').html((s == '')?'전체':s);
 				});
-				$('<h2/>').addClass('my-4').html('DJ PLAYLIST').appendTo($('#dj-ls'));
 				
-				$('<div/>').addClass('row').attr({id : 'list'}).appendTo($('#dj-ls'));
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('늦은 여름에 느끼는 마지막 청량감')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 2018.09.02 <br> #여름 #신나는 #헬스'))
+				$('<div/>').addClass('container').append(
+						$('<div/>').addClass('row').append(
+								$('<div/>').addClass('col-xs-12').append(
+										$('<h2/>').attr('style','margin-left: 1.2rem;').addClass('my-4').html('DJ PLAYLIST'),
+										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide featured-shows-slides')
+								)
 						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
+				).appendTo($djSec);
+				
+				let item = $('<div/>').addClass('carousel-inner')
+				item.appendTo($('#djCarousel'));
+				
+				let djArr = [
+					{
+						src : 'dj-1.jpg',
+						title : '늦은 여름에 떠나는 여행',
+						name : 'soundLAB',
+						date : '2018.09.02',
+						hash : '#여름 #신나는 #여행'
+					},
+					{
+						src : 'dj-2.jpg',
+						title : '늦은 여름에 떠나는 여행',
+						name : 'soundLAB',
+						date : '2018.09.02',
+						hash : '#여름 #신나는 #여행'
+					},
+					{
+						src : 'dj-3.jpg',
+						title : '늦은 여름에 떠나는 여행',
+						name : 'soundLAB',
+						date : '2018.09.02',
+						hash : '#여름 #신나는 #여행'
+					},
+					{
+						src : 'dj-2.jpg',
+						title : '늦은 여름에 떠나는 여행',
+						name : 'soundLAB',
+						date : '2018.09.02',
+						hash : '#여름 #신나는 #여행'
+					}
+					];
+				$.each(djArr,(i,v)=>{
+					$('<div/>').addClass('item'+((i===0)?' active':'')).append(
+							$('<div/>').addClass('col-md-4 col-sm-6 col-xs-12 single-featured-shows').append(
+									$('<img/>').attr({
+										src : $.ctx()+'/resources/img/sj/'+v.src,
+										alt : 'DJ-P-img' + i
+									}).addClass('img-responsive'),
+									$('<div/>').addClass('featured-shows-content').append(
+											$('<div/>').addClass('shows-text').append(
+													$('<h4/>').html(v.title),
+													$('<p/>').html(v.name),
+													$('<p/>').html(v.date),
+													$('<p/>').html(v.hash),
+													$('<div/>').addClass('bg-gradients')
+											)
+									)
+							)
+					).appendTo(item)
+					.click(e=>{
+						// 밑에 dj detail 열리는 event 걸기
+					});
+				});
+				
+				$('<a/>')
+				.attr({href:'#djCarousel', 'data-slide':'prev'})
+				.addClass('left carousel-control')
 				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
+						$('<i/>').addClass('glyphicon glyphicon-chevron-left')
+				).appendTo($('#djCarousel'));
+				$('<a/>')
+				.attr({href:'#djCarousel', 'data-slide':'next'})
+				.addClass('right carousel-control')
 				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
-				$('<div/>')
-				.addClass('col-lg-4 col-sm-6 portfolio-item')
-				.appendTo($('#list'))
-				.append(
-						$('<div/>').addClass('card h-100')
-						.append($('<a/>').attr({href:'#'}).html('IMAGE <br> <img class="card-img-top" src="" alt="">'))
-						.append($('<div/>').addClass('card-body')
-								.append($('<h4/>').addClass('card-title').append($('<a/>').attr({href:'#'}).html('제목')))
-								.append($('<p/>').addClass('card-text').html('닉네임 <br> 등록날짜 <br> #해시 #태그'))
-						)
-				);
+						$('<i/>').addClass('glyphicon glyphicon-chevron-right')
+				).appendTo($('#djCarousel'));
+				
+				$('#djCarousel').carousel({
+					  interval: 10000
+					})
+				$('.carousel .item').each(function(){
+				  var next = $(this).next();
+				  if (!next.length) {
+				    next = $(this).siblings(':first');
+				  }
+				  next.children(':first-child').clone().appendTo($(this));
+
+				  if (next.next().length>0) {
+				    next.next().children(':first-child').clone().appendTo($(this));
+				  }
+				  else {
+				    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+				  }
+				});
 			}
 		},
-		forYou :()=>{
+		forYou : ()=>{
+
 			console.log('sj forYou');
 			if(!($("#foryouSec").length >0)){   //exist
 			let $contents = $('#contents');
