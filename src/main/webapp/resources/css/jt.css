@@ -1,4 +1,5 @@
-/* ï¿½ï¿½ï¿½ï¿½ ï¿½×ºï¿½Ú½ï¿½ */
+
+/* ¸ÇÀ§ ³×ºñ¹Ú½º */
 #jt_nav-box{
 	padding-top: 30px;
 }
@@ -7,62 +8,62 @@
 	padding-top: 50px;
 }
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³»¿ëµé */
 #jt_content{
 	padding-top: 50px;
 	margin-top: 5px;
 }
 
-/* ï¿½ï¿½ï¿½ï¿½Æ® */
+/* °îÂ÷Æ® */
 #jt_search_music{
 	padding-top: 30px;
 }
 
-/* ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ìºï¿½ */
+/* °îÂ÷Æ® Å×ÀÌºí */
 #jt_music_tb{
 	padding-top: 20px;
 }
 
-/* ï¿½ï¿½Ä¡ï¿½Ù¹ï¿½ */
+/* ¼­Ä¡¾Ù¹ü */
 #jt_search_album{
 	padding-top: 30px;
 }
 
-/* ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ */
+/* ¼­Ä¡¿µ»ó */
 #jt_search_mv{
 	padding-top: 30px;
 }
 
 
-/* ï¿½ð¼­¸ï¿½ ï¿½ï¿½ï¿½×¶ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ */
+/* ¸ð¼­¸® µ¿±×¶õ ÀÌ¹ÌÁö */
 .img-rounded{
 	width: 150px;
 	height: auto;
 }
 
-/* ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¾Ù¹üµðÅ×ÀÏ */
 .jt_album_detail{
 	 cursor: pointer;
 }
 
-/* ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¹ï¿½Æ° */
+/* ´ñ±Û µî·Ï¹öÆ° */
 #jt_cmt_bt{
 	margin-bottom: 5px;
 }
 
-/* ï¿½ï¿½È¸ï¿½ï¿½ */
+/* Á¶È¸¼ö */
 #jt_cmt_counts{
 	 margin-right: 850px;
 	 margin-left: 10px; 
 }
 
-/* ï¿½Ö½Å¼ï¿½ ï¿½ï¿½Ãµï¿½ï¿½ ï¿½ï¿½Û¼ï¿½ */
+/* ÃÖ½Å¼ö ÃßÃµ¼ö ´ä±Û¼ø */
 .jt_cmt_array{
     margin-right: 10px;
     cursor: pointer;
 }
 
-/* ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ´ñ±Û ÀÐ±â ÇÁ·ÎÇÊ */
 .img-circle{
 	width: 100px;
 	height: auto;
@@ -71,23 +72,23 @@
 	
 }
 
-/* ï¿½ë·¡ï¿½ï¿½ï¿½Æ¿ï¿½ */
+/* ³ë·¡ÁÁ¾Æ¿ä */
 .jt_user_content{
 	margin: 0px 650px 0px 0px;
 }
 
-/* ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½Æ° */
+/* ÁÁ¾Æ¿ä ¹öÆ° */
 .jt_user_up{
 	margin-top: 20px;
 	margin-left: 10px; 
 }
 
-/* ï¿½È¾ï¿½ï¿½ ï¿½ï¿½Æ° */
+/* ½È¾î¿ä ¹öÆ° */
 .jt_user_down{
 	margin-left: 20px; 
 }
 
-/* ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Î°ï¿½ */
+/* À¥ÇÃ·¹ÀÌ¾î ·Î°í */
 #jt_logo_img{
  	display: block;
     width: 70px;
@@ -347,145 +348,9 @@
 #jt_volumebar{
 	background: #BABABA;
 	width: 50px;
-<<<<<<< HEAD
-}
-#jt_playerOption{
-	position: relative;
-    float: right;
-    width: 56%;
-    background: #fff;
-    height: 504px;
-}
-#jt_tabControl{
-	width: auto;
-    height: 37px;
-    margin: 10px 10px 5px;
-	list-style: none;
-	padding: 0;
-}
-#jt_selected{
-	margin-left: 90px;
-	float: left;
-    width: 50%;
-    height: 35px;
-    text-align: center;
-    line-height: 37px;
-    list-style: none;
-}
-#jt_play_list{
-	font-weight: 700;
-    color: #fff;
-    border: 1px solid #c9005f;
-    background: #dd0068;
-    display: block;
-}
-#jt_mplay_list{
-	max-height: 413px;
-    min-height: 413px;
-    margin: 0 10px;
-}
-#jt_mplay_ul{
-	position: relative;
-    width: 100%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    
-}
-#jt_mplay_li{
-	position: absolute; 
-    z-index: 9998;
-    width: 100%;
-    height: 23px;
-    text-align: center;
-    border-bottom: 1px solid #f0f0f0;
-    padding: 0;
-    margin-top: 10px;
-}
-.itemcheck{
-	width: 13px;
-    line-height: 17px;
-    left: 1px;
-    float: left;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-}
-#jt_player_input{
-	width: 13px;
-    height: 13px;
-    overflow: hidden;
-    padding: 0;
-    margin: 3px 0 0 0;
-}
-#jt_itemrank{
-	width: 26px;
-    left: 14px;
-    line-height: 21px;
-    font-style: normal;
-    float: left;
-    position: absolute;
-}
-#jt_rank{
-	display: inline;
-	margin: 0;
-    padding: 0;
-    width: 26px;
-    left: 14px;
-    line-height: 21px;
-}
-#jt_itemtitle_div{
-	text-align: left;
-    margin: 0 82px 0 60px;
-}
-#jt_itemtitle_a{
-	text-decoration: none;
-}
-#jt_titsong{
-	color: #333;
-}
-#jt_itemem{
-	color: #dadada;
-    margin: 0 10px;
-}
-.playBtnArea{
-	position: absolute;
-    width: 100%;
-    height: 45px;
-    border-top: 1px solid #d3d3d3;
-    background: #e6e6e6;
-    bottom: 0;
-    z-index: 20;
-}
-#playbtn_input{
-	float: left;
-    margin: 9px 8px 0 10px;
-    width: 15px;
-    height: 15px;
-    overflow: hidden;
-}
-#playbtn_del{
-	position: relative;
-	height: 25px;
-    color: #333;
-    line-height: 26px;
-    margin: 6px 3px 0 0;
-    padding: 0 8px;
-    background-position: right 0;
-}
-#playbtn_em{
-	content: "";
-	position: absolute;
-	width: 2px;
-    height: 25px;
-    left: 0;
-=======
->>>>>>> refs/remotes/origin/jt
 }
 
-<<<<<<< HEAD
-=======
-/* ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* À¥ÇÃ·¹ÀÌ¾î ¿À¸¥ÂÊ */
 .jt_playerOption{
 	position: relative;
     float: right;
@@ -618,7 +483,7 @@
     left: 0;
 }
 
-/* ï¿½ï¿½ï¿½ï¿½Æ® */
+/* °îÂ÷Æ® */
 .jt_tale table-filter {
 	width: 100%;
 	height : 100%;
@@ -690,4 +555,3 @@
 }
 
 
->>>>>>> refs/remotes/origin/jt
