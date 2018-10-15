@@ -82,49 +82,80 @@ sj ={
 				
 				$('<div/>').addClass('container').append(
 						$('<div/>').addClass('row').append(
-								$('<div/>').addClass('col-xs-12').append(
+								$('<div/>')
+								.addClass('col-xs-12').append(
 										$('<h2/>').attr('style','margin-left: 1.2rem;').addClass('my-4').html('DJ PLAYLIST'),
 										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide featured-shows-slides')
-								)
+								).on('click','.item>div',function(e){
+									let $this = $(this);
+									
+									if($this.find('h4').text() != $('#dj-detail .album-title>h4').text()){
+										$('#dj-coll').remove();
+										sj.djDetail({
+											src : $this.find('img').attr('src'),
+											title: $this.find('h4').text()
+										})
+									}
+									
+									//$this.find('h4').text() != $('#dj-detail .album-title>h4').text()
+										
+								})
 						)
 				).appendTo($djSec);
 				
-				let item = $('<div/>').addClass('carousel-inner')
-				item.appendTo($('#djCarousel'));
+				/*
+				동적으로 생성하여 on function을 사용한다.
+				  
+				$('#djCarousel').on('click','.item>div',function(e){
+					$('#dj-detail').remove();
+					let $this = $(this);
+					sj.djDetail({
+						src : $this.find('img').attr('src'),
+						title: $this.find('h4').text()
+						});
+					$('#dj-detail').slideDown("slow");
+				});
+*/
+				
+				let $item = $('<div/>').addClass('carousel-inner')
+				$item.appendTo($('#djCarousel'));
 				
 				let djArr = [
 					{
 						src : 'dj-1.jpg',
-						title : '늦은 여름에 떠나는 여행',
+						title : '1. Dj Playlist',
 						name : 'soundLAB',
 						date : '2018.09.02',
 						hash : '#여름 #신나는 #여행'
 					},
 					{
 						src : 'dj-2.jpg',
-						title : '늦은 여름에 떠나는 여행',
+						title : '2. Dj Playlist',
 						name : 'soundLAB',
 						date : '2018.09.02',
 						hash : '#여름 #신나는 #여행'
 					},
 					{
 						src : 'dj-3.jpg',
-						title : '늦은 여름에 떠나는 여행',
+						title : '3. Dj Playlist',
 						name : 'soundLAB',
 						date : '2018.09.02',
 						hash : '#여름 #신나는 #여행'
 					},
 					{
 						src : 'dj-2.jpg',
-						title : '늦은 여름에 떠나는 여행',
+						title : '4. Dj Playlist',
 						name : 'soundLAB',
 						date : '2018.09.02',
 						hash : '#여름 #신나는 #여행'
 					}
 					];
+				
 				$.each(djArr,(i,v)=>{
 					$('<div/>').addClass('item'+((i===0)?' active':'')).append(
-							$('<div/>').addClass('col-md-4 col-sm-6 col-xs-12 single-featured-shows').append(
+							$('<div/>')
+							.attr({'data-toggle':'collapse', 'data-target':'#dj-coll', 'aria-controls':'dj-coll'})
+							.addClass('col-md-4 col-sm-6 col-xs-12 single-featured-shows').append(
 									$('<img/>').attr({
 										src : $.ctx()+'/resources/img/sj/'+v.src,
 										alt : 'DJ-P-img' + i
@@ -139,11 +170,9 @@ sj ={
 											)
 									)
 							)
-					).appendTo(item)
-					.click(e=>{
-						// 밑에 dj detail 열리는 event 걸기
-					});
+					).appendTo($item);
 				});
+				
 				
 				$('<a/>')
 				.attr({href:'#djCarousel', 'data-slide':'prev'})
@@ -157,6 +186,9 @@ sj ={
 				.append(
 						$('<i/>').addClass('glyphicon glyphicon-chevron-right')
 				).appendTo($('#djCarousel'));
+				
+				
+				
 				
 				$('#djCarousel').carousel({
 					  interval: 3000
@@ -175,54 +207,6 @@ sj ={
 				    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
 				  }
 				});
-				
-				$('<div/>').addClass('featured-album-area section-padding-5r clearfix').append(
-						$('<div/>').addClass('container').append(
-								$('<div/>').addClass('row').append(
-										$('<div/>').addClass('col-xs-12').append(
-												$('<div/>').addClass('featured-album-content d-flex flex-wrap').append(
-														$('<div/>')
-														.addClass('album-thumbnail h-100 bg-img')
-														.attr({'style':'background-image: url('+$.ctx()+'/resources/img/sj/dj-2.jpg);'}),
-														$('<div/>').addClass('album-songs h-100').append(
-																$('<div/>').addClass('album-info mb-10 d-flex flex-wrap align-items-center justify-content-between').append(
-																		$('<div/>').addClass('album-title').append(
-																				$('<h4/>').html('늦은 여름에 떠나는 여행'),
-																				$('<h6/>').html('soundLAB'),
-																				$('<h6/>').html('#여름 #신나는 #여행')
-																		),
-																		$('<div/>').addClass('album-buy-now album-title').append(
-																				$('<h6/>').html('조회수'),
-																				$('<a/>').attr({href:'#'}).addClass('btn musica-btn').append(
-																						$('<span/>').addClass('glyphicon glyphicon-heart')
-																				)
-																		)
-																),
-																$('<div/>').addClass('album-all-songs').attr({id:'album-scroll'}),
-																$('<div/>').addClass('now-playing d-flex flex-wrap align-items-center justify-content-between').append(
-																		$('<h4/>').attr({'style':'color:white;'}).html('전체듣기 / 선택듣기 / 담기 / 나의 추가')
-																)
-														)
-												)
-										)
-								)
-						)
-				).appendTo($djSec);
-				
-				let $pl = $('<div/>').addClass('music-playlist').appendTo($('#album-scroll'));
-				for(let i=1;i<=10;i++){
-					$('<div/>').addClass('single-music').append(
-							$('<div/>').addClass('single-music-item row').append(
-									$('<label/>').attr({id:'check-con'}).addClass('col-xs-1 container').append(
-											$('<input/>').attr({type:'checkbox'}),
-											$('<span/>').addClass('checkmark')
-									),
-									$('<div/>').addClass('col-xs-5').html(i + '. Drop that beat'),
-									$('<div/>').addClass('col-xs-3').html('Artist'),
-									$('<div/>').addClass('col-xs-3').html('Button')
-							)
-					).appendTo($pl)
-				}
 				
 				
 				
@@ -289,6 +273,86 @@ sj ={
 			$('<li/>').attr({id : 'artist-list-item2'}).appendTo($('#artist-list'));
 			$('<a/>').attr({href:'#'}).html('아티스트사진 <br> 아티스트명 <br> 장르').appendTo($('#artist-list-item2'));
 			// #artist end
+			}
+		},
+		djDetail : x=>{
+			
+			$('<div/>').attr({id:'dj-coll'}).addClass('collapse').appendTo($('#djSec'));
+			// 'style':'display:none;'
+			$('<div/>')
+			.addClass('featured-album-area section-padding-5r clearfix')
+			.attr({id:'dj-detail', 'style':'margin-bottom:0px;'})
+			.append(
+					$('<div/>').addClass('container').append(
+							$('<div/>').addClass('row').append(
+									$('<div/>').addClass('col-xs-12').append(
+											$('<div/>').addClass('featured-album-content d-flex flex-wrap').append(
+													$('<div/>')
+													.addClass('album-thumbnail h-100 bg-img')
+													.attr({'style':'background-image: url('+x.src+');'}),
+													$('<button/>').addClass('close')
+													.attr({'aria-label':'Close','style':'position: absolute; right: 5px; z-index: 11; color:#fff; font-size:2.5em'})
+													.html('<span aria-hidden="true">&times;</span>')
+													.click(e=>{
+														$('#dj-coll').removeClass('collapse in').addClass('collapse');
+													}),
+													$('<div/>').addClass('album-songs h-100').append(
+															$('<div/>').addClass('album-info mb-10 d-flex flex-wrap align-items-center justify-content-between').append(
+																	$('<div/>').addClass('album-title').append(
+																			$('<h4/>').html(x.title),
+																			$('<h6/>').html('soundLAB'),
+																			$('<h6/>').html('#여름 #신나는 #여행')
+																	),
+																	$('<div/>').addClass('album-buy-now album-title').append(
+																			$('<h6/>').html('조회수'),
+																			$('<a/>').attr({href:'#'}).addClass('btn musica-btn').append(
+																					$('<span/>').addClass('glyphicon glyphicon-heart')
+																			)
+																	)
+															),
+															$('<div/>').addClass('album-all-songs').attr({id:'album-scroll'}),
+															$('<div/>').addClass('now-playing d-flex flex-wrap align-items-center justify-content-between').append(
+																	$('<h4/>').attr({'style':'color:white;'}).html('전체듣기 / 선택듣기 / 담기 / 나의 추가')
+															)
+													)
+											)
+									)
+							)
+					)
+			).appendTo($('#dj-coll'));
+			
+			
+			
+			let $pl = $('<div/>').addClass('music-playlist').appendTo($('#album-scroll'));
+			for(let i=1;i<=10;i++){
+				$('<div/>').addClass('single-music').append(
+						$('<div/>').addClass('single-music-item row').append(
+								$('<label/>').attr({id:'check-con'}).addClass('col-xs-1 container').append(
+										$('<input/>').attr({type:'checkbox'}),
+										$('<span/>').addClass('checkmark')
+								),
+								$('<div/>').addClass('col-xs-5').html(i + '. Drop that beat'),
+								$('<div/>').addClass('col-xs-2').html('Artist'),
+								$('<div/>').addClass('btn-group col-xs-4').append(
+										$('<button/>').addClass('btn btn-default').append(
+												$('<span/>').addClass('glyphicon glyphicon-play')
+										),
+										$('<button/>').addClass('btn btn-default').append(
+												$('<span/>').addClass('glyphicon glyphicon-heart')
+										).click(function(e){
+											console.log('Click');
+											if($(this).hasClass('active')){
+												$(this).removeClass('active');
+											}else{
+												$(this).addClass('active');
+											} 
+										}),
+										$('<button/>').addClass('btn btn-default').append(
+												$('<span/>').addClass('glyphicon glyphicon-facetime-video')
+										)
+								)
+						)
+				).appendTo($pl)
 			}
 		}
 };

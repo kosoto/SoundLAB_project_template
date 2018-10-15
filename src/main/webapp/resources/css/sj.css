@@ -381,7 +381,7 @@ img {
     position: absolute;
     display: none;
 }
-.container .checkmark:after {
+#check-con .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;
@@ -392,3 +392,17 @@ img {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+
+.btn-group>.btn.active, .btn-group>.btn:hover {
+	background: #27203f;
+    color: #ff3385;
+    text-shadow : none;
+}
+.btn-default.active {
+	text-shadow : none;
+}
+
+
+
+
