@@ -334,11 +334,10 @@ nav.navbar a.menu-btn {
   text-align: center;
   padding: 0 !important;
   float:left;
-  /* ,style:"float:left" */
 }
 
 nav.navbar a.menu-btn i[class*='icon-'] {
-  -webkit-transform: translateY(4px);
+  webkit-transform::; translateY(4px);
   transform: translateY(4px);
 }
 

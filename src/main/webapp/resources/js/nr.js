@@ -1,7 +1,8 @@
 "use strict";
 var nr = nr || {};
 nr = (()=>{
-	var $ctx,$js,$css,$img,w, $page, $cnts;
+	var $ctx,$js,$css,$img, w, $page, $cnts;
+
 	var init =()=>{
         console.log('nr.init ::');
         let pink = document.createElement('link');
@@ -22,9 +23,11 @@ nr = (()=>{
         w = $('#wrapper');
         w.empty();
         $page = $('<div/>').attr({id:'page'}).addClass('page');
-        w.append(nav(),$page.append(
-        		hdr(),
-        		$('<div/>').attr({id : 'cnts'})
+        w.append(nav(),
+        		$page.append(
+        				hdr(),
+        				$('<div/>').attr({id : 'cnts'})
+
         		)
     	);
         $cnts = $('#cnts');
@@ -57,31 +60,60 @@ nr = (()=>{
             hash();
        });
     }; /* init 끝 */
-    
+
+    // ============================= 페이지 ============================
     var home =()=>{
     	console.log('nr.home ::');
+    	let newMem={src:"https://static.thenounproject.com/png/1892501-200.png",
+        		strong:"New Clients",
+        		span:"새로운 고객 수",
+        		num:"25"
+        		};
+        let strm={src:"https://static.thenounproject.com/png/738103-200.png",
+        		strong:"Streaming count",
+        		span:"스트리밍 수 ",
+        		num:"89083432"
+        		};
     	$cnts.empty();
-    	$cnts.append(
-    			$('<h1/>').html("==== 방문통계 페이지 ===="),
-    			cntSec(),visitSec());
+    	section({cls:"dashboard-counts section-padding"}).appendTo($cnts);
+    	cnt({src:"https://static.thenounproject.com/png/1892501-200.png",
+    		strong:"New Clients",
+    		span:"새로운 고객 수",
+    		num:"25"
+    		}).appendTo($("#row"));
+    	cnt({src:"https://static.thenounproject.com/png/738103-200.png",
+    		strong:"Streaming count",
+    		span:"스트리밍 수 ",
+    		num:"89083432"
+    		}).appendTo($("#row"));
+    	section({cls:" d-flex align-items-md-stretch"}).appendTo($cnts);
+    	visit().appendTo($("#row"));
     };
     
     var pref=()=>{
     	console.log('nr.pref ::');
     	$('nav.side-navbar').toggleClass('show-sm');
         $('.page').toggleClass('active-sm');
-    	$cnts.empty();
-    	inputDate().appendTo($cnts);
-    		
+    	
+        $cnts.empty();
+    	section({cls:"forms"}).appendTo($cnts);
+    	period().appendTo($("#row"));
+    	card().appendTo($("#row"));
+    	card().appendTo($("#row"));
+    	card().appendTo($("#row"));
+    	card().appendTo($("#row"));
     	
     };
     var artist=()=>{
     	console.log('nr.artist ::');
     	$cnts.empty();
-    	$cnts.append(
-    			$('<h1/>').html("==== 아티스트 페이지 ====")
-    			);
-    		
+
+    	section({cls:"forms"}).appendTo($cnts);
+    	period().appendTo($("#row"));
+    	select().appendTo($("#row"));//자동완성 기능 필요
+    	card().appendTo($("#row"));//12사이즈로 변경 :스트리밍수*좋아요수
+    	card().appendTo($("#row"));//성별에 따른 아티스트 선호도
+    	table().appendTo($("#row"));
     	
     };
     var hash=()=>{
@@ -92,31 +124,153 @@ nr = (()=>{
     			);
     };
     
-    var inputDate=()=>{
-    	let inp = $('<div/>').attr({id:'checkinDate'}).appendTo($cnts);
-    	$('<span/>').attr({id:'mainInput3'}).appendTo($('#checkinDate'));
-    	$('<input/>').attr({type:'date', name:'checkin_date', id:'checkin_date'}).appendTo($('#mainInput3'));
-    	$('<span/>').attr({id:'checkoutDate'}).html('~').appendTo($('#checkinDate'));
-    	$('<span/>').attr({id:'mainInput4'}).appendTo($('#checkoutDate'));
-		$('<input/>').attr({type:'date', name:'checkout_date', id:'checkout_date'}).appendTo($('#mainInput4'));
-		$('<button/>').addClass("mr-3 btn btn-primary").attr({id:"submitBtn", type:"btn"}).html('조회').appendTo($('#checkinDate'));
-    	/* $('<div/>').addClass("input-date").append(
-    			$('<form/>').addClass("form-inline").append(
-					$('<div/>').addClass("form-group").append(
-						$('<label for="inlineFormInput"/>').addClass("sr-only").html("Name"),
-						$('<input/>').addClass("mr-3 form-control").attr({id:"datepicker", type:"text",placeholder:"앞" })
-					),
-					$('<div/>').addClass("form-group").append(
-						$('<label for="inlineFormInput"/>').addClass("sr-only").html("Name"),
-						$('<input/>').addClass("mr-3 form-control").attr({id:"datepicker2", type:"text",placeholder:"뒤" })
-					),
-					$('<div/>').addClass("form-group").append(
-						$('<input/>').addClass("mr-3 btn btn-primary").attr({id:"submitBtn", type:"submit",value:"Submit" })
+ // ============================= 구성 ============================
+    var table=()=>{
+    	let tbl=$('<table/>').addClass("table table-striped").append(
+    			$('<thead/>').append(
+    					$('<tr/>').append(
+	    					$('<th/>').html("#"),
+	    					$('<th/>').html("검색어"),
+	    					$('<th/>').html("검색횟수"),
+	    					$('<th/>').html("구분")
+	    					)),
+				$('<tbody/>').append(
+						//반복
+						$('<tr/>').append(
+							$('<th scope="row"/>').html("x.1"),
+	    					$('<td/>').html("x.방탄소년단"),
+	    					$('<td/>').html("x.123건"),
+	    					$('<td/>').html("x.아티스트")
+    					),
+    					$('<tr/>').append(
+    							$('<th scope="row"/>').html("x.2"),
+    	    					$('<td/>').html("x.BTS"),
+    	    					$('<td/>').html("x.765건"),
+    	    					$('<td/>').html("x.아티스트")
+        					),
+    					$('<tr/>').append(
+    							$('<th scope="row"/>').html("x.3"),
+    	    					$('<td/>').html("x.IDOL"),
+    	    					$('<td/>').html("x.555건"),
+    	    					$('<td/>').html("x.노래")
+        					)
 					)
-    			))*/;
-        return inp;
+    	);
+    	let tdiv=$('<div/>').addClass("col-lg-6").append(
+    			$('<div/>').addClass("card").append(
+    					$('<div/>').addClass("card-header").append(
+    							$('<h4/>').html("x.테이블이름")),
+						$('<div/>').addClass("card-body").append(
+								$('<div/>').attr({id:"tblRes"}).addClass("table-responsive").append(tbl))
+					)
+				);
+    	return tdiv;
+    };
+
+    
+	var section=x=>{
+		console.log(x.cls);
+		return $('<section/>').addClass(x.cls).append(
+					$('<div/>').addClass("container-fluid").attr({id:"conflu"}).append(
+						$('<div/>').attr({id:"row"}).addClass("row")));
+	};
+	
+    var period=()=>{
+    	let period = 
+    		$('<div/>').attr({id:'periodcard'}).addClass("card").appendTo($cnts);
+    	$('<div/>').attr({id:'period'}).addClass("card-body").appendTo($('#periodcard'));
+				$('<form/>').addClass("form-inline").attr({id:'periodForm'}).appendTo($('#period'));
+					$('<div/>').addClass("form-group").attr({id:'startDiv'}).appendTo($('#periodForm'));
+						$('<input/>').attr({type:'date', name:'startDate', id:'startDate'}).addClass("mr-3 form-control").appendTo($('#startDiv'));
+					$('<div/>').addClass("form-group").attr({id:'endDiv'}).appendTo($('#periodForm'));
+						$('<input/>').attr({type:'date', name:'endDate', id:'endDate'}).addClass("mr-3 form-control").appendTo($('#endDiv'));
+					$('<div/>').addClass("form-group").attr({id:'submitDiv'}).appendTo($('#periodForm'));
+						$('<button/>').addClass("mr-3 btn btn-primary").attr({id:"submitBtn", type:"btn"})
+						.html('조회').appendTo($('#submitDiv'));
+        return period;
     }
     
+    var select=()=>{
+    	let sel = $('<div/>').addClass("form-group row").append(
+    			$('<label/>').addClass("col-sm-2 form-control-label").html("아티스트 선택"),
+    			$('<div/>').addClass("col-sm-3 mb-3").append(
+    					$('<select/>').addClass("form-control").attr({name:"account"}).append(
+    					$('<option/>').html("방탄소년단"),
+    					$('<option/>').html("아이유"),	
+    					$('<option/>').html("선미"),	
+    					$('<option/>').html("먼데이키즈")	
+    					))
+    					);
+    	
+    		/*//서치 = input타입
+    		$('<div/>').addClass("navbar-form navbar-left").append(
+    			$('<div/>').addClass("form-group").append(
+    					$('<input/>').addClass("form-control").attr({type:"text",placeholder:"Search for artist"})),
+				$('<button/>').addClass("mr-3 btn btn-primary").attr({type:"submit"}).html("Search")
+    					);
+    	*/
+    	
+    	return sel;
+    };
+    
+    
+    
+   /* var cnt=()=>$('<div/>').addClass("col-md-4 col-6").append(
+			$('<div/>').addClass("wrapper count-title d-flex").append(
+				$('<div/>').addClass("icon").append(
+					$('<i/>').addClass("fa fa-user")	
+				),
+				$('<div/>').addClass("name").append(
+					$('<strong/>').addClass("text-uppercase").html("New Clients"),
+					$('<br/>'),
+					$('<span/>').html("새로운 고객 수"),
+					$('<div/>').addClass("count-number").html("25")
+				)
+			));*/
+    
+    
+    
+    
+    var cnt=x=>$('<div/>').addClass("col-md-6").append(
+			$('<div/>').addClass("wrapper count-title d-flex").append(
+					$('<div/>').addClass("col-md-3").append(
+						$('<img/>').addClass("main-img").attr({src:x.src})
+					),
+					$('<div/>').addClass("name col-md-3").append(
+						$('<strong/>').addClass("text-uppercase").html(x.strong),
+						$('<br/>'),
+						$('<span/>').html(x.span),
+						$('<div/>').addClass("count-number").html(x.num)
+					)
+			));
+    
+	var visit=()=>{
+		console.log('visitSec 진입');
+		let visit=
+			$('<div/>').addClass("col-lg-12 flex-lg-last flex-md-first align-self-baseline").append(
+				$('<div/>').addClass("card sales-report").append(
+						$('<h2/>').addClass("display h4").html("방문자 통계"),
+						$('<p/>').html("차트를 입력해주세요"),
+						$('<div/>').addClass("line-chart").append(
+								$('<canvas/>').attr({id:"lineCahrt"}))));
+		return visit;
+	};
+	
+	//size:6, title:~~분석, 
+	var card=()=>{
+		let card=$('<div/>').addClass("col-lg-6").append(
+				$('<div/>').addClass("card line-chart-example").append(
+				$('<div/>').addClass("card-header d-flex align-items-center").append(
+						$('<h4/>').html("x.card title")
+						),
+				$('<div/>').addClass("card-body").append(
+						$('<canvas/>').attr({id:"lineChartExample"}))
+				)
+			);
+		return card;
+	};
+    
+ // =============================기본 구성  : 네비, 헤더 ============================
 	var nav = ()=>{
 		console.log('nr.nav ::');
 		let $nav = $('<nav/>');
@@ -144,16 +298,16 @@ nr = (()=>{
 						$('<ul/>').addClass("side-menu list-unstyled").attr({id:"side-main-menu"}).append(
 							$('<li/>').append(
 								$('<a/>').attr({id:"visitBtn", href:"#"}).append(
-									$('<i/>').addClass("fa fa-bar-chart").html('방문통계'))),
+									$('<i/>').addClass("fa fa-bar-chart").html('  방문통계'))),
 							$('<li/>').append(
 								$('<a/>').attr({id:"prefBtn", href:"#"}).append(
-									$('<i/>').addClass("fa fa-bar-chart").html('선호도'))),
+									$('<i/>').addClass("fa fa-bar-chart").html('  선호도'))),
 							$('<li/>').append(
 								$('<a/>').attr({id:"artistBtn", href:"#"}).append(
-									$('<i/>').addClass("fa fa-bar-chart").html('아티스트'))),
+									$('<i/>').addClass("fa fa-bar-chart").html('  아티스트'))),
 							$('<li/>').append(
 								$('<a/>').attr({id:"hashBtn", href:"#"}).append(
-									$('<i/>').addClass("fa fa-bar-chart").html('해시태그')))
+									$('<i/>').addClass("fa fa-bar-chart").html('  해시태그')))
 						)
 					)
 			)		
@@ -168,7 +322,7 @@ nr = (()=>{
 				$('<div/>').addClass("navbar-holder d-flex align-items-center justify-content-between").append(
 					$('<div/>').addClass("navbar-header").append(
 						$('<a/>').addClass("menu-btn").attr({id:"toggle-btn",href:"#"}).append(
-							$('<i/>').addClass("icon-bars")),
+							$('<i/>').addClass("fa fa-bars")).attr({style:"font-size:20px"}),
 						$('<a/>').addClass("navbar-brand").attr({href:"#"}).append(
 							$('<div/>').addClass("brand-text d-none d-md-inline-block").append(
 								$('<span/>').html("ADMIN"),
@@ -190,43 +344,9 @@ nr = (()=>{
 		);
 		return $header;
 	};
-	
-	var section=()=>{
-		console.log('section 진입');
-		return $('<section/>').addClass("dashboard-counts section-padding").append(
-				$('<div/>').addClass("container-fluid").append(
-						$('<div/>').addClass("row")));
-	};
 
-	var cntSec=()=>$('<div/>').addClass("col-xl-2 col-md-4 col-6").append(
-			$('<div/>').addClass("wrapper count-title d-flex").append(
-				$('<div/>').addClass("icon").append(
-					$('<i/>').addClass("icon-user")	
-				),
-				$('<div/>').addClass("name").append(
-					$('<strong/>').addClass("text-uppercase").html("New Clients"),
-					$('<br/>'),
-					$('<span/>').html("새로운 고객 수"),
-					$('<div/>').addClass("count-number").html("25")
-				)
-			)).appendTo(section());
-	
-	var visitSec=()=>{
-		console.log('visitSec 진입');
-		let sec = section().addClass(" d-flex align-items-md-stretch");
-		let visit=$('<div/>').addClass("col-lg-12 flex-lg-last flex-md-first align-self-baseline").append(
-				$('<div/>').addClass("card sales-report").append(
-						$('<h2/>').addClass("display h4").html("방문자 통계"),
-						$('<p/>').html("차트를 입력해주세요"),
-						$('<div/>').addClass("line-chart").append($('<canvas/>').attr({id:"lineCahrt"})))).appendTo(sec);
-		
-		return visit;
-	};
-	
-	
 	
 	return {
 		init : init
 	};
 })();
-
