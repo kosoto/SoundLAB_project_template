@@ -54,16 +54,12 @@ sh = (()=>{
         
          $('#searchBtn').click(e=>{
     		 jt.search();
-    	
-
     		 fn.scroll({ id : $("#jt_search"), len : 400});
 
     	 });
     	 $('#searchInput').keyup(e=>{
     		 if(e.keyCode == 13) { 
     			 jt.search();
-    			
-
     			 fn.scroll({ id : $("#jt_search"), len : 400});
 
     		 } 
@@ -89,7 +85,11 @@ sh = (()=>{
 			 fn.scroll({ id : $("#djSec"), len : 200});
          });
          $('#forBtn').click(e=>{
-			 $.ajax({
+        	$('#contents').html(banner()+cloud()+topFive());
+	       		sj.forYou();
+	       		sh.service.removeSec('#foryouSec');
+				fn.scroll({ id : $("#foryouSec"), len : 200});
+			 /*$.ajax({
 	    		 url : sh.ctx()+'/member/auth',
 		       	  method : 'get',
 		       	  success : d=>{
@@ -100,13 +100,13 @@ sh = (()=>{
 		       	  },
 		       	  error : m=>{
 		       		alert('로그인이 필요한 서비스입니다.');
-		       		/*if(m.status == 401){
+		       		if(m.status == 401){
 		       			alert('m 401 :: '+m.status);
 		       			$('#wrapper').html('<img src="${context}/resources/img/Error-404.gif" alt="error404" style="width: 100%;height: 100%;"/>');
-		       		}*/
+		       		}
 	    			sh.service.login();
 		       	  }
-	    	 });
+	    	 });*/
          });
          
         $('#logoImg').click(()=>{

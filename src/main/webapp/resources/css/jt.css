@@ -1,5 +1,5 @@
+/* ㅇ어어ㅓ어엉 */
 
-/* ���� �׺�ڽ� */
 #jt_nav-box{
 	padding-top: 30px;
 }
@@ -8,62 +8,62 @@
 	padding-top: 50px;
 }
 
-/* ����� */
+
 #jt_content{
 	padding-top: 50px;
 	margin-top: 5px;
 }
 
-/* ����Ʈ */
+
 #jt_search_music{
 	padding-top: 30px;
 }
 
-/* ����Ʈ ���̺� */
+
 #jt_music_tb{
 	padding-top: 20px;
 }
 
-/* ��ġ�ٹ� */
+
 #jt_search_album{
 	padding-top: 30px;
 }
 
-/* ��ġ���� */
+
 #jt_search_mv{
 	padding-top: 30px;
 }
 
 
-/* �𼭸� ���׶� �̹��� */
+
 .img-rounded{
 	width: 150px;
 	height: auto;
 }
 
-/* �ٹ������� */
+
 .jt_album_detail{
 	 cursor: pointer;
 }
 
-/* ��� ��Ϲ�ư */
+
 #jt_cmt_bt{
 	margin-bottom: 5px;
 }
 
-/* ��ȸ�� */
+
 #jt_cmt_counts{
 	 margin-right: 850px;
 	 margin-left: 10px; 
 }
 
-/* �ֽż� ��õ�� ��ۼ� */
+
 .jt_cmt_array{
     margin-right: 10px;
     cursor: pointer;
 }
 
-/* ��� �б� ������ */
+
 .img-circle{
 	width: 100px;
 	height: auto;
@@ -72,23 +72,23 @@
 	
 }
 
-/* �뷡���ƿ� */
+
 .jt_user_content{
 	margin: 0px 650px 0px 0px;
 }
 
-/* ���ƿ� ��ư */
+
 .jt_user_up{
 	margin-top: 20px;
 	margin-left: 10px; 
 }
 
-/* �Ⱦ�� ��ư */
+
 .jt_user_down{
 	margin-left: 20px; 
 }
 
-/* ���÷��̾� �ΰ� */
+
 #jt_logo_img{
  	display: block;
     width: 70px;
@@ -483,7 +483,7 @@
     left: 0;
 }
 
-/* ����Ʈ */
+
 .jt_tale table-filter {
 	width: 100%;
 	height : 100%;
