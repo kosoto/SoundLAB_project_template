@@ -1,65 +1,68 @@
-h
-/* ¸ÇÀ§ ³×ºñ¹Ú½º */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½×ºï¿½Ú½ï¿½ */
 #jt_nav-box{
 	padding-top: 30px;
 }
 
-/* ³»¿ëµé */
+#jt_search{
+	padding-top: 50px;
+}
+
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ */
 #jt_content{
 	padding-top: 50px;
 	margin-top: 5px;
 }
 
-/* °îÂ÷Æ® */
+/* ï¿½ï¿½ï¿½ï¿½Æ® */
 #jt_search_music{
 	padding-top: 30px;
 }
 
-/* °îÂ÷Æ® Å×ÀÌºí */
+/* ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ìºï¿½ */
 #jt_music_tb{
 	padding-top: 20px;
 }
 
-/* ¼­Ä¡¾Ù¹ü */
+/* ï¿½ï¿½Ä¡ï¿½Ù¹ï¿½ */
 #jt_search_album{
 	padding-top: 30px;
 }
 
-/* ¼­Ä¡¿µ»ó */
+/* ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ */
 #jt_search_mv{
 	padding-top: 30px;
 }
 
 
-/* ¸ð¼­¸® µ¿±×¶õ ÀÌ¹ÌÁö */
+/* ï¿½ð¼­¸ï¿½ ï¿½ï¿½ï¿½×¶ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ */
 .img-rounded{
 	width: 150px;
 	height: auto;
 }
 
-/* ¾Ù¹üµðÅ×ÀÏ */
+/* ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .jt_album_detail{
 	 cursor: pointer;
 }
 
-/* ´ñ±Û µî·Ï¹öÆ° */
+/* ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¹ï¿½Æ° */
 #jt_cmt_bt{
 	margin-bottom: 5px;
 }
 
-/* Á¶È¸¼ö */
+/* ï¿½ï¿½È¸ï¿½ï¿½ */
 #jt_cmt_counts{
 	 margin-right: 850px;
 	 margin-left: 10px; 
 }
 
-/* ÃÖ½Å¼ö ÃßÃµ¼ö ´ä±Û¼ø */
+/* ï¿½Ö½Å¼ï¿½ ï¿½ï¿½Ãµï¿½ï¿½ ï¿½ï¿½Û¼ï¿½ */
 .jt_cmt_array{
     margin-right: 10px;
     cursor: pointer;
 }
 
-/* ´ñ±Û ÀÐ±â ÇÁ·ÎÇÊ */
+/* ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .img-circle{
 	width: 100px;
 	height: auto;
@@ -68,22 +71,23 @@ h
 	
 }
 
-/* ³ë·¡ÁÁ¾Æ¿ä */
+/* ï¿½ë·¡ï¿½ï¿½ï¿½Æ¿ï¿½ */
 .jt_user_content{
 	margin: 0px 650px 0px 0px;
 }
 
-/* ÁÁ¾Æ¿ä ¹öÆ° */
+/* ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½Æ° */
 .jt_user_up{
 	margin-top: 20px;
 	margin-left: 10px; 
 }
 
+/* ï¿½È¾ï¿½ï¿½ ï¿½ï¿½Æ° */
 .jt_user_down{
 	margin-left: 20px; 
 }
 
-/* À¥ÇÃ·¹ÀÌ¾î ·Î°í */
+/* ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Î°ï¿½ */
 #jt_logo_img{
  	display: block;
     width: 70px;
@@ -343,6 +347,7 @@ h
 #jt_volumebar{
 	background: #BABABA;
 	width: 50px;
+<<<<<<< HEAD
 }
 #jt_playerOption{
 	position: relative;
@@ -474,5 +479,215 @@ h
 	width: 2px;
     height: 25px;
     left: 0;
+=======
+>>>>>>> refs/remotes/origin/jt
 }
 
+<<<<<<< HEAD
+=======
+/* ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+.jt_playerOption{
+	position: relative;
+    float: right;
+    width: 56%;
+    background: #fff;
+    height: 504px;
+}
+.jt_tabControl{
+	width: auto;
+    height: 37px;
+    margin: 10px 10px 5px;
+	list-style: none;
+	padding: 0;
+}
+#jt_selected{
+	margin-left: 90px;
+	float: left;
+    width: 50%;
+    height: 35px;
+    text-align: center;
+    line-height: 37px;
+    list-style: none;
+}
+.jt_play_list{
+	font-weight: 700;
+    color: #fff;
+    border: 1px solid #c9005f;
+    background: #dd0068;
+    display: block;
+}
+.jt_mplay_list{
+	max-height: 413px;
+    min-height: 413px;
+    margin: 0 10px;
+}
+.jt_mplay_ul{
+	position: relative;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+.jt_mplay_li{
+	
+    z-index: 9998;
+    width: 100%;
+    height: 23px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0;
+    margin-top: 10px;
+}
+.itemcheck{
+	width: 13px;
+    line-height: 17px;
+    left: 1px;
+    float: left;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+#jt_player_input{
+	width: 13px;
+    height: 13px;
+    overflow: hidden;
+    padding: 0;
+    margin: 3px 0 0 0;
+}
+.jt_itemrank{
+	width: 26px;
+    left: 14px;
+    line-height: 21px;
+    font-style: normal;
+    float: left;
+    position: absolute;
+}
+.jt_rank{
+	display: inline;
+	margin: 0;
+    padding: 0;
+    width: 26px;
+    left: 14px;
+    line-height: 21px;
+}
+.jt_itemtitle_div{
+	text-align: left;
+    margin: 0 82px 0 60px;
+}
+.jt_itemtitle_a{
+	text-decoration: none;
+}
+.jt_titsong{
+	color: #333;
+}
+.jt_itemem{
+	color: #dadada;
+    margin: 0 10px;
+}
+.playBtnArea{
+	position: absolute;
+    width: 100%;
+    height: 45px;
+    border-top: 1px solid #d3d3d3;
+    background: #e6e6e6;
+    bottom: 0;
+    z-index: 20;
+}
+#playbtn_input{
+	float: left;
+    margin: 9px 8px 0 10px;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+}
+#playbtn_del{
+	position: relative;
+	height: 25px;
+    color: #333;
+    line-height: 26px;
+    margin: 6px 3px 0 0;
+    padding: 0 8px;
+    background-position: right 0;
+}
+#playbtn_em{
+	content: "";
+	position: absolute;
+	width: 2px;
+    height: 25px;
+    left: 0;
+}
+
+/* ï¿½ï¿½ï¿½ï¿½Æ® */
+.jt_tale table-filter {
+	width: 100%;
+	height : 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+.table-filter tbody tr:hover {
+	cursor: pointer;
+	background-color: #eee;
+}
+.jt_table-filter th tr td {
+	padding: 20px;
+	vertical-align: middle;
+	border-top-color: #eee;
+	width: 10%;
+}
+.jt_table>tbody>tr>td, 
+.jt_table>tbody>tr>th, 
+.jt_table>tfoot>tr>td, 
+.jt_table>tfoot>tr>th, 
+.jt_table>thead>tr>td, 
+.jt_table>thead>tr>th{
+	width: 11%;
+}
+.jt_table-filter tbody tr.selected td {
+	background-color: #eee;
+}
+.ckbox input[type="checkbox"] {
+	opacity: 0;
+}
+.ckbox label {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.ckbox label:before {
+	content: '';
+	top: 1px;
+	left: 0;
+	width: 18px;
+	height: 18px;
+	display: block;
+	position: absolute;
+	border-radius: 2px;
+	border: 1px solid #bbb;
+	background-color: #fff;
+}
+.ckbox input[type="checkbox"]:checked + label:before {
+	border-color: #333;
+    background-color: #333;
+}
+.ckbox input[type="checkbox"]:checked + label:after {
+	top: 3px;
+	left: 3.5px;
+	content: '\e013';
+	color: #fff;
+	font-size: 11px;
+	font-family: 'Glyphicons Halflings';
+	position: absolute;
+	margin: auto;
+}
+.ckbox {
+  position: relative;
+}
+
+.ckbox input[type="checkbox"] {
+  opacity: 0;
+}
+
+
+>>>>>>> refs/remotes/origin/jt

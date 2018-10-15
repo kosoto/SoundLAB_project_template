@@ -312,7 +312,11 @@ ls ={
 				$('#alCarousel').carousel({
 					  interval: 10000
 					})
+
 				$('#alCarousel .item').each(function(){
+
+	
+
 				  var next = $(this).next();
 				  if (!next.length) {
 				    next = $(this).siblings(':first');
