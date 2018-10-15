@@ -1,4 +1,4 @@
-
+h
 /* 맨위 네비박스 */
 #jt_nav-box{
 	padding-top: 30px;
@@ -84,13 +84,395 @@
 }
 
 /* 웹플레이어 로고 */
-.jt_logo_img{
-	width: 100px;
+#jt_logo_img{
+ 	display: block;
+    width: 70px;
+    height: auto;
+    text-indent: -9999px;
+    overflow: hidden;
+    background-position: 0 0;
+   
+   /*  width: 100px;
 	height: auto;
+	margin-left:200px;  */
+
+}
+#jt_playerdt{
+	width: 100%;
+    max-height: 495px;
+    max-width: 730px;
+    min-height: 495px;
+    min-width: 720px;
+    overflow: hidden;
+}
+#jt_player{
+	position: relative;
+    float: left;
+    width: 44%;
+    background: #242b34;
+    height: 504px;
+}
+#jt_info{
+	height: 70px;
+    padding: 12px 10px 0 130px;
+}
+#jt_album_area{
+	position: relative;
+    width: 308px;
+    height: 308px;
+    margin: 0 auto;
+    border: 1px solid #1e2124;
+    overflow: hidden;
+}
+#jt_album_imgDiv{
+	width: 308px;
+    height: 308px;
+}
+.jt_album_img{
+	visibility: visible;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    max-width: 308px;
+    width: 308px;
+    height: 308px;
+}
+#jt_album_tit{
+	opacity: 1;
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height: 59px;
+    color: #fff;
+    left: 0;
+    z-index: 20;
+}
+#jt_tit_h2{
+	margin-top: 9px;
+    padding: 0 10px 1px 7px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 22px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#jt_album_title{
+    width: 208px;
+	color: #fff;
+    margin-left: 6px;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#jt_album_artist{
+	color: #959ea7;
+	margin: 2px 9px 0 11px;
+}
+#jt_album_bg{
+	opacity: 0.8;
+    top: 0px;
+	position: absolute;
+    width: 100%;
+    height: 59px;
+    border-bottom: 1px solid #121417;
+    background: #000812;
+    z-index: 9;
+    margin: 2px 9px 0 11px;
+}
+#jt_progressControl{
+	position: relative;
+    height: 25px;
+    margin-top: 28px;
+}
+#jt_timeStart{
+	position: absolute;
+    left: 10px;
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    font-size: 11px;
+    color: #fff;
+}
+#jt_timeEnd{
+	position: absolute;
+    right: 12px;
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    font-size: 11px;
+    color: #fff;
+}
+#jt_a{
+	display: block;
+    padding: 10px 0;
+}
+.progressBar{
+	display: block;
+    position: relative;
+    margin: 0 50px;
+    top: -5px;
+    cursor: pointer;
+}
+#jt_timeBar{
+	position: relative;
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #000;
+    top: 0;
+}
+#jt_timeBarBuffer{
+    width: 0%;
+	position: absolute;
+    display: block;
+    height: 2px;
+    border: 1px solid #000;
+    background: #5d6165;
+}
+#jt_timeBarOn{
+	width: 22%;
+	position: absolute;
+    display: block;
+    height: 2px;
+    background: #f06;
+}
+#jt_timeSwitch{
+	position: absolute;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #000;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #fff;
+    top: -3px;
+    right: -4px;
+    text-indent: -9999px;
+    overflow: hidden;
+    
+}
+#jt_playControl{
+	position: relative;
+    height: 27px;
+    margin: 10px 8px;
+}
+.fun-btn{
+	background: none;
+	 color: #fff;
+    border: 3px solid #fff;
+    border-radius: 5px;
+}
+#jt_btnPlay{
+	display: block;
+	width: 44px;
+    left: 50%;
+    margin-left: -32px;
+    position: absolute;
+    height: 28px;
+    align-items: flex-start;
+    box-sizing: border-box;
+    overflow: visible;
+    padding: 0;
+    
+}
+#jt_btnPause{
+	display: none;
+	width: 44px;
+    left: 50%;
+    margin-left: -22px;
+    position: absolute;
+    height: 28px;
+    align-items: flex-start;
+    box-sizing: border-box;
+    overflow: visible;
+    padding: 0;
+
+}
+#jt_btnPrev{
+	width: 33px;
+    left: 50%;
+    margin-left: -80px;
+    position: absolute;
+    height: 28px;
+    overflow: hidden;
+    align-items: flex-start;
+    box-sizing: border-box;
+    overflow: visible;
+    padding: 0;
+    display: inline-block;
+   
+}
+#jt_btnNext{
+	width: 33px;
+    left: 50%;
+    margin-left: 30px;
+    position: absolute;
+    height: 28px;
+    overflow: hidden;
+    align-items: flex-start;
+    box-sizing: border-box;
+    overflow: visible;
+    padding: 0;
+    display: inline-block;
+}
+#jt_btnRepeat{
+	margin-left: 10px;
+	width: 33px;
+	position: absolute;
+    height: 28px;
+    overflow: hidden;
+    align-items: flex-start;
+    box-sizing: border-box;
+    overflow: visible;
+    padding: 0;
+    display: inline-block;
+}
+#jt_btnVolume{
+	float: right;
+    width: 69px;
+    padding-top: 4px;
+}
+#jt_volume{
+	float: left;
+    width: 18px;
+    height: 15px;
+    background-position: -210px -35px;
+}
+#jt_volumebar{
+	background: #BABABA;
+	width: 50px;
+}
+#jt_playerOption{
+	position: relative;
+    float: right;
+    width: 56%;
+    background: #fff;
+    height: 504px;
+}
+#jt_tabControl{
+	width: auto;
+    height: 37px;
+    margin: 10px 10px 5px;
+	list-style: none;
+	padding: 0;
+}
+#jt_selected{
+	margin-left: 90px;
+	float: left;
+    width: 50%;
+    height: 35px;
+    text-align: center;
+    line-height: 37px;
+    list-style: none;
+}
+#jt_play_list{
+	font-weight: 700;
+    color: #fff;
+    border: 1px solid #c9005f;
+    background: #dd0068;
+    display: block;
+}
+#jt_mplay_list{
+	max-height: 413px;
+    min-height: 413px;
+    margin: 0 10px;
+}
+#jt_mplay_ul{
+	position: relative;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+#jt_mplay_li{
+	position: absolute; 
+    z-index: 9998;
+    width: 100%;
+    height: 23px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0;
+    margin-top: 10px;
+}
+.itemcheck{
+	width: 13px;
+    line-height: 17px;
+    left: 1px;
+    float: left;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+#jt_player_input{
+	width: 13px;
+    height: 13px;
+    overflow: hidden;
+    padding: 0;
+    margin: 3px 0 0 0;
+}
+#jt_itemrank{
+	width: 26px;
+    left: 14px;
+    line-height: 21px;
+    font-style: normal;
+    float: left;
+    position: absolute;
+}
+#jt_rank{
+	display: inline;
+	margin: 0;
+    padding: 0;
+    width: 26px;
+    left: 14px;
+    line-height: 21px;
+}
+#jt_itemtitle_div{
+	text-align: left;
+    margin: 0 82px 0 60px;
+}
+#jt_itemtitle_a{
+	text-decoration: none;
+}
+#jt_titsong{
+	color: #333;
+}
+#jt_itemem{
+	color: #dadada;
+    margin: 0 10px;
+}
+.playBtnArea{
+	position: absolute;
+    width: 100%;
+    height: 45px;
+    border-top: 1px solid #d3d3d3;
+    background: #e6e6e6;
+    bottom: 0;
+    z-index: 20;
+}
+#playbtn_input{
+	float: left;
+    margin: 9px 8px 0 10px;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+}
+#playbtn_del{
+	position: relative;
+	height: 25px;
+    color: #333;
+    line-height: 26px;
+    margin: 6px 3px 0 0;
+    padding: 0 8px;
+    background-position: right 0;
+}
+#playbtn_em{
+	content: "";
+	position: absolute;
+	width: 2px;
+    height: 25px;
+    left: 0;
 }
 
-.jt_player_img{
-	width: 70px;
-	height:auto;
-	margin-left:20px;
-}

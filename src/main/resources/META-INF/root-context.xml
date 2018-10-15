@@ -96,11 +96,11 @@
 	
 	
 	<!-- 인터셉터 로그인 -->
-	<bean id="sampleInterceptor" class="com.soundlab.web.interceptors.LoginInterceptor"/>
+	<bean id="auth" class="com.soundlab.web.interceptors.LoginInterceptor"/>
 	<mvc:interceptors>
 			<mvc:interceptor>
-				<mvc:mapping path="/member/forYou"/>
-				<ref bean="sampleInterceptor"/>
+				<mvc:mapping path="/member/auth"/>
+				<ref bean="auth"/>
 			</mvc:interceptor>
 	</mvc:interceptors> 
 	<!-- 인터셉터 로그인 -->
