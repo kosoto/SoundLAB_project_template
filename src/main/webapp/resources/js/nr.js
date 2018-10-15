@@ -1,322 +1,348 @@
 "use strict";
 var nr = nr || {};
 nr = (()=>{
-	var $ctx,$js,$css,$img,w,sec;
+	var $ctx,$js,$css,$img, w, $page, $cnts;
 	var init =()=>{
         console.log('nr.init ::');
+        let pink = document.createElement('link');
+			pink.rel = 'stylesheet';
+			pink.href = $.ctx()+'/resources/css/cssnr/style.pink.css';
+			pink.id = 'pinkcss';
+			document.head.appendChild(pink);
+		let nrstyle = document.createElement('link');
+			nrstyle.rel = 'stylesheet';
+			nrstyle.href = $.ctx()+'/resources/css/cssnr/nr.css';
+			nrstyle.id = 'nrcss';
+			document.head.appendChild(nrstyle);
+		
         $ctx = $.ctx();
         $js = $.js();
         $css = $.css();
         $img = $.img();
         w = $('#wrapper');
-        home({});
-    };
-    var home =x=>{
+        w.empty();
+        $page = $('<div/>').attr({id:'page'}).addClass('page');
+        w.append(nav(),
+        		$page.append(
+        				hdr(),
+        				$('<div/>').attr({id : 'cnts'})
+        		)
+    	);
+        $cnts = $('#cnts');
+        home();
+        
+    	//버튼=========================================
+    	$('#toggle-btn').click(e=>{
+             e.preventDefault();
+             if ($(window).outerWidth() > 1194) {
+                 $('nav.side-navbar').toggleClass('shrink');
+                 $('.page').toggleClass('active');
+             } else {
+                 $('nav.side-navbar').toggleClass('show-sm');
+                 $('.page').toggleClass('active-sm');
+             }
+        });
+    	$('#mainBtn').click(()=>{
+            nr.init();
+       });
+    	$('#visitBtn').click(()=>{
+            nr.init();
+       });
+    	$('#prefBtn').click(()=>{
+            pref();
+       });
+    	$('#artistBtn').click(()=>{
+            artist();
+       });
+    	$('#hashBtn').click(()=>{
+            hash();
+       });
+    }; /* init 끝 */
+    // ============================= 페이지 ============================
+    var home =()=>{
     	console.log('nr.home ::');
-    	/*$('<link href="${context}/resources/css/cssnr/fontastic.css" rel="stylesheet">'
-    		+'<link href="${context}/resources/css/cssnr/grasp_mobile_progress_circle-1.0.0.min.css" rel="stylesheet">'
-    		+'<link href="${context}/resources/css/cssnr/style.blue.css" rel="stylesheet">'
-    		+'<link href="${context}/resources/css/cssnr/style.default.css" rel="stylesheet">'
-    		+'<link href="${context}/resources/css/cssnr/style.green.css" rel="stylesheet">'
-    		+'<link href="${context}/resources/css/cssnr/style.pink.css" rel="stylesheet">'
-    		+'<link href="${context}/resources/css/cssnr/style.red.css" rel="stylesheet">'
-    		+'<link href="${context}/resources/css/cssnr/style.sea.css" rel="stylesheet">'
-    		+'<link href="${context}/resources/css/cssnr/style.violet.css" rel="stylesheet">').appendTo($('<head/>'));*/
-       /* let link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = $.ctx()+'/resources/css/cssnr/custom.css';
-    	document.head.appendChild(link);*/
+    	let newMem={src:"https://static.thenounproject.com/png/1892501-200.png",
+        		strong:"New Clients",
+        		span:"새로운 고객 수",
+        		num:"25"
+        		};
+        let strm={src:"https://static.thenounproject.com/png/738103-200.png",
+        		strong:"Streaming count",
+        		span:"스트리밍 수 ",
+        		num:"89083432"
+        		};
+    	$cnts.empty();
+    	section({cls:"dashboard-counts section-padding"}).appendTo($cnts);
+    	cnt({src:"https://static.thenounproject.com/png/1892501-200.png",
+    		strong:"New Clients",
+    		span:"새로운 고객 수",
+    		num:"25"
+    		}).appendTo($("#row"));
+    	cnt({src:"https://static.thenounproject.com/png/738103-200.png",
+    		strong:"Streaming count",
+    		span:"스트리밍 수 ",
+    		num:"89083432"
+    		}).appendTo($("#row"));
+    	section({cls:" d-flex align-items-md-stretch"}).appendTo($cnts);
+    	visit().appendTo($("#row"));
+    };
+    
+    var pref=()=>{
+    	console.log('nr.pref ::');
+    	$('nav.side-navbar').toggleClass('show-sm');
+        $('.page').toggleClass('active-sm');
     	
-        let fontastic = document.createElement('link');
-    		fontastic.rel = 'stylesheet';
-    		fontastic.href = $.ctx()+'/resources/css/cssnr/fontastic.css';	
-        	document.head.appendChild(fontastic);
-    	let linkmobile = document.createElement('link');
-        	linkmobile.rel = 'stylesheet';
-        	linkmobile.href = $.ctx()+'/resources/css/cssnr/grasp_mobile_progress_circle-1.0.0.min.css';
-        	document.head.appendChild(linkmobile);
-    	let blue = document.createElement('link');
-    		blue.rel = 'stylesheet';
-    		blue.href = $.ctx()+'/resources/css/cssnr/style.blue.css';
-    		document.head.appendChild(blue);
-    	let linkdefault = document.createElement('link');
-        	linkdefault.rel = 'stylesheet';
-        	linkdefault.href = $.ctx()+'/resources/css/cssnr/style.default.css';
-    		document.head.appendChild(linkdefault);
-    	let green = document.createElement('link');
-    		green.rel = 'stylesheet';
-    		green.href = $.ctx()+'/resources/css/cssnr/style.green.css';
-    		document.head.appendChild(green);
-    	let pink = document.createElement('link');
-    		pink.rel = 'stylesheet';
-    		pink.href = $.ctx()+'/resources/css/cssnr/style.pink.css';
-    		document.head.appendChild(pink);
-    	let red = document.createElement('link');
-    		red.rel = 'stylesheet';
-    		red.href = $.ctx()+'/resources/css/cssnr/style.red.css';
-    		document.head.appendChild(red);
-    	let sea = document.createElement('link');
-    		sea.rel = 'stylesheet';
-    		sea.href = $.ctx()+'/resources/css/cssnr/style.sea.css';
-    		document.head.appendChild(sea);
-    	let violet = document.createElement('link');
-    		violet.rel = 'stylesheet';
-    		violet.href = $.ctx()+'/resources/css/cssnr/style.violet.css';
-    		document.head.appendChild(violet);
-    		let nrstyle = document.createElement('link');
-    		nrstyle.rel = 'stylesheet';
-    		nrstyle.href = $.ctx()+'/resources/css/cssnr/nrstyle.css';
-    		document.head.appendChild(nrstyle);
-    	
-<<<<<<< HEAD
-    	w.html(sideNav()+nav()+secCount());
-    	secVisit().appendTo($('.page'));
-    	
-    	$('#visitBtn').click(()=>{
-             alert('nr.home.visitBtn::');
-             nr.init();
-        });
-    	$('#prefBtn').click(()=>{
-            alert('nr.home.prefBtn::');
-            w.empty();
-            w.html(sideNav()+nav());
-       });
-    	$('#artistBtn').click(()=>{
-            alert('nr.home.artistBtn::');
-            w.empty();
-       });
-    	$('#hashBtn').click(()=>{
-            alert('nr.home.hashBtn::');
-            w.empty();
-       });
+        $cnts.empty();
+    	section({cls:"forms"}).appendTo($cnts);
+    	period().appendTo($("#row"));
+    	card().appendTo($("#row"));
+    	card().appendTo($("#row"));
+    	card().appendTo($("#row"));
+    	card().appendTo($("#row"));
     	
     };
-	
-    
-	
-	
-	var sideNav =()=>'<!-- Side Navbar -->'
-	+'<nav class="side-navbar">'
-	  +'<div class="side-navbar-wrapper">'
-	    +'<!-- Sidebar Header    -->'
-	    +'<div class="sidenav-header d-flex align-items-center justify-content-center">'
-	      +'<!-- User Info-->'
-	      +'<div class="sidenav-header-inner text-center">'
-	        +'<img src="'+$.img()+'/logo.png" alt="SoundLAB 로고" class="img-fluid rounded-circle">'
-	        +'<h2 class="h5">SoundLAB</h2>'
-	        +'<span>비고</span>'
-	      +'</div>'
-	      +'<!-- Small Brand information, appears on minimized sidebar-->'
-	      +'<div class="sidenav-header-logo"><a href="#" class="brand-small text-center">' 
-	        +'<strong>S</strong><strong class="text-primary">D</strong></a></div>'
-	    +'</div>'
-	    +'<!-- Sidebar Navigation Menus-->'
-	    +'<div class="main-menu">'
-	      +'<h5 class="sidenav-heading">MAIN</h5>'
-	      +'<ul id="side-main-menu" class="side-menu list-unstyled">'                  
-	        +'<li><a id="visitBtn" href="#"> <i class="icon-home"></i>방문통계</a></li>'
-	        +'<li><a id="prefBtn" href="#"> <i class="fa fa-bar-chart"></i>선호도</a></li>'
-	        +'<li><a id="artistBtn" href="#"> <i class="fa fa-bar-chart"></i>아티스트</a></li>'
-	        +'<li><a id="hashBtn" href="#"> <i class="fa fa-bar-chart"></i>해시태그</a></li>'
-	      +'</ul>'
-	    +'</div>'
-	  +'</div>'
-	+'</nav>'
-	;
-	var nav =()=>'<div class="page">'
-    +'<!-- navbar-->'
-    +'<header class="header">'
-      +'<nav class="navbar">'
-        +'<div class="container-fluid">'
-          +'<div class="navbar-holder d-flex align-items-center justify-content-between">'
-            +'<div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"></i></a>' 
-            +'<a href="index.html" class="navbar-brand">'
-                +'<div class="brand-text d-none d-md-inline-block"><span>ADMIN </span><strong class="text-primary">SoundLAB</strong></div></a></div>'
-            +'<ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">'
-             
-            +'<!-- Log out-->'
-              +'<li class="nav-item"><a href="#" class="nav-link logout">' 
-                +'<span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>'
-            +'</ul>'
-          +'</div>'
-        +'</div>'
-      +'</nav>'
-    +'</header>';
-    var secCount =()=> '<!-- Counts Section -->'
-    +'<section class="dashboard-counts section-padding">'
-    +'<div class="container-fluid">'
-      +'<div class="row">'
-        +'<!-- Count item widget-->'
-        +'<div class="col-xl-2 col-md-4 col-6">'
-          +'<div class="wrapper count-title d-flex">'
-            +'<div class="icon"><i class="icon-user"></i></div>'
-            +'<div class="name"><strong class="text-uppercase">New Clients</strong><span>새로운 고객 수</span>'
-              +'<div class="count-number">25</div>'
-            +'</div>'
-          +'</div>'
-        +'</div>'
-        
-      +'</div>'
-    +'</div>'
-  +'</section>';
-    
-  var secVisit=()=>{
-    	/*<!-- Header Section-->
-    	let secV = $('<section>').addClass("dashboard-header section-padding").attr({id:'secV'});
-    	$('<div/>').addClass("container-fluid").appendTo(secV).append(
-			$('<div/>').addClass("row d-flex align-items-md-stretch").append(
-				<!-- Line Chart -->
-		    	$('<div/>').addClass("col-lg-6 col-md-12 flex-lg-last flex-md-first align-self-baseline").append(
-	    			 var whiteCard=$('<div/>').attr({ id : 'whiteCard'}).addClass("card sales-report");
-    			    	whiteCard.html('<h2>방문자 통계</h2>'
-			    			+'<p>차트를 입력해주세요</p>'
-			    			+'<div class="line-chart"></div>'
-			    			+'<canvas id="lineChart"></canvas>').appendTo(lineChart));
-					));
-    	*/
+    var artist=()=>{
+    	console.log('nr.artist ::');
+    	$cnts.empty();
+    	section({cls:"forms"}).appendTo($cnts);
+    	period().appendTo($("#row"));
+    	select().appendTo($("#row"));//자동완성 기능 필요
+    	card().appendTo($("#row"));//12사이즈로 변경 :스트리밍수*좋아요수
+    	card().appendTo($("#row"));//성별에 따른 아티스트 선호도
+    	table().appendTo($("#row"));
     	
-		/*$('<h2/>').addClass("display h4").html("방문자 통계").appendTo($('#whiteCard'));*/
-		/*$('<p/>').html("차트를 입력해주세요").appendTo($('#whiteCard'));
-		$('<div/>').addClass("line-chart").appendTo($('#whiteCard'));
-		$('<canvas/>').attr({id:"lineChart"}).appendTo($('#whiteCard'));*/
-    	
-    	
-    	
-    	/*'<!-- Header Section-->'
-        +'<section class="dashboard-header section-padding">'
-        +'<div class="container-fluid">'
-          +'<div class="row d-flex align-items-md-stretch">'
-            +'<!-- Line Chart -->'
-            +'<div class="col-lg-6 col-md-12 flex-lg-last flex-md-first align-self-baseline">'
-              +'<div class="card sales-report">'
-                +'<h2 class="display h4">방문자 통계</h2>'
-                +'<p> 차트를 입력해주세요 </p>'
-                +'<div class="line-chart">'
-                  +'<canvas id="lineCahrt"></canvas>'
-                +'</div>'
-              +'</div>'
-            +'</div>'
-          +'</div>'
-        +'</div>'
-      +'</section>'
-    	*/
-     /* return secV;*/
-    }  
-  ;
-=======
-    	w.html(sideNav()+nav()+secCount()+secVisit());
-    	
-    	$('#visitBtn').click(()=>{
-             alert('nr.home.visitBtn::');
-             nr.init();
-        });
-    	$('#prefBtn').click(()=>{
-            alert('nr.home.prefBtn::');
-            w.empty();
-            w.html(sideNav()+nav());
-       });
-    	$('#artistBtn').click(()=>{
-            alert('nr.home.artistBtn::');
-            w.empty();
-       });
-    	$('#hashBtn').click(()=>{
-            alert('nr.home.hashBtn::');
-            w.empty();
-       });
     	
     };
-	
+    var hash=()=>{
+    	console.log('nr.hash ::');
+    	$cnts.empty();
+    	$cnts.append(
+    			$('<h1/>').html("==== 해시태그 페이지 ====")
+    			);
+    };
     
-	
-	
-	var sideNav =()=>'<!-- Side Navbar -->'
-	+'<nav class="side-navbar">'
-	  +'<div class="side-navbar-wrapper">'
-	    +'<!-- Sidebar Header    -->'
-	    +'<div class="sidenav-header d-flex align-items-center justify-content-center">'
-	      +'<!-- User Info-->'
-	      +'<div class="sidenav-header-inner text-center">'
-	        +'<img src="'+$.img()+'/logo.png" alt="SoundLAB 로고" class="img-fluid rounded-circle">'
-	        +'<h2 class="h5">SoundLAB</h2>'
-	        +'<span>비고</span>'
-	      +'</div>'
-	      +'<!-- Small Brand information, appears on minimized sidebar-->'
-	      +'<div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">' 
-	        +'<strong>S</strong><strong class="text-primary">D</strong></a></div>'
-	    +'</div>'
-	    +'<!-- Sidebar Navigation Menus-->'
-	    +'<div class="main-menu">'
-	      +'<h5 class="sidenav-heading">MAIN</h5>'
-	      +'<ul id="side-main-menu" class="side-menu list-unstyled">'                  
-	        +'<li><a id="visitBtn" href="#"> <i class="icon-home"></i>방문통계</a></li>'
-	        +'<li><a id="prefBtn" href="#"> <i class="fa fa-bar-chart"></i>선호도</a></li>'
-	        +'<li><a id="artistBtn" href="#"> <i class="fa fa-bar-chart"></i>아티스트</a></li>'
-	        +'<li><a id="hashBtn" href="#"> <i class="fa fa-bar-chart"></i>해시태그</a></li>'
-	      +'</ul>'
-	    +'</div>'
-	  +'</div>'
-	+'</nav>'
-	;
-	var nav =()=>'<div class="page">'
-    +'<!-- navbar-->'
-    +'<header class="header">'
-      +'<nav class="navbar">'
-        +'<div class="container-fluid">'
-          +'<div class="navbar-holder d-flex align-items-center justify-content-between">'
-            +'<div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"></i></a>' 
-            +'<a href="index.html" class="navbar-brand">'
-                +'<div class="brand-text d-none d-md-inline-block"><span>ADMIN </span><strong class="text-primary">SoundLAB</strong></div></a></div>'
-            +'<ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">'
-             
-            +'<!-- Log out-->'
-              +'<li class="nav-item"><a href="#" class="nav-link logout">' 
-                +'<span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>'
-            +'</ul>'
-          +'</div>'
-        +'</div>'
-      +'</nav>'
-    +'</header>';
-    var secCount =()=> '<!-- Counts Section -->'
-    +'<section class="dashboard-counts section-padding">'
-    +'<div class="container-fluid">'
-      +'<div class="row">'
-        +'<!-- Count item widget-->'
-        +'<div class="col-xl-2 col-md-4 col-6">'
-          +'<div class="wrapper count-title d-flex">'
-            +'<div class="icon"><i class="icon-user"></i></div>'
-            +'<div class="name"><strong class="text-uppercase">New Clients</strong><span>새로운 고객 수</span>'
-              +'<div class="count-number">25</div>'
-            +'</div>'
-          +'</div>'
-        +'</div>'
-        
-      +'</div>'
-    +'</div>'
-  +'</section>';
+ // ============================= 구성 ============================
+    var table=()=>{
+    	let tbl=$('<table/>').addClass("table table-striped").append(
+    			$('<thead/>').append(
+    					$('<tr/>').append(
+	    					$('<th/>').html("#"),
+	    					$('<th/>').html("검색어"),
+	    					$('<th/>').html("검색횟수"),
+	    					$('<th/>').html("구분")
+	    					)),
+				$('<tbody/>').append(
+						//반복
+						$('<tr/>').append(
+							$('<th scope="row"/>').html("x.1"),
+	    					$('<td/>').html("x.방탄소년단"),
+	    					$('<td/>').html("x.123건"),
+	    					$('<td/>').html("x.아티스트")
+    					),
+    					$('<tr/>').append(
+    							$('<th scope="row"/>').html("x.2"),
+    	    					$('<td/>').html("x.BTS"),
+    	    					$('<td/>').html("x.765건"),
+    	    					$('<td/>').html("x.아티스트")
+        					),
+    					$('<tr/>').append(
+    							$('<th scope="row"/>').html("x.3"),
+    	    					$('<td/>').html("x.IDOL"),
+    	    					$('<td/>').html("x.555건"),
+    	    					$('<td/>').html("x.노래")
+        					)
+					)
+    	);
+    	let tdiv=$('<div/>').addClass("col-lg-6").append(
+    			$('<div/>').addClass("card").append(
+    					$('<div/>').addClass("card-header").append(
+    							$('<h4/>').html("x.테이블이름")),
+						$('<div/>').addClass("card-body").append(
+								$('<div/>').attr({id:"tblRes"}).addClass("table-responsive").append(tbl))
+					)
+				);
+    	return tdiv;
+    };
     
-  var secVisit=()=>{
-    	return '<!-- Header Section-->'
-        +'<section class="dashboard-header section-padding">'
-        +'<div class="container-fluid">'
-          +'<div class="row d-flex align-items-md-stretch">'
-            +'<!-- Line Chart -->'
-            +'<div class="col-lg-6 col-md-12 flex-lg-last flex-md-first align-self-baseline">'
-              +'<div class="card sales-report">'
-                +'<h2 class="display h4">방문자 통계</h2>'
-                +'<p> 차트를 입력해주세요 </p>'
-                +'<div class="line-chart">'
-                  +'<canvas id="lineCahrt"></canvas>'
-                +'</div>'
-              +'</div>'
-            +'</div>'
-          +'</div>'
-        +'</div>'
-      +'</section>';
-  }; 
->>>>>>> refs/remotes/origin/master
+    
+	var section=x=>{
+		console.log(x.cls);
+		return $('<section/>').addClass(x.cls).append(
+					$('<div/>').addClass("container-fluid").attr({id:"conflu"}).append(
+						$('<div/>').attr({id:"row"}).addClass("row")));
+	};
+	
+    var period=()=>{
+    	let period = 
+    		$('<div/>').attr({id:'periodcard'}).addClass("card").appendTo($cnts);
+    	$('<div/>').attr({id:'period'}).addClass("card-body").appendTo($('#periodcard'));
+				$('<form/>').addClass("form-inline").attr({id:'periodForm'}).appendTo($('#period'));
+					$('<div/>').addClass("form-group").attr({id:'startDiv'}).appendTo($('#periodForm'));
+						$('<input/>').attr({type:'date', name:'startDate', id:'startDate'}).addClass("mr-3 form-control").appendTo($('#startDiv'));
+					$('<div/>').addClass("form-group").attr({id:'endDiv'}).appendTo($('#periodForm'));
+						$('<input/>').attr({type:'date', name:'endDate', id:'endDate'}).addClass("mr-3 form-control").appendTo($('#endDiv'));
+					$('<div/>').addClass("form-group").attr({id:'submitDiv'}).appendTo($('#periodForm'));
+						$('<button/>').addClass("mr-3 btn btn-primary").attr({id:"submitBtn", type:"btn"})
+						.html('조회').appendTo($('#submitDiv'));
+        return period;
+    }
+    
+    var select=()=>{
+    	let sel = $('<div/>').addClass("form-group row").append(
+    			$('<label/>').addClass("col-sm-2 form-control-label").html("아티스트 선택"),
+    			$('<div/>').addClass("col-sm-3 mb-3").append(
+    					$('<select/>').addClass("form-control").attr({name:"account"}).append(
+    					$('<option/>').html("방탄소년단"),
+    					$('<option/>').html("아이유"),	
+    					$('<option/>').html("선미"),	
+    					$('<option/>').html("먼데이키즈")	
+    					))
+    					);
+    	
+    		/*//서치 = input타입
+    		$('<div/>').addClass("navbar-form navbar-left").append(
+    			$('<div/>').addClass("form-group").append(
+    					$('<input/>').addClass("form-control").attr({type:"text",placeholder:"Search for artist"})),
+				$('<button/>').addClass("mr-3 btn btn-primary").attr({type:"submit"}).html("Search")
+    					);
+    	*/
+    	
+    	return sel;
+    };
+    
+    
+    
+   /* var cnt=()=>$('<div/>').addClass("col-md-4 col-6").append(
+			$('<div/>').addClass("wrapper count-title d-flex").append(
+				$('<div/>').addClass("icon").append(
+					$('<i/>').addClass("fa fa-user")	
+				),
+				$('<div/>').addClass("name").append(
+					$('<strong/>').addClass("text-uppercase").html("New Clients"),
+					$('<br/>'),
+					$('<span/>').html("새로운 고객 수"),
+					$('<div/>').addClass("count-number").html("25")
+				)
+			));*/
+    
+    
+    
+    
+    var cnt=x=>$('<div/>').addClass("col-md-6").append(
+			$('<div/>').addClass("wrapper count-title d-flex").append(
+					$('<div/>').addClass("col-md-3").append(
+						$('<img/>').addClass("main-img").attr({src:x.src})
+					),
+					$('<div/>').addClass("name col-md-3").append(
+						$('<strong/>').addClass("text-uppercase").html(x.strong),
+						$('<br/>'),
+						$('<span/>').html(x.span),
+						$('<div/>').addClass("count-number").html(x.num)
+					)
+			));
+    
+	var visit=()=>{
+		console.log('visitSec 진입');
+		let visit=
+			$('<div/>').addClass("col-lg-12 flex-lg-last flex-md-first align-self-baseline").append(
+				$('<div/>').addClass("card sales-report").append(
+						$('<h2/>').addClass("display h4").html("방문자 통계"),
+						$('<p/>').html("차트를 입력해주세요"),
+						$('<div/>').addClass("line-chart").append(
+								$('<canvas/>').attr({id:"lineCahrt"}))));
+		return visit;
+	};
+	
+	//size:6, title:~~분석, 
+	var card=()=>{
+		let card=$('<div/>').addClass("col-lg-6").append(
+				$('<div/>').addClass("card line-chart-example").append(
+				$('<div/>').addClass("card-header d-flex align-items-center").append(
+						$('<h4/>').html("x.card title")
+						),
+				$('<div/>').addClass("card-body").append(
+						$('<canvas/>').attr({id:"lineChartExample"}))
+				)
+			);
+		return card;
+	};
+    
+ // =============================기본 구성  : 네비, 헤더 ============================
+	var nav = ()=>{
+		console.log('nr.nav ::');
+		let $nav = $('<nav/>');
+		 $($nav).addClass("side-navbar").append(
+			$('<div/>').addClass("side-navbar-wrapper").append(
+				$('<div/>').addClass("sidenav-header d-flex align-items-center justify-content-center").append(
+					$('<div/>').addClass("sidenav-header-inner text-center").append(
+						$('<img/>').addClass("img-fluid rounded-circle").attr({
+							src:$.img()+"/logo.png",
+							alt:"SoundLAB 로고",
+						}),
+						$('<h2/>').addClass("h5").html("SoundLAB"),
+						$('<span/>').html("관리자 페이지")
+					),
+					$('<div/>').addClass("sidenav-header-logo").append(
+						$('<a/>').addClass("brand-small text-center").attr({href:"#"}).append(
+							$('<strong/>').html("S"),
+							$('<strong/>').addClass("text-primary").html("L")
+						)
+					)
+							
+				),
+				$('<div/>').addClass("main-menu").append(
+						$('<h5/>').addClass("sidenav-heading").html("MAIN"),
+						$('<ul/>').addClass("side-menu list-unstyled").attr({id:"side-main-menu"}).append(
+							$('<li/>').append(
+								$('<a/>').attr({id:"visitBtn", href:"#"}).append(
+									$('<i/>').addClass("fa fa-bar-chart").html('  방문통계'))),
+							$('<li/>').append(
+								$('<a/>').attr({id:"prefBtn", href:"#"}).append(
+									$('<i/>').addClass("fa fa-bar-chart").html('  선호도'))),
+							$('<li/>').append(
+								$('<a/>').attr({id:"artistBtn", href:"#"}).append(
+									$('<i/>').addClass("fa fa-bar-chart").html('  아티스트'))),
+							$('<li/>').append(
+								$('<a/>').attr({id:"hashBtn", href:"#"}).append(
+									$('<i/>').addClass("fa fa-bar-chart").html('  해시태그')))
+						)
+					)
+			)		
+		);
+		return $nav;
+	};
+	var hdr =()=>{
+		let $header =$('<header/>').addClass("header");
+		let $nav = $('<nav/>').appendTo($header);
+		$nav.addClass("navbar").append(
+			$('<div/>').addClass("container-fluid").append(
+				$('<div/>').addClass("navbar-holder d-flex align-items-center justify-content-between").append(
+					$('<div/>').addClass("navbar-header").append(
+						$('<a/>').addClass("menu-btn").attr({id:"toggle-btn",href:"#"}).append(
+							$('<i/>').addClass("fa fa-bars")).attr({style:"font-size:20px"}),
+						$('<a/>').addClass("navbar-brand").attr({href:"#"}).append(
+							$('<div/>').addClass("brand-text d-none d-md-inline-block").append(
+								$('<span/>').html("ADMIN"),
+								$('<strong/>').addClass("text-primary").html("SoundLAB")))
+					),
+					$('<ul/>').addClass("nav-menu list-unstyled d-flex flex-md-row align-items-md-center").append(
+						$('<li/>').addClass("nav-item").append(
+							$('<a/>').addClass("nav-link logout").attr({id:"logoutBtn",href:"#",style:"float:right"}).append(
+								$('<span/>').addClass("d-none d-sm-inline-block").html("Logout")
+								.click(e=>{
+									$('#pinkcss').remove();
+									$('#nrcss').remove();
+									sh.service.login();
+								}),
+								$('<i/>').addClass("fa fa-sign-out")
+							)))
+				)
+			)
+		);
+		return $header;
+	};
+	
 	return {
 		init : init
 	};
 })();
-
-

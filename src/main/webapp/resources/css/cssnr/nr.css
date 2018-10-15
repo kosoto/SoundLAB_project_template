@@ -1,0 +1,49 @@
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ======== 관리자 달력 */
+/*datepicer 버튼 롤오버 시 손가락 모양 표시*/
+.ui-datepicker-trigger{cursor: pointer;}
+/*datepicer input 롤오버 시 손가락 모양 표시*/
+.hasDatepicker{cursor: pointer;}
+
+.mr-3{margin-right:1rem!important}
+
+input[type=date]{-webkit-apprearance:listbox}
+
+
+
+ 						@media screen and (prefers-reduced-motion:reduce){
+ 							.btn{transition:none}}
+ 							.btn:focus,
+ 							.btn:hover{text-decoration:none}
+ 						.btn.focus,.btn:focus{
+ 							outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
+ 							.btn.disabled,.btn:disabled{opacity:.65}
+ 							.btn:not(:disabled):not(.disabled){cursor:pointer}
+ 							a.btn.disabled,fieldset:disabled a.btn{pointer-events:none}
+ 							.btn-primary{color:#fff;background-color:#007bff;border-color:#007bff}
+ 							.btn-primary:hover{color:#fff;background-color:#0069d9;border-color:#0062cc}
+ 							.btn-primary.focus,.btn-primary:focus{box-shadow:0 0 0 .2rem rgba(0,123,255,.5)}
+ 							.btn-primary.disabled,.btn-primary:disabled{color:#fff;background-color:#007bff;border-color:#007bff}
+ 							.btn-primary:not(:disabled):not(.disabled).active,
+ 							.btn-primary:not(:disabled):not(.disabled):active,
+ 							.show>.btn-primary.dropdown-toggle{color:#fff;background-color:#0062cc;border-color:#005cbf}
+ 							.btn-primary:not(:disabled):not(.disabled).active:focus,
+ 							.btn-primary:not(:disabled):not(.disabled):active:focus,
+ 							.show>.btn-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(0,123,255,.5)}
+ 							
+ 							
+/* 방문통계 이미지*/					
+.main-img{
+	height:70px;
+	width:auto;
+} 							
+
+ 							
+ 							
