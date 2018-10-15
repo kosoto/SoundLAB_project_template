@@ -1,5 +1,5 @@
 
-/* ¸ÇÀ§ ³×ºñ¹Ú½º */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½×ºï¿½Ú½ï¿½ */
 #jt_nav-box{
 	padding-top: 30px;
 }
@@ -8,62 +8,62 @@
 	padding-top: 50px;
 }
 
-/* ³»¿ëµé */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ */
 #jt_content{
 	padding-top: 50px;
 	margin-top: 5px;
 }
 
-/* °îÂ÷Æ® */
+/* ï¿½ï¿½ï¿½ï¿½Æ® */
 #jt_search_music{
 	padding-top: 30px;
 }
 
-/* °îÂ÷Æ® Å×ÀÌºí */
+/* ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ìºï¿½ */
 #jt_music_tb{
 	padding-top: 20px;
 }
 
-/* ¼­Ä¡¾Ù¹ü */
+/* ï¿½ï¿½Ä¡ï¿½Ù¹ï¿½ */
 #jt_search_album{
 	padding-top: 30px;
 }
 
-/* ¼­Ä¡¿µ»ó */
+/* ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ */
 #jt_search_mv{
 	padding-top: 30px;
 }
 
 
-/* ¸ð¼­¸® µ¿±×¶õ ÀÌ¹ÌÁö */
+/* ï¿½ð¼­¸ï¿½ ï¿½ï¿½ï¿½×¶ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ */
 .img-rounded{
 	width: 150px;
 	height: auto;
 }
 
-/* ¾Ù¹üµðÅ×ÀÏ */
+/* ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .jt_album_detail{
 	 cursor: pointer;
 }
 
-/* ´ñ±Û µî·Ï¹öÆ° */
+/* ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¹ï¿½Æ° */
 #jt_cmt_bt{
 	margin-bottom: 5px;
 }
 
-/* Á¶È¸¼ö */
+/* ï¿½ï¿½È¸ï¿½ï¿½ */
 #jt_cmt_counts{
 	 margin-right: 850px;
 	 margin-left: 10px; 
 }
 
-/* ÃÖ½Å¼ö ÃßÃµ¼ö ´ä±Û¼ø */
+/* ï¿½Ö½Å¼ï¿½ ï¿½ï¿½Ãµï¿½ï¿½ ï¿½ï¿½Û¼ï¿½ */
 .jt_cmt_array{
     margin-right: 10px;
     cursor: pointer;
 }
 
-/* ´ñ±Û ÀÐ±â ÇÁ·ÎÇÊ */
+/* ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .img-circle{
 	width: 100px;
 	height: auto;
@@ -72,23 +72,23 @@
 	
 }
 
-/* ³ë·¡ÁÁ¾Æ¿ä */
+/* ï¿½ë·¡ï¿½ï¿½ï¿½Æ¿ï¿½ */
 .jt_user_content{
 	margin: 0px 650px 0px 0px;
 }
 
-/* ÁÁ¾Æ¿ä ¹öÆ° */
+/* ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½Æ° */
 .jt_user_up{
 	margin-top: 20px;
 	margin-left: 10px; 
 }
 
-/* ½È¾î¿ä ¹öÆ° */
+/* ï¿½È¾ï¿½ï¿½ ï¿½ï¿½Æ° */
 .jt_user_down{
 	margin-left: 20px; 
 }
 
-/* À¥ÇÃ·¹ÀÌ¾î ·Î°í */
+/* ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Î°ï¿½ */
 #jt_logo_img{
  	display: block;
     width: 70px;
@@ -350,7 +350,7 @@
 	width: 50px;
 }
 
-/* À¥ÇÃ·¹ÀÌ¾î ¿À¸¥ÂÊ */
+/* ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .jt_playerOption{
 	position: relative;
     float: right;
@@ -483,7 +483,7 @@
     left: 0;
 }
 
-/* °îÂ÷Æ® */
+/* ï¿½ï¿½ï¿½ï¿½Æ® */
 .jt_tale table-filter {
 	width: 100%;
 	height : 100%;
