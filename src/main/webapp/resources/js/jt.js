@@ -1,12 +1,12 @@
 "use strict";
 var jt = jt || {};
 jt ={
-		search :()=>{
+		search :x=>{
 			let $cnts = $('#contents');
 			$cnts.empty();
 			let $searchSec = $('<section/>').attr({ id : 'searchSec'});
 			$searchSec.appendTo($cnts);
-			$('<div/>').attr({id : 'jt_search'}).addClass('container').html({id:'artistName',txt:'에 대한 검색결과'}).appendTo($searchSec);
+			$('<div/>').attr({id : 'jt_search'}).addClass('container').html(x+' 에 대한 검색결과').appendTo($searchSec);
 			//navbar
 			$('<div/>').attr({id : 'jt_nav-box'}).addClass('container').appendTo($searchSec);
 			$('<ul/>').attr({id : 'jt_nav'}).addClass('nav nav-tabs border-bottom-0').appendTo($('#jt_nav-box'));
@@ -83,8 +83,8 @@ jt ={
 			.addClass('img-rounded')
 			.appendTo($('#jt_search_dt'));
 			$('<div/>').attr({id : 'jt_search_body'}).addClass('media-body').appendTo($('#jt_search_dt'));
-			$('<h4/>').html('선미').appendTo($('#jt_search_body'));
-			$('<p/>').html('국적 : 대한민국').appendTo($('#jt_search_body'));
+			$('<h4/>').html(x).appendTo($('#jt_search_body'));
+			$('<p/>').html('국적 : '+x.nation).appendTo($('#jt_search_body'));
 			$('<p/>').html('활동유형 : 여성,솔로').appendTo($('#jt_search_body'));
 			$('<p/>').html('생일 : 1992.05.02').appendTo($('#jt_search_body'));
 			$('<p/>').html('생일 : 1992.05.02').appendTo($('#jt_search_body'));

@@ -60,24 +60,12 @@ sh = (()=>{
     	 });
     	 $('#searchInput').keyup(e=>{
     		 if(e.keyCode == 13) { 
-    			 alert('서치검색:::'+$('#artistName').val());
-    			 $.ajax({
-    				 url: $.ctx()+'/service/search'+$('#artistName').val(),
-    				 method: 'get',
-    				 contentType: 'application/json',
-    				 data: JSON.stringify({
-    					 artistName : $artistName.val()
-    					}),
-    				 sucess : d=>{
-    					 jt.search();
-    				 },
-    				 error : (m1,m2,m3)=>{
-    					 alert('에러발생1'+m1);
-    					 alert('에러발생2'+m2);
-    					 alert('에러발생3'+m3);
-    				 }
-    				 
-    			 })
+    			 alert('서치검색:::'+$('#searchInput').val());
+    			 alert('서치 url :::'+sh.ctx()+'/service/search');
+    			 $.getJSON(sh.ctx()+'/service/artist/'+$('#searchInput').val(),d=>{
+    				 alert('성공:::아티스트이름::'+d.artistName);
+					 jt.search(d.artistName);
+    			 });
     			
     			 fn.scroll({ id : $("#jt_search"), len : 400});
 
