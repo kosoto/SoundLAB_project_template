@@ -217,7 +217,9 @@ sj ={
 			let $foryouSec = $('<section/>').attr({id:'foryouSec'});
 			$foryouSec.appendTo($('#contents'));
 			
-			$('<div/>').addClass('container').appendTo($foryouSec);
+			$('<div/>').addClass('container').appendTo($foryouSec).append(
+					
+			);
 			
 			$('<p/>').html('이런 노래는 어떠세요 ?').appendTo($foryouSec);
 			// #music start

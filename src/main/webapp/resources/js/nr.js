@@ -226,7 +226,7 @@ nr = (()=>{
 					$('<span/>').html("새로운 고객 수"),
 					$('<div/>').addClass("count-number").html("25")
 				)
-			));*/
+			));dd*/
     
     
     

@@ -177,7 +177,7 @@ font-family: 'Do Hyeon', sans-serif;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 9999;
     background: #fff;
     padding-top:0rem;
 }
