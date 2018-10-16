@@ -1042,6 +1042,7 @@ INSERT INTO MUSIC(
 )
 VALUES(
  68,'어젯밤 이야기',33, 9, 3);
+
  
 ALTER TABLE MUSIC CHANGE MUSIC_TITLE MUSIC_TITLE VARCHAR(50) NOT NULL; 
 INSERT INTO MUSIC(
@@ -1384,16 +1385,162 @@ VALUES(
  
  
  
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+1,'트와이스_Summer_Magic','jpg', 48);
+ 
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+2,'10cm_4_1','jpg', 49); 
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+3,'볼빨간사춘기_Red_Diary','jpg', 50); 
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+4,'마마무_RED_MOON','jpg', 51); 
  
  
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+5,'IU_꽃갈피_둘','jpg', 33);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+6,'IU_삐삐','jpg', 31);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+7,'빈지노_24_26','jpg', 30);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+8,'선미_WARNING','jpg', 29);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+9,'선미_주인공','jpg', 35);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+10,'임창정_하루도_그대를','jpg', 34); 
  
  
+INSERT INTO IMG( IMG_SEQ, IMG_NAME, EXT, SEQ )VALUES(
+11,'선미_가시나','jpg',36
+);
+INSERT INTO IMG( IMG_SEQ, IMG_NAME, EXT, SEQ )VALUES(
+12,'방탄소년단_LY_結_Answer','jpg',37
+);
+INSERT INTO IMG( IMG_SEQ, IMG_NAME, EXT, SEQ )VALUES(
+13,'에이핑크_ONE&SIX','jpg',38
+);
+INSERT INTO IMG( IMG_SEQ, IMG_NAME, EXT, SEQ )VALUES(
+14,'로꼬_시간이들겠지','jpg',39
+);
+INSERT INTO IMG( IMG_SEQ, IMG_NAME, EXT, SEQ )VALUES(
+15,'VIBE_가을타나봐','jpg',40
+);
+INSERT INTO IMG( IMG_SEQ, IMG_NAME, EXT, SEQ )VALUES(
+16,'IKON_NEW_KIDS','jpg',41
+); 
+
+
+UPDATE IMG
+SET EXT = 'jpg'
+WHERE IMG_SEQ = 21;
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+17,'박원_이방인','jpg', 52);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+18,'윤종신_좋니','jpg', 53);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+19,'벤_IfYouWereMe','jpg', 54);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+20,'박효신_Gift','jpg', 55);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+21,'장범준_2집','jpg', 56);
  
- 
- 
- 
- 
- 
- 
- 
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ)
+VALUES(
+22,'로이킴_그때_헤어지면_돼','jpg', 42);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ)
+VALUES(
+23,'폴킴_모든_날_모든_순간','jpg', 43);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+24,'블랙핑크_SQUARE_UP','jpg', 44
+);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+25,'트와이스_Summer_Nights','jpg', 45
+);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+26,'먼데이키즈_가을안부','jpg', 46
+);
+
+INSERT INTO IMG(
+IMG_SEQ, IMG_NAME, EXT, SEQ
+)
+VALUES(
+27,'멜로망스_The_Fairy_Tale','jpg', 47
+);
+
+
+
+ALTER TABLE updown CHANGE LIKE_SEQ UD_SEQ INT NOT NULL;
  
