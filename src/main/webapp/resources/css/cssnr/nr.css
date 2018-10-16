@@ -44,6 +44,58 @@ input[type=date]{-webkit-apprearance:listbox}
 	height:70px;
 	width:auto;
 } 							
+/*
+* ==========================================================
+*     GENERAL
+* ==========================================================
+*/
+.text-uppercase {
+  letter-spacing: 0.2em;
+}
 
- 							
- 						
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+i {
+  display: inline-block;
+}
+
+span {
+  display: inline-block;
+}
+
+table {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transition: width 0.3s linear;
+  transition: width 0.3s linear;
+  width: calc(100% - 200px);
+  background-color: #F4F7FA;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.page.active {
+  width: calc(100% - 70px);
+}
+
+h2 {
+  color: #555;
+  font-weight: 400;
+}
+
+
+
