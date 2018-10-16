@@ -257,7 +257,7 @@ jt ={
 			$('<tbody/>').append(
 			$('<tr/>').attr({id : 'jt_td_th'}).append(
 			$('<td/>').append(
-				$('<th/>').addClass('ckbox').append(
+				$('<th/>').addClass('jt_ckbox').append(
 						$('<input/>').attr({type : 'checkbox', id :'allCheck' }),
 								$('<label for="allCheck">')	
 									)
@@ -283,7 +283,7 @@ jt ={
 				
 				$('<tr/>').append(
 						$('<td/>').append(
-								$('<div/>').addClass('ckbox').append(
+								$('<div/>').addClass('jt_ckbox').append(
 										$('<input/>').attr({type : 'checkbox', id :'checkbox'+i, name :'chk'}),
 										$('<label for="checkbox'+i+'">') 
 								)
