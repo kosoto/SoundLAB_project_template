@@ -48,7 +48,7 @@ nr = (()=>{
             nr.init();
        });
     	$('#visitBtn').click(()=>{
-            nr.init();
+            home();
        });
     	$('#prefBtn').click(()=>{
             pref();
@@ -64,7 +64,7 @@ nr = (()=>{
     // ============================= 페이지 ============================
     var home =()=>{
     	console.log('nr.home ::');
-    	let newMem={src:"https://static.thenounproject.com/png/1892501-200.png",
+    	/*let newMem={src:"https://static.thenounproject.com/png/1892501-200.png",
         		strong:"New Clients",
         		span:"새로운 고객 수",
         		num:"25"
@@ -73,7 +73,7 @@ nr = (()=>{
         		strong:"Streaming count",
         		span:"스트리밍 수 ",
         		num:"89083432"
-        		};
+        		};*/
     	$cnts.empty();
     	section({cls:"dashboard-counts section-padding"}).appendTo($cnts);
     	cnt({src:"https://static.thenounproject.com/png/1892501-200.png",
@@ -110,7 +110,7 @@ nr = (()=>{
 
     	section({cls:"forms"}).appendTo($cnts);
     	period().appendTo($("#row"));
-    	select().appendTo($("#row"));//자동완성 기능 필요
+    	select().appendTo($("#row"));
     	card().appendTo($("#row"));//12사이즈로 변경 :스트리밍수*좋아요수
     	card().appendTo($("#row"));//성별에 따른 아티스트 선호도
     	table().appendTo($("#row"));
@@ -119,12 +119,97 @@ nr = (()=>{
     var hash=()=>{
     	console.log('nr.hash ::');
     	$cnts.empty();
-    	$cnts.append(
-    			$('<h1/>').html("==== 해시태그 페이지 ====")
-    			);
+    	$('<h2/>').html("==== 해시태그 페이지 ====").appendTo($cnts);
+    	section({cls:"forms"}).appendTo($cnts);
+    	$('<div/>').attr({id:"chart_div"}).appendTo($("#row"));
+    	/*$cnts.append(
+    			$('<h2/>').html("==== 해시태그 페이지 ===="),
+    			$('<div/>').attr({id:"chart_div"})
+    			);*/
+    	hashtree();
+    	
+    	
+    	/*<div id="chart_div"></div>*/
     };
     
  // ============================= 구성 ============================
+    
+    /* ============= 해시트리 ============= */
+    var hashtree=()=>{
+    	 google.charts.load('current', {'packages':['treemap']});
+    	 google.charts.setOnLoadCallback(drawChart);
+         function drawChart() {
+         var data = new google.visualization.DataTable();
+         data.addColumn('string', 'ID');
+         data.addColumn('string', 'Parent');
+         data.addColumn('number', 'Number Of Lines');
+         data.addRows([
+           ['해시태그', null, 0],
+           ['뮤직스타일', '해시태그', null],
+           ['계절&날씨', '해시태그', null],
+           ['상황&장소', '해시태그', null],
+           ['감정&기분', '해시태그', null],
+           ['장르', '해시태그', null],
+     			
+           ['신나는', '뮤직스타일', 32],
+           ['트로피컬', '뮤직스타일', 78],
+           ['잔잔한', '뮤직스타일', 56],
+           ['어쿠스틱', '뮤직스타일', 23],
+           ['열정적인', '뮤직스타일', 49],
+           ['감성적인', '뮤직스타일', 51],
+   				
+           ['봄', '계절&날씨', 21],
+           ['여름', '계절&날씨', 56],
+           ['가을', '계절&날씨', 49],
+           ['겨울', '계절&날씨', 29],
+           ['눈오는날', '계절&날씨', 11],
+           ['비오는날', '계절&날씨', 25],
+                   
+           ['드라이브', '상황&장소', 78],
+           ['출근', '상황&장소', 23],
+           ['휴식', '상황&장소', 46],
+           ['독서', '상황&장소', 31],
+           ['헬스', '상황&장소', 57],
+           ['편집숍', '상황&장소', 33],
+           ['카페', '상황&장소', 29],
+           ['클럽', '상황&장소', 61],
+           
+           ['사랑/기쁨', '감정&기분', 46],
+           ['스트레스', '감정&기분', 89],
+           ['이별', '감정&기분', 42],
+           ['고백', '감정&기분', 35],
+           ['새벽', '감정&기분', 57],
+           ['눈물', '감정&기분', 28],
+           ['기분전환', '감정&기분', 51],
+           
+           ['가요', '장르', 76],
+           ['Pop', '장르', 52],
+           ['R&B', '장르', 41],
+           ['OST', '장르', 24],
+           ['Hiphop', '장르', 69],
+           ['Classic', '장르', 11],
+         ]);
+         var tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+         var options = {
+           highlightOnMouseOver: true,
+           fontSize: 20,
+           maxDepth: 1,
+           maxPostDepth: 2,
+           minColor: '#edf8fb',
+           midColor: '#9ebcda',
+           maxColor: '#8c6bb1',
+           headerHeight: 15,
+           showScale: true,
+           height: 500,
+           useWeightedAverageForAggregation: true
+         };
+           tree.draw(data, options);
+         }
+    	/* ============= 해시트리 ============= */
+    	 
+    	 
+    };
+    
     var table=()=>{
     	let tbl=$('<table/>').addClass("table table-striped").append(
     			$('<thead/>').append(
@@ -350,3 +435,4 @@ nr = (()=>{
 		init : init
 	};
 })();
+//수정
