@@ -4,10 +4,8 @@ sj ={
 		dj : ()=>{
 			if(!($("#djSec").length >0)){   //exist
 		
-				let $contents = $('#contents');
 				let $djSec = $('<section/>').attr({id:'djSec'});
-				$djSec.appendTo($contents);
-				/*$('#contents').html($djSec);*/
+				$djSec.appendTo($('#contents'));
 				
 				$('<div/>').addClass('container').appendTo($djSec).append(
 						
@@ -213,13 +211,14 @@ sj ={
 			}
 		},
 		forYou : ()=>{
-
 			console.log('sj forYou');
 			if(!($("#foryouSec").length >0)){   //exist
-			let $contents = $('#contents');
+				
 			let $foryouSec = $('<section/>').attr({id:'foryouSec'});
-			$foryouSec.appendTo($contents);
-			/*$('#contents').html($foryouSec);*/
+			$foryouSec.appendTo($('#contents'));
+			
+			$('<div/>').addClass('container').appendTo($foryouSec);
+			
 			$('<p/>').html('이런 노래는 어떠세요 ?').appendTo($foryouSec);
 			// #music start
 			$('<div/>').attr({id:'music'}).appendTo($foryouSec);
