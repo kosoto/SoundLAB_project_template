@@ -53,13 +53,32 @@ sh = (()=>{
          });
         
          $('#searchBtn').click(e=>{
+     /*   	 alert('서치검색22:::'+$('#artistName').val());*/
     		 jt.search();
     		 fn.scroll({ id : $("#jt_search"), len : 400});
 
     	 });
     	 $('#searchInput').keyup(e=>{
     		 if(e.keyCode == 13) { 
-    			 jt.search();
+    			 alert('서치검색:::'+$('#artistName').val());
+    			 $.ajax({
+    				 url: $.ctx()+'/service/search'+$('#artistName').val(),
+    				 method: 'get',
+    				 contentType: 'application/json',
+    				 data: JSON.stringify({
+    					 artistName : $artistName.val()
+    					}),
+    				 sucess : d=>{
+    					 jt.search();
+    				 },
+    				 error : (m1,m2,m3)=>{
+    					 alert('에러발생1'+m1);
+    					 alert('에러발생2'+m2);
+    					 alert('에러발생3'+m3);
+    				 }
+    				 
+    			 })
+    			
     			 fn.scroll({ id : $("#jt_search"), len : 400});
 
     		 } 
