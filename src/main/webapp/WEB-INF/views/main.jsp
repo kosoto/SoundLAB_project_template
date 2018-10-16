@@ -10,7 +10,6 @@
      <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-
      <link href="${context}/resources/css/sh.css" rel="stylesheet">
      <link href="${context}/resources/css/jt.css" rel="stylesheet">
      <link href="${context}/resources/css/ls.css" rel="stylesheet">
