@@ -10,7 +10,6 @@
      <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-
      <link href="${context}/resources/css/sh.css" rel="stylesheet">
      <link href="${context}/resources/css/jt.css" rel="stylesheet">
      <link href="${context}/resources/css/ls.css" rel="stylesheet">
@@ -20,13 +19,10 @@
 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	 <script src="${context}/resources/js/app.js"></script>
-	 <!-- 관리자 달력  -->
-	 
-	<!--  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-	 
-	 
+	
+	 <!-- 해시태그 수정-->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
 </head>
 <body data-spy="scroll" data-target="#header">
 <div id="wrapper"></div>
