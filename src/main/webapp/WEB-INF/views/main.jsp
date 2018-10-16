@@ -20,7 +20,7 @@
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	 <script src="${context}/resources/js/app.js"></script>
 	
-	 <!-- 해시태그  -->
+	 <!-- 해시태그 수정-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	
 </head>
