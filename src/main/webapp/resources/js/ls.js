@@ -374,7 +374,7 @@ ls ={
 													// 밑에 dj detail 열리는 event 걸기
 												});
 											});
-	
+	//
 			  	$('<a/>')
 				.attr({href:'#alCarousel', 'data-slide':'prev'})
 				.addClass('left carousel-control')
