@@ -25,9 +25,59 @@ sh = (()=>{
      var home =()=>{
          console.log('sh.home ::');
 	     w.html(nav()+banner()+cloud()+topFive()+footer());
+         /*w.html(nav()+footer());*/
+         /*-------------------banner--------------------*/
+ 		/*$('<div/>').addClass('section_banner').attr({id:"section_banner"}).appendTo($('#contents'));
+ 		$('<div/>').addClass('carousel slide').attr({id:'carousel-example-generic','data-ride':'carousel'}).appendTo($('#section_banner'));
+ 		
+ 		($('<ol/>').addClass('carousel-indicators').append(
+ 					$('<li/>').attr({'data-target':'#carousel-example-generic', 'data-slide-to':'0'}).addClass('active'),
+ 					$('<li/>').attr({'data-target':'#carousel-example-generic', 'data-slide-to':'1'}),
+ 					$('<li/>').attr({'data-target':'#carousel-example-generic', 'data-slide-to':'2'}),
+ 					$('<li/>').attr({'data-target':'#carousel-example-generic', 'data-slide-to':'3'}),
+ 					$('<li/>').attr({'data-target':'#carousel-example-generic', 'data-slide-to':'4'})
+ 		)).appendTo($('#carousel-example-generic'));
+ 		
+ 		($('<div/>').addClass('carousel-inner').attr({role:'listbox'}).append(
+ 				$('<div/>').addClass('item active').append(
+ 						$('<img/>').attr({src : $img+'/banner1.jpg'})),
+ 				$('<div/>').addClass('item').append(
+ 						$('<img/>').attr({src: $img+'/banner1.jpg'})),
+ 				$('<div/>').addClass('item').append(
+ 						$('<img/>').attr({src: $img+'/banner1.jpg'})),
+ 				$('<div/>').addClass('item').append(
+ 						$('<img/>').attr({src: $img+'/banner1.jpg'})),
+ 				$('<div/>').addClass('item').append(
+ 						$('<img/>').attr({src: $img+'/banner1.jpg'}))
+ 		)).appendTo($('#carousel-example-generic'));
+ 		
+ 		($('<a/>').addClass('left carousel-control')
+ 		.attr({href:'#carousel-example-generic', role:'button','data-slide':'prev'}).append(
+ 				$('<span/>').addClass('glyphicon glyphicon-chevron-left').attr({'aria-hidden':'true'}),
+ 				$('<span/>').addClass('sr-only').text('Previous')
+ 		)).appendTo($('#carousel-example-generic'));
+ 		
+ 		($('<a/>').addClass('right carousel-control')
+ 		.attr({href:'#carousel-example-generic', role:'button','data-slide':'next'}).append(
+ 				$('<span/>').addClass('glyphicon glyphicon-chevron-right').attr({'aria-hidden':'true'}),
+ 				$('<span/>').addClass('sr-only').text('Next')
+ 		)).appendTo($('#carousel-example-generic'));
+ 	
+ 		$('.carousel').carousel({
+ 			  interval: 2000,
+ 			  pause:'hover'
+ 		});
+ 		*/
+ 	
+         
+         
+         
+         
+         
+         
 	     fn.scroll({ id : $("#banner"), len : 150});
 	     $('#bannerItem').carousel({
-	    	 interval: 2000
+	    	 interval: 2600
 	     });
 	     ui.btn({ id : 'admin', txt : '관리자테스트', at : $('#userBox')})
 	     .click(e=>{
@@ -117,6 +167,9 @@ sh = (()=>{
          });
          
         $('#logoImg').click(()=>{
+        	/*$.getJSON(sh.ctx()+'/view/dummy',d=>{
+        		alert('seq ::' + d.seq);
+        	});*/
              home();
         });
 
@@ -197,15 +250,15 @@ var banner =()=> '<section id="banner" class="banner">'
 	     /*--여백--*/
 	     +'</div>'
 	     +'<div class="col-md-8" id="bannerBox">'
-		+'<div id="bannerItem" class="carousel slide" data-ride="carousel" data-interval="2000">'
+		+'<div id="bannerItem" class="carousel slide" data-ride="carousel">'
 		+'<ol class="carousel-indicators">'
 		  +'<li data-target="#bannerItem" data-slide-to="0" class="active"></li>'
 		  +'<li data-target="#bannerItem" data-slide-to="1" class=""></li>'
 		  +'<li data-target="#bannerItem" data-slide-to="2" class=""></li>'
 		+'</ol>'
-		+'<div class="carousel-inner" role="listbox">'
+		+'<div id="bannerImg" class="carousel-inner" role="listbox">'
 		  +'<div class="item active">'
-		    +'<img class="img-responsive center-block" src="'+$img+'/gmf2018_poster.jpg" alt="First slide">'
+		    +'<img id="bannerImg1" src="'+$img+'/gmf2018_poster.jpg" alt="First slide">'
 		    +'<div class="carousel-caption">'
 			+'<h4>2018 Grand Mint Festival</h2>'
 			+'<h5>일시 : 2018년 10월 20일(토요일)- 10월 21일(일요일)</h3>'
@@ -213,7 +266,7 @@ var banner =()=> '<section id="banner" class="banner">'
 		    +'</div>'
 		  +'</div>'
 		  +'<div class="item">'
-		    +'<img class="img-responsive center-block" src="'+$img+'/starlight2018_poster.jpg" alt="Second slide">'
+		    +'<img id="bannerImg2" src="'+$img+'/seoulfashion2018_poster.jpg" alt="Second slide">'
 		    +'<div class="carousel-caption">'
 		    +'<h4>2018 스타라이트 뮤지컬 페스티벌</h2>'
 			+'<h5>일시 : 2018년 10월 20일(토요일)-10월 21일(일요일)</h3>'
@@ -221,7 +274,7 @@ var banner =()=> '<section id="banner" class="banner">'
 		    +'</div>'
 		  +'</div>'
 		  +'<div class="item">'
-		    +'<img class="img-responsive center-block" src="'+$img+'/seoulfashion2018_poster.jpg" alt="Third slide">'
+		    +'<img id="bannerImg3" src="'+$img+'/starlight2018_poster.jpg" alt="Third slide">'
 		    +'<div class="carousel-caption">'
 		    +'<h4>할로윈 레드문 서울 패션 페스티벌 2018</h2>'
 			+'<h5>일시 : 2018년 10월 27일(토요일)</h3>'
@@ -243,7 +296,7 @@ var banner =()=> '<section id="banner" class="banner">'
 	     +'</div>'
 		+'</div>'
      +'</section>';
-
+		
 var cloud =()=> '<section id="cloud" class="cloud" style="text-align:center">'
      +'</br>'
      +'</br>'
