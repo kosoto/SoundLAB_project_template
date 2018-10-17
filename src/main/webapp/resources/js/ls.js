@@ -83,21 +83,20 @@ ls ={
 			
 			$('<tbody/>').append(
 					$('<tr/>').attr({id : 'ls_topTable_tr'}).append(
-							$('<td/>').attr('width','2%').append(
-									$('<th/>').addClass('ls_ckbox').append(
+									$('<th/>').attr({style : 'width:5%'}).append(
 											$('<input/>').attr({type : 'checkbox', id :'allCheck' }).attr({style : 'width:15px'}),
 											$('<label for="allCheck">')
-									)
+									
 							),
-							$('<th/>').attr('width','5%').html('NO'),
+							$('<th/>').attr('width','3%').html('NO'),
 							$('<th/>').attr('width','10%').html('앨범사진'),
-							$('<th/>').attr('width','30%').html('제목'),
-							$('<th/>').attr('width','15%').html('아티스트'),
-							$('<th/>').attr('width','15%').html('앨범명'),
+							$('<th/>').attr('width','20%').html('제목'),
+							$('<th/>').attr('width','10%').html('아티스트'),
+							$('<th/>').attr('width','10%').html('앨범명'),
 							$('<th/>').attr('width','5%').html('듣기'),
 							$('<th/>').attr('width','5%').html('하트'),
 							$('<th/>').attr('width','5%').html('영상'),
-							$('<th/>').attr('width','6%').html('싫어요')
+							$('<th/>').attr('width','8%').html('싫어요')
 					)
 			).appendTo($('#topTable'));
 			
@@ -201,9 +200,80 @@ ls ={
 				
 		album :()=>{
 			
+			
+			
+			
+		/*	<table>
+			  <caption>최신앨범</caption>
+			  <thead>
+			    <tr>
+			      <th scope="col">sample1</th>
+			      <th scope="col">sample2</th>
+			      <th scope="col">sample3</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>sample4</td>
+			      <td>sample5</td>
+			      <td>sample6</td>
+			    </tr>
+			    <tr>
+			      <td>sample7</td>
+			      <td>sample8</td>
+			      <td>sample9</td>
+			    </tr>
+			    <tr>
+			      <td>sample10</td>
+			      <td>sample11</td>
+			      <td>sample12</td>
+			    </tr>
+			    <tr>
+			      <td>sample13</td>
+			      <td>sample14</td>
+			      <td>sample15</td>
+			    </tr>
+			    <tr>
+			      <td>sample16</td>
+			      <td>sample17</td>
+			      <td>sample18</td>
+			    </tr>
+			  </tbody>
+			</table>*/
+			
 			if(!($("#albumSec").length >0)){ 
 				let $albumSec = $('<section/>').attr({id:'albumSec'});
 				$albumSec.appendTo($('#contents')).append(
+						
+						/*$('<table/>').attr({id : 'ls_alTable' }).append(
+								$('<thead/>').append(
+										$('<tr/>').append(
+												$('<th/>')
+										)		
+								),
+								$('<tbody/>').append(
+										$('<tr/>').append(
+												$('<th/>')
+								)
+								)
+								
+						),*/
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
 						// 앨범헤더
 						$('<div/>').addClass("ls_album_panel container").append(
 								$('<h1/>').html('최신앨범')
@@ -220,7 +290,9 @@ ls ={
 						
 						// 앨범 컨텐츠
 						$('<br><br><div/>').attr({id : 'album-content' }).addClass("ls_album_panel container").append(
-								$('<div/>').append(
+								$('<div/>').addClass('row').append(
+								
+										
 										 $('<ul/>').addClass("ls_album_nav nav nav-tabs nav-justified").append(
 												 $('<li/>').attr({id : 'ali1'}).append(
 														 $('<a/>').attr({href:'#',id : 'ls_alDateSort'}).html('발매일')),
@@ -361,11 +433,11 @@ ls ={
 						title : '키스 먼저 할까요?'}
 				];
 			  
-			 /* $.each(newal,(i,v)=>{ $('<div/>').addClass('item'+((i===0)?' active':'')).append(
-					  $('<div/>').addClass('single-featured-shows col-md-3 col-sm-6 col-xs-12 single-featured-shows').append( 
+			 $.each(newal,(i,v)=>{ $('<div/>').addClass('item'+((i===0)?' active':'')).append(
+					  $('<div/>').addClass('col-md-3 col-sm-6 col-xs-12 ls-dj-item').append( 
 							  $('<img/>').attr({src : $.ctx()+'/resources/img/album/'+v.src}).addClass('img-responsive'),
-							  $('<div/>').attr({style :'height ="40%"'}).addClass('featured-shows-content').append(
-									  $('<div/>').addClass('shows-text').append( 
+							  $('<div/>').attr({style :'height ="40%"'}).addClass('ls-dj-item-content').append(
+									  $('<div/>').addClass('ls-dj-content-txt').append( 
 											  $('<h4/>').html(v.title), 
 											  $('<p/>').html(v.musTtl), 
 											  $('<div/>').addClass('bg-gradients') ) ) ) )
@@ -374,7 +446,7 @@ ls ={
 													// 밑에 dj detail 열리는 event 걸기
 												});
 											});
-	//
+	
 			  	$('<a/>')
 				.attr({href:'#alCarousel', 'data-slide':'prev'})
 				.addClass('left carousel-control')
@@ -399,13 +471,14 @@ ls ={
 				        }
 				        next.children(':first-child').clone().appendTo($(this));
 
-				        if (next.next().length > 0) {
-				            next.next().children(':first-child').clone().appendTo($(this));
-				        }
-				        else {
-				            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-				        }
-				    });*/
+				    	for (var i=0;i<2;i++) {
+							next=next.next();
+							if (!next.length) {
+								next = jQuery(this).siblings(':first');
+							}
+							next.children(':first-child').clone().appendTo($(this));
+						}
+				    });
 			  
 			  
 			  

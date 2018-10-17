@@ -1,8 +1,5 @@
-/*
-class랑 아이디 이름 줄 때 
-ls을 포함시켜서 겹치지 않게 부탁드려요 
-*/
-.ls_my-4 {
+
+ .ls_my-4 {
 	margin-left:1.2rem;
 }
 .ls_nav{
@@ -16,15 +13,6 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
 .ls_thumbnail{
 	float: left;
 }
-
-
-
-
-
-/*	--------------------------------------------------
-	:: Table Filter
-	-------------------------------------------------- */
-
 
 .panel .btn-group .btn {
 	transition: background-color .3s ease;
@@ -47,14 +35,7 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
 	width: 10%;
 		text-align: center;
 }
-/* .ls_table>tbody>tr>td, 
-.ls_table>tbody>tr>th, 
-.ls_table>tfoot>tr>td, 
-.ls_table>tfoot>tr>th, 
-.ls_table>thead>tr>td, 
-.ls_table>thead>tr>th{
-	width: 11%;
-} */
+
 .ls_table-filter tbody tr.selected td {
 	background-color: #eee;
 }
@@ -97,12 +78,6 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
 	position: absolute;
 	margin: auto;
 }
-
-
-/*	--------------------------------------------------
-	:: Table Filter
-	-------------------------------------------------- */
-
 
 .panel .btn-group {
   margin: 15px 0 30px;
@@ -148,9 +123,7 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
   background-color: #eee;
 }
 
-.ls_table-filter tr td:first-child {
-  width: 50px;
-}
+
 
 .ls_table-filter tr td:nth-child(2) {
   width: 60px;
@@ -199,17 +172,17 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
 }
 
 .hovereffect .overlay {
-  position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
+  position: fixed; Sit on top of the page content
+    display: none; Hidden by default
+    width: 100%; Full width (cover the whole page)
+    height: 100%; Full height (cover the whole page)
     top: 0; 
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    background-color: rgba(0,0,0,0.5); Black background with opacity
+    z-index: 2; Specify a stack order in case you're using a different order for other elements
+    cursor: pointer; Add a pointer on hover
 }
 
 .hovereffect:hover .overlay {
@@ -319,7 +292,86 @@ overflow: hidden;
 	margin : 0 auto;
 	text-align: center;
 }
-.ls_fa {
-	font-size: 21px;
-	color:#666666;
+
+
+
+
+.ls-dj-item {
+	position: relative;
+	z-index: 1;
+	overflow: hidden; 
+}
+.ls-dj-item img {
+	-webkit-transition-duration: 800ms;
+	transition-duration: 800ms; 
+}
+.ls-dj-item .ls-dj-item-content {
+    -webkit-transition-duration: 800ms;
+    transition-duration: 800ms;
+    position: absolute;
+    background-color: rgba(255,255,255,0.7);
+    width: calc(100% - 60px);
+    bottom: 30px;
+    left: 30px;
+    z-index: 99; 
+}
+.ls-dj-item .ls-dj-item-content .ls-dj-content-txt {
+	padding: 15px 35px; 
+}
+.ls-dj-item .ls-dj-item-content .ls-dj-content-txt h4 {
+	-webkit-transition-duration: 500ms;
+	transition-duration: 500ms;
+	font-weight: 900;
+	margin-bottom: 1rem;
+	line-height: 1; 
+}
+.ls-dj-item .ls-dj-item-content .ls-dj-content-txt p {
+	color: #333;
+	font-style: italic;
+	font-size: 14px;
+	margin-bottom: 4px;
+}
+.ls-dj-item:hover img {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1); 
+}
+.ls-dj-item:hover .ls-dj-item-content {
+	bottom: 80px; 
+}
+.ls-dj-item:hover .ls-dj-item-content .ls-dj-content-txt h4 {
+	color: #bd177a; 
+}
+
+#alCarousel .carousel-control        { width:  4%; }
+#alCarousel .carousel-control.left {margin-right:15px;background-image:none;}
+#alCarousel .carousel-control.right {margin-left:15px;background-image:none;}
+
+#alCarousel .carousel-inner .item.right,.carousel-inner .item.left {transform: translateX(0);}
+
+@media (max-width: 767px) {
+	#alCarousel .img-responsive{margin:0 auto;}
+	#alCarousel .active > div { display:none; }
+	#alCarousel .active > div:first-child { display:block; }
+	#alCarousel .carousel-inner.item.left.active { transform: translateX(-100%);}
+	#alCarousel .carousel-inner.item.right.active {transform: translateX(100%);}
+  	#alCarousel .carousel-inner.item.next {transform: translateX(100%)}
+  	#alCarousel .carousel-inner.item.prev {transform: translateX(-100%)}
+}
+@media (min-width: 767px) and (max-width: 992px ) {
+	#alCarousel .active > div { display:none; }
+	#alCarousel .active > div:first-child { display:block; }
+	#alCarousel .active > div:first-child + div { display:block; }
+	#alCarousel .carousel-inner.item.left.active { transform: translateX(-50%);}
+	#alCarousel .carousel-inner.item.right.active {transform: translateX(50%);}
+	#alCarousel .carousel-inner.item.next {transform: translateX(50%)}
+	#alCarousel .carousel-inner.item.prev {transform: translateX(-50%)}
+}
+@media (min-width: 992px ) {
+	#alCarousel .carousel-inner.item.left.active { transform: translateX(-25%);}
+  	#alCarousel .carousel-inner.item.right.active {transform: translateX(25%);}
+  	#alCarousel .carousel-inner.item.next {transform: translateX(25%)}
+  	#alCarousel .carousel-inner.item.prev {transform: translateX(-25%)}
+}
+#ls_alTable{
+	
 }

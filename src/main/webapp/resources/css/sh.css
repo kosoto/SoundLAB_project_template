@@ -50,7 +50,7 @@ font-family: 'Do Hyeon', sans-serif;
 
 
 #contents {
-	padding-top: 18rem; 
+	/* padding-top: 18rem;  */
 }
 
 #userBox {
@@ -319,10 +319,26 @@ font-family: 'Do Hyeon', sans-serif;
 /*--조인화면 --*/
 
 /* 배너 */
-.carousel-inner>.item>img {
-    display: block;
-    width:100%; 
-    height: 49rem;
+/* #bannerBox{
+	width: 100%;
+	height: 100%; 
+} */
+#bannerImg>.item>img {
+     display: block; 
+     width:100%;
+     height: 60rem; 
+     
 }
+
+/* .z2 {
+	z-index: 9999;
+}
+ */
+/* #bannerImg1,
+#bannerImg2,
+#bannerImg3 {
+	 width:100%; 
+     height: 60rem;
+} */
 /*-- 배너 --*/
 
