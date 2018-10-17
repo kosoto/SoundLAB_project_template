@@ -560,7 +560,7 @@ sh.service ={
                sh.home();
           });
 
-        
+        /*d*/
          $('#logoImg').click(e=>{
               sh.home();
          });
