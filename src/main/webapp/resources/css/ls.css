@@ -342,6 +342,8 @@ overflow: hidden;
 	color: #bd177a; 
 }
 
+
+/* 수정 */
 #alCarousel .carousel-control        { width:  4%; }
 #alCarousel .carousel-control.left {margin-right:15px;background-image:none;}
 #alCarousel .carousel-control.right {margin-left:15px;background-image:none;}
