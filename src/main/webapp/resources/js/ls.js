@@ -245,7 +245,7 @@ ls ={
 				let $albumSec = $('<section/>').attr({id:'albumSec'});
 				$albumSec.appendTo($('#contents')).append(
 						
-						/*$('<table/>').attr({id : 'ls_alTable' }).append(
+						$('<table/>').attr({id : 'ls_alTable' }).append(
 								$('<thead/>').append(
 										$('<tr/>').append(
 												$('<th/>')
@@ -257,7 +257,7 @@ ls ={
 								)
 								)
 								
-						),*/
+						),
 						
 						
 						

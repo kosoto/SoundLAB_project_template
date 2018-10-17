@@ -373,5 +373,5 @@ overflow: hidden;
   	#alCarousel .carousel-inner.item.prev {transform: translateX(-25%)}
 }
 #ls_alTable{
-	
+		border: 1px solid #eee;
 }
