@@ -85,7 +85,7 @@ ls ={
 					$('<tr/>').attr({id : 'ls_topTable_tr'}).append(
 							$('<td/>').attr('width','2%').append(
 									$('<th/>').addClass('ls_ckbox').append(
-											$('<input/>').attr({type : 'checkbox', id :'allCheck' }),
+											$('<input/>').attr({type : 'checkbox', id :'allCheck' }).attr({style : 'width:15px'}),
 											$('<label for="allCheck">')
 									)
 							),
@@ -97,7 +97,7 @@ ls ={
 							$('<th/>').attr('width','5%').html('듣기'),
 							$('<th/>').attr('width','5%').html('하트'),
 							$('<th/>').attr('width','5%').html('영상'),
-							$('<th/>').attr('width','5%').html('싫어요')
+							$('<th/>').attr('width','6%').html('싫어요')
 					)
 			).appendTo($('#topTable'));
 			
@@ -128,7 +128,7 @@ ls ={
 					atist : '아이유',
 					title : '삐삐'
 				},
-				{src : '폴킴.jpg',
+				{src : '폴킴_키스_먼저_할까요.jpg',
 					musTtl : '모든 날, 모든 순간',
 					atist : '폴킴',
 					title : '키스 먼저 할까요?'}
@@ -164,22 +164,22 @@ ls ={
 							alert('앨범명 클릭');
 						}),
 						$('<td/>').append(
-								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-play')
+								$('<i/>').addClass('ls_fa fa fa-play-circle-o')
 								.click(()=>{
 									alert('듣기 클릭');
 								})),
 						$('<td/>').append(
-								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-heart')
+								$('<i/>').addClass('ls_fa fa fa-heart')
 								.click(()=>{
 									alert('하트 클릭');
 								})),
 						$('<td/>').append(
-								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-facetime-video')
+								$('<i/>').addClass('ls_fa glyphicon glyphicon-facetime-video')
 								.click(()=>{
 									alert('뮤비 클릭');
 								})),
 						$('<td/>').append(
-								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-thumbs-down')
+								$('<i/>').addClass('ls_fa fa fa-thumbs-down')
 								.click(()=>{
 									alert('싫어요 클릭');
 								}))
@@ -246,7 +246,7 @@ ls ={
 				
 			 
 				let arrNewAl = [
-					{src : '선미_가시나.png',
+					{src : '선미_가시나.jpg',
 						musTtl : '사이렌',
 						atist : '선미',
 						title : 'WARNING'
@@ -271,7 +271,7 @@ ls ={
 						atist : '아이유',
 						title : '삐삐'
 					},
-					{src : '폴킴.jpg',
+					{src : '폴킴_키스_먼저_할까요.jpg',
 						musTtl : '모든 날, 모든 순간',
 						atist : '폴킴',
 						title : '키스 먼저 할까요?'}
@@ -330,7 +330,7 @@ ls ={
 			  item.appendTo($('#alCarousel'));
 			  
 			  let newal = [
-				  {src : '선미_가시나.png',
+				  {src : '선미_가시나.jpg',
 						musTtl : '사이렌',
 						atist : '선미',
 						title : 'WARNING'
@@ -361,10 +361,10 @@ ls ={
 						title : '키스 먼저 할까요?'}
 				];
 			  
-			  $.each(newal,(i,v)=>{ $('<div/>').addClass('item'+((i===0)?' active':'')).append(
-					  $('<div/>').addClass('col-md-4 col-sm-6 col-xs-12 single-featured-shows').append( 
+			 /* $.each(newal,(i,v)=>{ $('<div/>').addClass('item'+((i===0)?' active':'')).append(
+					  $('<div/>').addClass('single-featured-shows col-md-3 col-sm-6 col-xs-12 single-featured-shows').append( 
 							  $('<img/>').attr({src : $.ctx()+'/resources/img/album/'+v.src}).addClass('img-responsive'),
-							  $('<div/>').attr({style :'hight ="40%"'}).addClass('featured-shows-content').append(
+							  $('<div/>').attr({style :'height ="40%"'}).addClass('featured-shows-content').append(
 									  $('<div/>').addClass('shows-text').append( 
 											  $('<h4/>').html(v.title), 
 											  $('<p/>').html(v.musTtl), 
@@ -389,24 +389,30 @@ ls ={
 				).appendTo($('#alCarousel'));
 				
 				$('#alCarousel').carousel({
-					  interval: 10000
+					  interval: 2000
 					})
-				$('#alCarousel .item').each(function(){
-				  var next = $(this).next();
-				  if (!next.length) {
-				    next = $(this).siblings(':first');
-				  }
-				  next.children(':first-child').clone().appendTo($(this));
+		
+					$('#alCarousel .item').each(function () {
+				        var next = $(this).next();
+				        if (!next.length) {
+				            next = $(this).siblings(':first');
+				        }
+				        next.children(':first-child').clone().appendTo($(this));
 
-				  if (next.next().length>0) {
-				    next.next().children(':first-child').clone().appendTo($(this));
-				  }
-				  else {
-				    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-				  }
-				});
-
-				
+				        if (next.next().length > 0) {
+				            next.next().children(':first-child').clone().appendTo($(this));
+				        }
+				        else {
+				            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+				        }
+				    });*/
+			  
+			  
+			  
+			  
+			  
+			  
+			  
 		}
 			
 			
