@@ -82,9 +82,9 @@ sj ={
 				$('<div/>').addClass('container').append(
 						$('<div/>').addClass('row').append(
 								$('<div/>')
-								.addClass('col-xs-12').append(
+								.addClass('col-xs-12 sj-dj-carousel').append(
 										$('<h2/>').attr('style','margin-left: 1.2rem;').addClass('my-4').html('DJ PLAYLIST'),
-										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide')
+										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide sj-carousel')
 								).on('click','.item>div',function(e){
 									
 									console.log("PAUSE");
@@ -119,7 +119,7 @@ sj ={
 				});
 */
 				
-				let $item = $('<div/>').addClass('carousel-inner sj-inner')
+				let $item = $('<div/>').addClass('carousel-inner')
 				$item.appendTo($('#djCarousel'));
 				
 				let djArr = [
