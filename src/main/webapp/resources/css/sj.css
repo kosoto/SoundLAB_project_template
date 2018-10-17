@@ -68,6 +68,7 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 	#djCarousel .carousel-inner.item.right.active {transform: translateX(100%);}
   	#djCarousel .carousel-inner.item.next {transform: translateX(100%)}
   	#djCarousel .carousel-inner.item.prev {transform: translateX(-100%)}
+  	
 }
 
 @media (min-width: 767px) and (max-width: 992px ) {
