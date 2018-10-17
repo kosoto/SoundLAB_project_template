@@ -21,7 +21,7 @@ sj ={
 								$('<h4/>').attr({'style':'font-weight: bold;'}).addClass('col-md-2').html('장르')
 						),
 						$('<div/>').addClass('row').append(
-								$('<div/>').attr({id : 'hb1','data-toggle':'buttons'}).addClass('ls_test col-md-offset-1 col-md-2 btn-group-vertical'),
+								$('<div/>').attr({id : 'hb1','data-toggle':'buttons'}).addClass('col-md-offset-1 col-md-2 btn-group-vertical'),
 								$('<div/>').attr({id : 'hb2','data-toggle':'buttons'}).addClass('col-md-2 btn-group-vertical'),
 								$('<div/>').attr({id : 'hb3','data-toggle':'buttons'}).addClass('col-md-2 btn-group-vertical'),
 								$('<div/>').attr({id : 'hb4','data-toggle':'buttons'}).addClass('col-md-2 btn-group-vertical'),
@@ -65,6 +65,7 @@ sj ={
 						});
 					})
 				});
+				
 				$('input[type="checkbox"]').change(()=>{
 					let arr = [];
 					let ckHash = $('input[type="checkbox"]:checked');
@@ -83,7 +84,7 @@ sj ={
 								$('<div/>')
 								.addClass('col-xs-12').append(
 										$('<h2/>').attr('style','margin-left: 1.2rem;').addClass('my-4').html('DJ PLAYLIST'),
-										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide featured-shows-slides')
+										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide')
 								).on('click','.item>div',function(e){
 									
 									console.log("PAUSE");
@@ -100,8 +101,6 @@ sj ={
 										
 									}
 									
-									//$this.find('h4').text() != $('#dj-detail .album-title>h4').text()
-										
 								})
 						)
 				).appendTo($djSec);
@@ -158,13 +157,13 @@ sj ={
 					$('<div/>').addClass('item'+((i===0)?' active':'')).append(
 							$('<div/>')
 							.attr({'data-toggle':'collapse', 'data-target':'#dj-coll', 'aria-controls':'dj-coll'})
-							.addClass('col-md-4 col-sm-6 col-xs-12 single-featured-shows').append(
+							.addClass('col-md-4 col-sm-6 col-xs-12 sj-dj-item').append(
 									$('<img/>').attr({
 										src : $.ctx()+'/resources/img/sj/'+v.src,
 										alt : 'DJ-P-img' + i
 									}).addClass('img-responsive'),
-									$('<div/>').addClass('featured-shows-content').append(
-											$('<div/>').addClass('shows-text').append(
+									$('<div/>').addClass('sj-dj-item-content').append(
+											$('<div/>').addClass('sj-dj-content-txt').append(
 													$('<h4/>').html(v.title),
 													$('<p/>').html(v.name),
 													$('<p/>').html(v.date),
