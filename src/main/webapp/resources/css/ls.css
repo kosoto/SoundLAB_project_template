@@ -346,31 +346,32 @@ overflow: hidden;
 #alCarousel .carousel-control.left {margin-right:15px;background-image:none;}
 #alCarousel .carousel-control.right {margin-left:15px;background-image:none;}
 
-#alCarousel .carousel-inner .item.right,.carousel-inner .item.left {transform: translateX(0);}
+#alCarousel .carousel-inner .item.prev.right,
+#alCarousel .carousel-inner .item.next.left {transform: translateX(0);}
 
 @media (max-width: 767px) {
 	#alCarousel .img-responsive{margin:0 auto;}
 	#alCarousel .active > div { display:none; }
 	#alCarousel .active > div:first-child { display:block; }
-	#alCarousel .carousel-inner.item.left.active { transform: translateX(-100%);}
-	#alCarousel .carousel-inner.item.right.active {transform: translateX(100%);}
-  	#alCarousel .carousel-inner.item.next {transform: translateX(100%)}
-  	#alCarousel .carousel-inner.item.prev {transform: translateX(-100%)}
+	#alCarousel .carousel-inner .item.left.active { transform: translateX(-100%);}
+	#alCarousel .carousel-inner .item.right.active {transform: translateX(100%);}
+  	#alCarousel .carousel-inner .item.next {transform: translateX(100%)}
+  	#alCarousel .carousel-inner .item.prev {transform: translateX(-100%)}
 }
 @media (min-width: 767px) and (max-width: 992px ) {
 	#alCarousel .active > div { display:none; }
 	#alCarousel .active > div:first-child { display:block; }
 	#alCarousel .active > div:first-child + div { display:block; }
-	#alCarousel .carousel-inner.item.left.active { transform: translateX(-50%);}
-	#alCarousel .carousel-inner.item.right.active {transform: translateX(50%);}
-	#alCarousel .carousel-inner.item.next {transform: translateX(50%)}
-	#alCarousel .carousel-inner.item.prev {transform: translateX(-50%)}
+	#alCarousel .carousel-inner .item.left.active { transform: translateX(-50%);}
+	#alCarousel .carousel-inner .item.right.active {transform: translateX(50%);}
+	#alCarousel .carousel-inner .item.next {transform: translateX(50%)}
+	#alCarousel .carousel-inner .item.prev {transform: translateX(-50%)}
 }
 @media (min-width: 992px ) {
-	#alCarousel .carousel-inner.item.left.active { transform: translateX(-25%);}
-  	#alCarousel .carousel-inner.item.right.active {transform: translateX(25%);}
-  	#alCarousel .carousel-inner.item.next {transform: translateX(25%)}
-  	#alCarousel .carousel-inner.item.prev {transform: translateX(-25%)}
+	#alCarousel .carousel-inner .item.left.active { transform: translateX(-25%);}
+  	#alCarousel .carousel-inner .item.right.active {transform: translateX(25%);}
+  	#alCarousel .carousel-inner .item.next {transform: translateX(25%)}
+  	#alCarousel .carousel-inner .item.prev {transform: translateX(-25%)}
 }
 #ls_alTable{
 		border: 1px solid #eee;
