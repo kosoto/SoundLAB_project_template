@@ -270,8 +270,13 @@ nr = (()=>{
 					$('<div/>').addClass("form-group").attr({id:'endDiv'}).appendTo($('#periodForm'));
 						$('<input/>').attr({type:'date', name:'endDate', id:'endDate'}).addClass("mr-3 form-control").appendTo($('#endDiv'));
 					$('<div/>').addClass("form-group").attr({id:'submitDiv'}).appendTo($('#periodForm'));
-						$('<button/>').addClass("mr-3 btn btn-primary").attr({id:"submitBtn", type:"btn"})
+						$('<div/>').addClass("form-group").attr({id:'submitDiv'}).appendTo($('#periodForm'));
+						$('<a/>').addClass("nrBtn")
+						/*.addClass("mr-3 btn btn-primary")*/
 						.html('조회').appendTo($('#submitDiv'));
+						/*$('<btn/>').addClass("mr-3 btn btn-primary")
+						.attr({id:"submitBtn", type:"btn"})
+						.html('조회').appendTo($('#submitDiv'));*/
         return period;
     }
     

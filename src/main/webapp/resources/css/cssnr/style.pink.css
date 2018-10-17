@@ -1848,6 +1848,7 @@ STYLE SWITCHER FOR DEMO
   color: color-yiq(#ec2f6c);
   background-color: #ec2f6c;
   border-color: #eb2364;
+  background-position: 0 -30px;
 }
 
 .btn-primary:focus, .btn-primary.focus {
