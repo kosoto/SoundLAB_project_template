@@ -41,7 +41,7 @@
 	  	VALUES
 	  	(#{memberId},#{pass},#{name},#{ssn},#{phone},#{nick},#{sex},#{email})
 	  </insert>
-	  <insert id="upGenre">
+	  <insert id="upGenre" parameterType="map">
 	  	INSERT INTO UPDOWN
 	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, TYPES)
 	  	VALUES
@@ -51,7 +51,7 @@
 	  	 'genre','u')
 	  	</foreach>
 	  </insert>
-	  <insert id="upArtist">
+	  <insert id="upArtist" parameterType="map">
 	  	INSERT INTO UPDOWN
 	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, TYPES)
 	  	VALUES

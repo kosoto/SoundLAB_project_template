@@ -1562,4 +1562,25 @@ WHERE MEMBER_ID LIKE 'shin';
  select seq_group from view_record where view_date >= '2018-10-15%' and view_date <= '2018-10-17%';
 
  
+ UPDATE artist
+ SET debut = '2013.08.01'
+ where artist_seq like 7;
+
+ ALTER TABLE member ADD join_date timestamp DEFAULT now();
+
+ ALTER TABLE member CHANGE join_date join_date timestamp DEFAULT now();
+
+ 
+ ALTER TABLE member DROP COLUMN join_date;
+ 
+ ALTER TABLE member DROP COLUMN join_date;
+ 
+ select * from member;
+
+ 
+ ALTER TABLE updown CHANGE UD_SEQ UD_SEQ INT NOT NULL AUTO_INCREMENT;
+ 
+  
+ 
+ 
  
