@@ -85,6 +85,10 @@ sj ={
 										$('<h2/>').attr('style','margin-left: 1.2rem;').addClass('my-4').html('DJ PLAYLIST'),
 										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide featured-shows-slides')
 								).on('click','.item>div',function(e){
+									
+									console.log("PAUSE");
+									$('#djCarousel').carousel('pause');
+									
 									let $this = $(this);
 									
 									if($this.find('h4').text() != $('#dj-detail .album-title>h4').text()){
@@ -93,6 +97,7 @@ sj ={
 											src : $this.find('img').attr('src'),
 											title: $this.find('h4').text()
 										})
+										
 									}
 									
 									//$this.find('h4').text() != $('#dj-detail .album-title>h4').text()
@@ -186,10 +191,14 @@ sj ={
 				).appendTo($('#djCarousel'));
 				
 				
+				$('#djCarousel .carousel-control').click(e=>{
+					console.log("CYCLE");
+					$('#djCarousel').carousel('cycle');
+				});
 				
 				
 				$('#djCarousel').carousel({
-					  interval: 3000
+					  interval: 4000
 					})
 				$('#djCarousel .item').each(function(){
 				  var next = $(this).next();
@@ -218,52 +227,149 @@ sj ={
 			$foryouSec.appendTo($('#contents'));
 			
 			$('<div/>').addClass('container').appendTo($foryouSec).append(
-					
+					$('<div/>').addClass('row').append(
+							$('<div/>').addClass('col-xs-12').attr({id:'for-music'})
+					)
 			);
 			
-			$('<p/>').html('이런 노래는 어떠세요 ?').appendTo($foryouSec);
-			// #music start
-			$('<div/>').attr({id:'music'}).appendTo($foryouSec);
-			$('<p/>').html('즐겨들은 곡과 비슷한 곡').appendTo($('#music'));
-			$('<button/>').addClass('btn btn-secondary').html('전체듣기').appendTo($('#music'));
-			$('<button/>').addClass('btn btn-secondary').html('선택듣기').appendTo($('#music'));
-			$('<button/>').addClass('btn btn-secondary').html('담기').appendTo($('#music'));
-			$('<button/>').addClass('btn btn-secondary').html('나의앨범추가').appendTo($('#music'));
-			$('<table/>').addClass('table table-bordered text-center').attr({id:'music-list'}).appendTo($('#music'));
-			$('<tr/>').attr({id:'music-list-meta'}).appendTo($('#music-list'));
-			$('<td/>').html('곡').appendTo($('#music-list-meta'));
-			$('<td/>').html('아티스트').appendTo($('#music-list-meta'));
-			$('<td/>').html('앨범').appendTo($('#music-list-meta'));
-			$('<td/>').html('기능').appendTo($('#music-list-meta'));
-			$('<tr/>').attr({id:'music-list-row1'}).appendTo($('#music-list'));
-			$('<td/>').html('Love U').appendTo($('#music-list-row1'));
-			$('<td/>').html('청하').appendTo($('#music-list-row1'));
-			$('<td/>').html('Blooming Blue').appendTo($('#music-list-row1'));
-			$('<td/>').appendTo($('#music-list-row1'))
-			.append('<button class="btn btn-default"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></button>')
-			.append('<button class="btn btn-default"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>')
-			.append('<button class="btn btn-default"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span></button>')
-			.append('<button class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>')
-			;
-			$('<button/>').addClass('btn btn-secondary').html('더 보기').appendTo($('#music'));
+			$('<div/>')
+			.addClass('featured-album-area clearfix')
+			.attr({id:'dj-detail', 'style':'margin-bottom:0px;'})
+			.append(
+					$('<div/>').addClass('container').append(
+							$('<div/>').addClass('row').append(
+									$('<div/>').addClass('col-xs-12').append(
+											$('<div/>').addClass('featured-album-content d-flex flex-wrap').attr({'style':'height:300px'}).append(
+													$('<div/>').addClass('album-songs h-100').attr({'style':'flex:none; width:100%; max-width:100%;'}).append(
+															$('<div/>').addClass('album-info mb-10 d-flex flex-wrap align-items-center justify-content-between').append(
+																	$('<div/>').addClass('album-title').append(
+																			$('<p/>').html('즐겨듣는 곡과 비슷한 곡')
+																	)
+															),
+															$('<div/>').addClass('album-all-songs').attr({id:'album-scroll'}),
+															$('<div/>').addClass('now-playing d-flex flex-wrap align-items-center').append(
+																	/*$('<h4/>').attr({'style':'color:white;'}).html('전체듣기 / 선택듣기 / 담기 / 나의 추가')*/
+																	$('<button/>').addClass('btn btn-secondary').html('전체듣기'),
+																	$('<button/>').addClass('btn btn-secondary').html('선택듣기')
+															)
+													)
+											)
+									)
+							)
+					)
+			).appendTo($('#for-music'));
 			
-			// #album start
-			$('<div/>').attr({id:'album'}).appendTo($foryouSec);
-			$('<p/>').html('즐겨들은 곡과 비슷한 아티스트의 앨범').appendTo($('#album'));
-			$('<ul/>').addClass('').attr({id : 'album-list'}).appendTo($('#album'));
-			$('<li/>').attr({id : 'album-list-item1'}).appendTo($('#album-list'));
-			$('<a/>').attr({href:'#'}).html('앨범자켓 <br> 앨범명 <br>').appendTo($('#album-list-item1'));
-			$('<a/>').attr({href:'#'}).html('아티스트').appendTo($('#album-list-item1'));
-			$('<li/>').attr({id : 'album-list-item2'}).appendTo($('#album-list'));
-			$('<a/>').attr({href:'#'}).html('앨범자켓 <br> 앨범명 <br>').appendTo($('#album-list-item2'));
-			$('<a/>').attr({href:'#'}).html('아티스트').appendTo($('#album-list-item2'));
-			$('<ul/>')
-			.addClass('pager')
-			.appendTo($('#artist'))
-			.append($('<li/>').addClass('previous').html('<a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a>'))
-			.append($('<li/>').addClass('next').html('<a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>'))
-			;
-			// #album end
+			
+			
+			let $pl = $('<div/>').addClass('music-playlist').appendTo($('#album-scroll'));
+			for(let i=1;i<=5;i++){
+				$('<div/>').addClass('single-music').append(
+						$('<div/>').addClass('single-music-item row').append(
+								$('<label/>').attr({id:'check-con'}).addClass('col-xs-1 container').append(
+										$('<input/>').attr({type:'checkbox'}),
+										$('<span/>').addClass('checkmark')
+								),
+								$('<div/>').addClass('col-xs-4').html(i + '. Drop that beat'),
+								$('<div/>').addClass('col-xs-3').html('Artist'),
+								$('<div/>').addClass('col-xs-2').html('Album'),
+								$('<div/>').addClass('btn-group col-xs-3').append(
+										$('<button/>').addClass('btn btn-default').append(
+												$('<span/>').addClass('glyphicon glyphicon-play')
+										),
+										$('<button/>').addClass('btn btn-default').append(
+												$('<span/>').addClass('glyphicon glyphicon-heart')
+										).click(function(e){
+											if($(this).hasClass('active')){
+												console.log('Cancle !!');
+												$(this).removeClass('active');
+											}else{
+												console.log('Love it !!');
+												$(this).addClass('active');
+											} 
+										}),
+										$('<button/>').addClass('btn btn-default').append(
+												$('<span/>').addClass('glyphicon glyphicon-facetime-video')
+										)
+								)
+						)
+				).appendTo($pl)
+			}
+			
+			// for - album
+			
+			$('<div/>').addClass('container').appendTo($foryouSec).append(
+					$('<div/>').addClass('row').append(
+							$('<div/>').addClass('col-xs-12').attr({id:'for-album'})
+					)
+			);
+			
+			$('<div/>')
+			.addClass('featured-album-area clearfix')
+			.attr({id:'for-album-dt', 'style':'margin-bottom:0px;'})
+			.append(
+					$('<div/>').addClass('container').append(
+							$('<div/>').addClass('row').append(
+									$('<div/>').addClass('col-xs-12').append(
+											$('<div/>')
+											.attr({'style':'padding:5rem;'})
+											.addClass('featured-album-content d-flex flex-wrap').append(
+													$('<div/>').attr({id:'for-album-li','style':'width:20%;overflow-y:auto;'}),
+													$('<div/>').addClass('album-songs h-100')
+													.attr({'style':'flex:0 0 80%;max-width:80%;width:80%;'})
+													.append(
+															$('<div/>').addClass('album-info mb-10 d-flex flex-wrap align-items-center justify-content-between').append(
+																	$('<div/>').addClass('album-title').append(
+																			$('<h4/>').html('Title'),
+																			$('<h6/>').html('soundLAB')
+																	)
+															),
+															$('<div/>').addClass('album-all-songs').attr({id:'album-scroll'}),
+															$('<div/>').addClass('now-playing d-flex flex-wrap align-items-center justify-content-between').append(
+																	$('<h4/>').attr({'style':'color:white;'}).html('전체듣기 / 선택듣기 / 담기 / 나의 추가')
+															)
+													)
+											)
+									)
+							)
+					)
+			).appendTo($('#for-album'));
+			
+			
+			let $li = $('<div/>').addClass('list-group').attr({'style':'margin:0;'}).appendTo('#for-album-li');
+			
+			let ac = [
+				{arti:'방탄소년단',album:'LY_Answer',src:'방탄소년단_LY_Answer'},
+				{arti:'블랙핑크',album:'SQUARE_UP',src:'블랙핑크_SQUARE_UP'},
+				{arti:'선미',album:'WARNING',src:'선미_WARNING'},
+				{arti:'트와이스',album:'Summer_Nights',src:'트와이스_Summer_Nights'},
+				{arti:'에이핑크',album:'ONE_SIX',src:'에이핑크_ONE_SIX'},
+				];
+			
+			for(let i of ac){
+				$('<div/>')
+				.addClass('sj-for-album-item bg-img')
+				.attr({'style':'background-image:url('+$.ctx()+'/resources/img/album/'+i.src+'.jpg);'})
+				.append(
+						$('<div/>').addClass('sj-for-album-eff').append(
+								$('<h4/>').html(i.album),
+								$('<h6/>').html(i.arti)
+						)
+				)
+				.appendTo($li)
+				.click(function(e){
+					let $this = $(this);
+					$this.siblings('.sj-for-album-item.active').removeClass('active');
+					$this.addClass('active');
+				});
+			}
+			
+			$('.sj-for-album-item:first').addClass('active');
+			
+			
+			
+			
+			
+			
 			
 			// #artist start
 			$('<div/>').attr({id:'artist'}).appendTo($foryouSec);
