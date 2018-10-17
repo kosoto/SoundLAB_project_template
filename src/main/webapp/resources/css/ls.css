@@ -2,7 +2,7 @@
 class랑 아이디 이름 줄 때 
 ls을 포함시켜서 겹치지 않게 부탁드려요 
 */
-.ls_my-4 {
+/* .ls_my-4 {
 	margin-left:1.2rem;
 }
 .ls_nav{
@@ -21,9 +21,9 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
 
 
 
-/*	--------------------------------------------------
+	--------------------------------------------------
 	:: Table Filter
-	-------------------------------------------------- */
+	--------------------------------------------------
 
 
 .panel .btn-group .btn {
@@ -46,14 +46,14 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
 	border-top-color: #eee;
 	width: 10%;
 }
-/* .ls_table>tbody>tr>td, 
+.ls_table>tbody>tr>td, 
 .ls_table>tbody>tr>th, 
 .ls_table>tfoot>tr>td, 
 .ls_table>tfoot>tr>th, 
 .ls_table>thead>tr>td, 
 .ls_table>thead>tr>th{
 	width: 11%;
-} */
+}
 .ls_table-filter tbody tr.selected td {
 	background-color: #eee;
 }
@@ -98,9 +98,9 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
 }
 
 
-/*	--------------------------------------------------
+	--------------------------------------------------
 	:: Table Filter
-	-------------------------------------------------- */
+	--------------------------------------------------
 
 
 .panel .btn-group {
@@ -314,17 +314,17 @@ ls을 포함시켜서 겹치지 않게 부탁드려요
 }
 
 .hovereffect .overlay {
-  position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
+  position: fixed; Sit on top of the page content
+    display: none; Hidden by default
+    width: 100%; Full width (cover the whole page)
+    height: 100%; Full height (cover the whole page)
     top: 0; 
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    background-color: rgba(0,0,0,0.5); Black background with opacity
+    z-index: 2; Specify a stack order in case you're using a different order for other elements
+    cursor: pointer; Add a pointer on hover
 }
 
 .hovereffect:hover .overlay {
@@ -434,3 +434,4 @@ overflow: hidden;
 	margin : 0 auto;
 	text-align: center;
 }
+ */

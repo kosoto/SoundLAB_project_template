@@ -10,10 +10,10 @@
      <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-     <link href="${context}/resources/css/sh.css" rel="stylesheet">
-     <link href="${context}/resources/css/jt.css" rel="stylesheet">
-     <link href="${context}/resources/css/ls.css" rel="stylesheet">
-     <link href="${context}/resources/css/sj.css" rel="stylesheet">
+      <link href="${context}/resources/css/sh.css" rel="stylesheet">
+      <link href="${context}/resources/css/jt.css" rel="stylesheet">
+      <link href="${context}/resources/css/ls.css" rel="stylesheet">
+      <link href="${context}/resources/css/sj.css" rel="stylesheet">
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
