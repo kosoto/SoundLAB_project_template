@@ -58,34 +58,32 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 #djCarousel .carousel-control.left {margin-right:15px;background-image:none;}
 #djCarousel .carousel-control.right {margin-left:15px;background-image:none;}
 
-#djCarousel .carousel-inner .item.right,.carousel-inner .item.left {transform: translateX(0);}
+#djCarousel .carousel-inner .item.prev.right,
+#djCarousel .carousel-inner .item.next.left {transform: translateX(0);}
 
 @media (max-width: 767px) {
 	#djCarousel .img-responsive{margin:0 auto;}
 	#djCarousel .active > div { display:none; }
 	#djCarousel .active > div:first-child { display:block; }
-	#djCarousel .carousel-inner.item.left.active { transform: translateX(-100%);}
-	#djCarousel .carousel-inner.item.right.active {transform: translateX(100%);}
-  	#djCarousel .carousel-inner.item.next {transform: translateX(100%)}
-  	#djCarousel .carousel-inner.item.prev {transform: translateX(-100%)}
-  	
+	#djCarousel .carousel-inner .item.left.active { transform: translateX(-100%);}
+	#djCarousel .carousel-inner .item.right.active {transform: translateX(100%);}
+  	#djCarousel .carousel-inner .item.next {transform: translateX(100%)}
+  	#djCarousel .carousel-inner .item.prev {transform: translateX(-100%)}
 }
-
 @media (min-width: 767px) and (max-width: 992px ) {
 	#djCarousel .active > div { display:none; }
 	#djCarousel .active > div:first-child { display:block; }
 	#djCarousel .active > div:first-child + div { display:block; }
-	#djCarousel .carousel-inner.item.left.active { transform: translateX(-50%);}
-	#djCarousel .carousel-inner.item.right.active {transform: translateX(50%);}
-	#djCarousel .carousel-inner.item.next {transform: translateX(50%)}
-	#djCarousel .carousel-inner.item.prev {transform: translateX(-50%)}
+	#djCarousel .carousel-inner .item.left.active { transform: translateX(-50%);}
+	#djCarousel .carousel-inner .item.right.active {transform: translateX(50%);}
+	#djCarousel .carousel-inner .item.next {transform: translateX(50%)}
+	#djCarousel .carousel-inner .item.prev {transform: translateX(-50%)}
 }
-
 @media (min-width: 992px ) {
-	#djCarousel .carousel-inner.item.left:active { transform: translateX(-33%);}
-  	#djCarousel .carousel-inner.item.right:active {transform: translateX(33%);}
-  	#djCarousel .carousel-inner.item.next {transform: translateX(33%)}
-  	#djCarousel .carousel-inner.item.prev {transform: translateX(-33%)}
+	#djCarousel .carousel-inner .item.left.active { transform: translateX(-33%);}
+  	#djCarousel .carousel-inner .item.right.active {transform: translateX(33%);}
+  	#djCarousel .carousel-inner .item.next {transform: translateX(33%)}
+  	#djCarousel .carousel-inner .item.prev {transform: translateX(-33%)}
 }
 
 
@@ -166,7 +164,6 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
         flex: 0 0 70%;
         max-width: 70%;
         width: 70%; } }
-        
     @media only screen and (max-width: 767px) {
       .featured-album-content .album-all-songs {
       position: relative;
@@ -193,7 +190,6 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
           max-width: 100%;
           width: 100%;
           margin-bottom: 1rem; } }
-          
       .featured-album-content .album-songs .album-info .album-title h6 {
         font-size: 12px;
         font-weight: 900;
@@ -219,7 +215,6 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
       z-index: 1;
       height: 5rem;
      }
-     
       .featured-album-content .album-songs .single-music:last-child {
         margin-bottom: 3rem; }
         
@@ -238,7 +233,6 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
             top: 3px; } }
       .featured-album-content .album-songs .single-music.active h6 {
         color: white; }
-        
     .featured-album-content .album-songs .now-playing {
       position: absolute;
       width: 100%;
@@ -261,7 +255,6 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
           max-width: 100%;
           width: 100%;
           margin-bottom: 30px; } }
-         
       .featured-album-content .album-songs .now-playing .songs-name p {
         font-weight: 900;
         color: rgba(255, 255, 255, 0.5);
@@ -275,7 +268,7 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
         @media only screen and (min-width: 768px) and (max-width: 991px) {
           .featured-album-content .album-songs .now-playing .songs-name h6 {
             font-size: 14px; } }
-
+      
 img {
   height: auto;
   max-width: 100%; }
@@ -294,7 +287,6 @@ img {
       .mb-10 {
     margin-bottom: 10px !important;
 }
- 
 .musica-btn {
     background: #cc1573;
     background: -webkit-linear-gradient(to right, #cc1573, #5722a9);
@@ -372,13 +364,12 @@ img {
     transform: rotate(45deg);
 }
 
- 
+
 .btn-group>.btn.active, .btn-group>.btn:hover {
 	background: #27203f;
     color: #ff3385;
     text-shadow : none;
 }
- 
 .btn-default.active {
 	text-shadow : none;
 }
