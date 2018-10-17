@@ -1,0 +1,17 @@
+
+
+select *from view_record;
+
+
+SELECT
+  V.SEQ_GROUP,
+  MEM.MEMBER_ID,
+  
+  V.COUNT(*)
+  
+  
+FROM VIEW_RECORD V 
+  JOIN MEMBER MEM
+  ON MEM.MEMBER_ID LIKE V.MEMBER_ID
+
+;

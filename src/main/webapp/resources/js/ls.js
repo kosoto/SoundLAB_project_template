@@ -83,57 +83,56 @@ ls ={
 			
 			$('<tbody/>').append(
 					$('<tr/>').attr({id : 'ls_topTable_tr'}).append(
-							$('<td/>').attr('width','2%').append(
-									$('<th/>').addClass('ls_ckbox').append(
-											$('<input/>').attr({type : 'checkbox', id :'allCheck' }),
+									$('<th/>').attr({style : 'width:5%'}).append(
+											$('<input/>').attr({type : 'checkbox', id :'allCheck' }).attr({style : 'width:15px'}),
 											$('<label for="allCheck">')
-									)
+									
 							),
-							$('<th/>').attr('width','5%').html('NO'),
+							$('<th/>').attr('width','3%').html('NO'),
 							$('<th/>').attr('width','10%').html('앨범사진'),
-							$('<th/>').attr('width','30%').html('제목'),
-							$('<th/>').attr('width','15%').html('아티스트'),
-							$('<th/>').attr('width','15%').html('앨범명'),
+							$('<th/>').attr('width','20%').html('제목'),
+							$('<th/>').attr('width','10%').html('아티스트'),
+							$('<th/>').attr('width','10%').html('앨범명'),
 							$('<th/>').attr('width','5%').html('듣기'),
 							$('<th/>').attr('width','5%').html('하트'),
 							$('<th/>').attr('width','5%').html('영상'),
-							$('<th/>').attr('width','5%').html('싫어요')
+							$('<th/>').attr('width','8%').html('싫어요')
 					)
 			).appendTo($('#topTable'));
 			
 			
 			let arrTop100 = [
-				{src : '선미사이렌.png',
+				{src : '선미_가시나.jpg',
 					musTtl : '사이렌',
 					atist : '선미',
 					title : 'WARNING'
 				},
-				{src : '로이킴.jpg',
+				{src : '로이킴_그때_헤어지면_돼.jpg',
 					musTtl : '우리 그만하자',
 					atist : '로이킴',
 					title : '우리 그만하자'
 				},
-				{src : '바이브.jpg',
+				{src : 'VIBE_가을타나봐.jpg',
 					musTtl : '가을 타나 봐 ',
 					atist : '바이브',
 					title : '가을 타나 봐 '
 				},
-				{src : '소유.jpg',
-					musTtl : '까만밤 (PROD. GroovyRoom, OREO)',
-					atist : '소유',
-					title : 'RE:FRESH'
+				{src : '윤종신_좋니.jpg',
+					musTtl : '좋니',
+					atist : '윤종신',
+					title : '좋니'
 				},
-				{src : '아이유.jpg',
+				{src : 'IU_삐삐.jpg',
 					musTtl : '삐삐',
 					atist : '아이유',
 					title : '삐삐'
 				},
-				{src : '폴킴.jpg',
+				{src : '폴킴_키스_먼저_할까요.jpg',
 					musTtl : '모든 날, 모든 순간',
 					atist : '폴킴',
 					title : '키스 먼저 할까요?'}
 			];
-			
+			//
 		
 			$.each(arrTop100,(i,v)=>{
 				
@@ -148,7 +147,7 @@ ls ={
 						),
 						$('<td/>').append(
 										$('<img/>').attr({
-											src : $.ctx()+'/resources/img/ls/'+v.src,
+											src : $.ctx()+'/resources/img/album/'+v.src,
 											id : 'ls_album_photo'
 										}).click(()=>{
 											alert('앨범 사진 클릭');
@@ -164,22 +163,22 @@ ls ={
 							alert('앨범명 클릭');
 						}),
 						$('<td/>').append(
-								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-play')
+								$('<i/>').addClass('ls_fa fa fa-play-circle-o')
 								.click(()=>{
 									alert('듣기 클릭');
 								})),
 						$('<td/>').append(
-								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-heart')
+								$('<i/>').addClass('ls_fa fa fa-heart')
 								.click(()=>{
 									alert('하트 클릭');
 								})),
 						$('<td/>').append(
-								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-facetime-video')
+								$('<i/>').addClass('ls_fa glyphicon glyphicon-facetime-video')
 								.click(()=>{
 									alert('뮤비 클릭');
 								})),
 						$('<td/>').append(
-								$('<button/>').addClass('btn btn-brand btn-dropbox').addClass('glyphicon glyphicon-thumbs-down')
+								$('<i/>').addClass('ls_fa fa fa-thumbs-down')
 								.click(()=>{
 									alert('싫어요 클릭');
 								}))
@@ -201,9 +200,80 @@ ls ={
 				
 		album :()=>{
 			
+			
+			
+			
+		/*	<table>
+			  <caption>최신앨범</caption>
+			  <thead>
+			    <tr>
+			      <th scope="col">sample1</th>
+			      <th scope="col">sample2</th>
+			      <th scope="col">sample3</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>sample4</td>
+			      <td>sample5</td>
+			      <td>sample6</td>
+			    </tr>
+			    <tr>
+			      <td>sample7</td>
+			      <td>sample8</td>
+			      <td>sample9</td>
+			    </tr>
+			    <tr>
+			      <td>sample10</td>
+			      <td>sample11</td>
+			      <td>sample12</td>
+			    </tr>
+			    <tr>
+			      <td>sample13</td>
+			      <td>sample14</td>
+			      <td>sample15</td>
+			    </tr>
+			    <tr>
+			      <td>sample16</td>
+			      <td>sample17</td>
+			      <td>sample18</td>
+			    </tr>
+			  </tbody>
+			</table>*/
+			
 			if(!($("#albumSec").length >0)){ 
 				let $albumSec = $('<section/>').attr({id:'albumSec'});
 				$albumSec.appendTo($('#contents')).append(
+						
+						$('<table/>').attr({id : 'ls_alTable' }).append(
+								$('<thead/>').append(
+										$('<tr/>').append(
+												$('<th/>')
+										)		
+								),
+								$('<tbody/>').append(
+										$('<tr/>').append(
+												$('<th/>')
+								)
+								)
+								
+						),
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
 						// 앨범헤더
 						$('<div/>').addClass("ls_album_panel container").append(
 								$('<h1/>').html('최신앨범')
@@ -220,7 +290,9 @@ ls ={
 						
 						// 앨범 컨텐츠
 						$('<br><br><div/>').attr({id : 'album-content' }).addClass("ls_album_panel container").append(
-								$('<div/>').append(
+								$('<div/>').addClass('row').append(
+								
+										
 										 $('<ul/>').addClass("ls_album_nav nav nav-tabs nav-justified").append(
 												 $('<li/>').attr({id : 'ali1'}).append(
 														 $('<a/>').attr({href:'#',id : 'ls_alDateSort'}).html('발매일')),
@@ -246,36 +318,37 @@ ls ={
 				
 			 
 				let arrNewAl = [
-					{src : '선미사이렌.png',
+					{src : '선미_가시나.jpg',
 						musTtl : '사이렌',
 						atist : '선미',
 						title : 'WARNING'
 					},
-					{src : '로이킴.jpg',
+					{src : '로이킴_그때_헤어지면_돼.jpg',
 						musTtl : '우리 그만하자',
 						atist : '로이킴',
 						title : '우리 그만하자'
 					},
-					{src : '바이브.jpg',
+					{src : 'VIBE_가을타나봐.jpg',
 						musTtl : '가을 타나 봐 ',
 						atist : '바이브',
 						title : '가을 타나 봐 '
 					},
-					{src : '소유.jpg',
-						musTtl : '까만밤 (PROD. GroovyRoom, OREO)',
-						atist : '소유',
-						title : 'RE:FRESH'
+					{src : '윤종신_좋니.jpg',
+						musTtl : '좋니)',
+						atist : '윤종신',
+						title : '좋니'
 					},
-					{src : '아이유.jpg',
+					{src : 'IU_삐삐.jpg',
 						musTtl : '삐삐',
 						atist : '아이유',
 						title : '삐삐'
 					},
-					{src : '폴킴.jpg',
+					{src : '폴킴_키스_먼저_할까요.jpg',
 						musTtl : '모든 날, 모든 순간',
 						atist : '폴킴',
 						title : '키스 먼저 할까요?'}
 				];
+				
 			
 				$.each(arrNewAl,(i,v)=>{
 				 	$('<div/>').attr({id : 'ls_allpl'+i,style : 'float: left;width: 33%;margin :0 auto'})
@@ -288,7 +361,7 @@ ls ={
 				 					.attr({id : 'thumbnail'+i,style :'width: 300px;height: 480px ;padding:20px' })
 				 					.addClass('ls_thumbnail thumbnail').append(
 				 							$('<img/>').attr({
-				 								src : $.ctx()+'/resources/img/ls/'+v.src}).addClass('ls_alimg'),
+				 								src : $.ctx()+'/resources/img/album/'+v.src}).addClass('ls_alimg'),
 				 							$('<span/>').attr({id : 'caption'+i}).addClass('caption').append(
 				 									$('<h4/>')
 				 									.html(v.musTtl).attr({title :v.musTtl }).addClass('ls_card-description card-description'),
@@ -329,27 +402,44 @@ ls ={
 			  item.appendTo($('#alCarousel'));
 			  
 			  let newal = [
-					{
-						title : '폴킴의 타이틀',
-						name : '폴킴',
+				  {src : '선미_가시나.jpg',
+						musTtl : '사이렌',
+						atist : '선미',
+						title : 'WARNING'
 					},
-					{
-						title : 'ABOUT ME',
-						name : '바이브',
+					{src : '로이킴_그때_헤어지면_돼.jpg',
+						musTtl : '우리 그만하자',
+						atist : '로이킴',
+						title : '우리 그만하자'
 					},
-					{
-						title : '삐삐',
-						name : '아이유',
+					{src : 'VIBE_가을타나봐.jpg',
+						musTtl : '가을 타나 봐 ',
+						atist : '바이브',
+						title : '가을 타나 봐 '
 					},
-					];
+					{src : '윤종신_좋니.jpg',
+						musTtl : '좋니',
+						atist : '윤종신',
+						title : '좋니'
+					},
+					{src : 'IU_삐삐.jpg',
+						musTtl : '삐삐',
+						atist : '아이유',
+						title : '삐삐'
+					},
+					{src : '폴킴_키스_먼저_할까요.jpg',
+						musTtl : '모든 날, 모든 순간',
+						atist : '폴킴',
+						title : '키스 먼저 할까요?'}
+				];
 			  
-			  $.each(newal,(i,v)=>{ $('<div/>').addClass('item'+((i===0)?' active':'')).append(
-					  $('<div/>').addClass('col-md-4 col-sm-6 col-xs-12 single-featured-shows').append( 
-							  $('<img/>').attr({src : $.ctx()+'/resources/img/ls/'+v.name+'.jpg'}).addClass('img-responsive'),
-							  $('<div/>').attr({style :'hight ="40%"'}).addClass('featured-shows-content').append(
-									  $('<div/>').addClass('shows-text').append( 
+			 $.each(newal,(i,v)=>{ $('<div/>').addClass('item'+((i===0)?' active':'')).append(
+					  $('<div/>').addClass('col-md-3 col-sm-6 col-xs-12 ls-dj-item').append( 
+							  $('<img/>').attr({src : $.ctx()+'/resources/img/album/'+v.src}).addClass('img-responsive'),
+							  $('<div/>').attr({style :'height ="40%"'}).addClass('ls-dj-item-content').append(
+									  $('<div/>').addClass('ls-dj-content-txt').append( 
 											  $('<h4/>').html(v.title), 
-											  $('<p/>').html(v.name), 
+											  $('<p/>').html(v.musTtl), 
 											  $('<div/>').addClass('bg-gradients') ) ) ) )
 											  
 											  .appendTo(item).click(e=>{
@@ -371,24 +461,31 @@ ls ={
 				).appendTo($('#alCarousel'));
 				
 				$('#alCarousel').carousel({
-					  interval: 10000
+					  interval: 2000
 					})
-				$('#alCarousel .item').each(function(){
-				  var next = $(this).next();
-				  if (!next.length) {
-				    next = $(this).siblings(':first');
-				  }
-				  next.children(':first-child').clone().appendTo($(this));
+		
+					$('#alCarousel .item').each(function () {
+				        var next = $(this).next();
+				        if (!next.length) {
+				            next = $(this).siblings(':first');
+				        }
+				        next.children(':first-child').clone().appendTo($(this));
 
-				  if (next.next().length>0) {
-				    next.next().children(':first-child').clone().appendTo($(this));
-				  }
-				  else {
-				    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-				  }
-				});
-
-				
+				    	for (var i=0;i<2;i++) {
+							next=next.next();
+							if (!next.length) {
+								next = jQuery(this).siblings(':first');
+							}
+							next.children(':first-child').clone().appendTo($(this));
+						}
+				    });
+			  
+			  
+			  
+			  
+			  
+			  
+			  
 		}
 			
 			
