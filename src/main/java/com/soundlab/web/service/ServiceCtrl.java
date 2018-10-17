@@ -31,7 +31,7 @@ public class ServiceCtrl {
 		Util.log.accept("검색한 정보::");
 		map.clear();
 		map.put("artistName", artistName);
-		new artist();
+	
 		
 		
 	
