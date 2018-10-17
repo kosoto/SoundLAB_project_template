@@ -1544,3 +1544,22 @@ VALUES(
 
 ALTER TABLE updown CHANGE LIKE_SEQ UD_SEQ INT NOT NULL;
  
+
+
+INSERT INTO VIEW_RECORD(
+ MEMBER_ID, SEQ_GROUP, SG_ELEMENT
+)
+VALUES(
+'shin',89, 'music'
+);
+
+DELETE FROM VIEW_RECORD
+WHERE MEMBER_ID LIKE 'shin';
+
+
+ select seq_group,count(*) from view_record group by seq_group;
+ select music_seq, music_title from music;
+ select seq_group from view_record where view_date >= '2018-10-15%' and view_date <= '2018-10-17%';
+
+ 
+ 
