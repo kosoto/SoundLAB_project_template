@@ -116,10 +116,18 @@ sh = (()=>{
     	 });
          
     	 $('#chartBtn').click(e=>{
-    		 $('#contents').html(banner()+cloud()+topFive());
-			 ls.chart();
-			 sh.service.removeSec('#chartSec');
-			 fn.scroll({ id : $("#chartSec"), len : 150});
+    		 alert('하이 제이슨');
+ 			$('#contents').html(banner()+cloud()+topFive());
+	       		ls.chart();
+	       		sh.service.removeSec('#chartSec');
+				fn.scroll({ id : $("#chartSec"), len : 200});
+			/*	 $.getJSON(sh.ctx()+'/music/top50',d=>{
+						
+		        	});*/
+			
+			    
+				
+			
          });
          $('#albumBtn').click(e=>{
         	 $('#contents').html(banner()+cloud()+topFive());
