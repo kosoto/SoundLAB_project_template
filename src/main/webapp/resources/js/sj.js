@@ -4,13 +4,11 @@ sj ={
 		dj : ()=>{
 			if(!($("#djSec").length >0)){   //exist
 		
-				let $djSec = $('<section/>').attr({id:'djSec'});
-				$djSec.appendTo($('#contents'));
+				let $djSec = $('<section/>').attr({id:'djSec'}).appendTo($('#contents'));
 				
 				$('<div/>').addClass('container').appendTo($djSec).append(
 						
 						$('<h3/>').html('Select Hash Tag : '),
-						
 						$('<h5/>').attr({id:'selHash'}).html('선택된 해시태그'),
 						
 						$('<div/>').addClass('row text-center').append(
@@ -73,142 +71,7 @@ sj ={
 					$('#selHash').html((s == '')?'전체':s);
 				});
 				
-				$('<div/>').addClass('container').append(
-						$('<div/>').addClass('row').append(
-								$('<div/>')
-								.addClass('col-xs-12 sj-dj-carousel').append(
-										$('<h2/>').attr('style','margin-left: 1.2rem;').addClass('my-4').html('DJ PLAYLIST'),
-										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide')
-								).on('click','.item>div',function(e){
-									
-									console.log("PAUSE");
-									$('#djCarousel').carousel('pause');
-									
-									let $this = $(this);
-									
-									if($this.find('h4').text() != $('#dj-detail .sj-songs-info-title>h4').text()){
-										$('#dj-coll').remove();
-										sj.djDetail({
-											src : $this.find('img').attr('src'),
-											title: $this.find('h4').text()
-										})
-										
-									}
-									
-								})
-						)
-				).appendTo($djSec);
-				
-				/*
-				동적으로 생성하여 on function을 사용한다.
-				  
-				$('#djCarousel').on('click','.item>div',function(e){
-					$('#dj-detail').remove();
-					let $this = $(this);
-					sj.djDetail({
-						src : $this.find('img').attr('src'),
-						title: $this.find('h4').text()
-						});
-					$('#dj-detail').slideDown("slow");
-				});
-*/
-				
-				let $item = $('<div/>').addClass('carousel-inner')
-				$item.appendTo($('#djCarousel'));
-				
-				let djArr = [
-					{
-						src : 'dj-1.jpg',
-						title : '1. Dj Playlist',
-						name : 'soundLAB',
-						date : '2018.09.02',
-						hash : '#여름 #신나는 #여행'
-					},
-					{
-						src : 'dj-2.jpg',
-						title : '2. Dj Playlist',
-						name : 'soundLAB',
-						date : '2018.09.02',
-						hash : '#여름 #신나는 #여행'
-					},
-					{
-						src : 'dj-3.jpg',
-						title : '3. Dj Playlist',
-						name : 'soundLAB',
-						date : '2018.09.02',
-						hash : '#여름 #신나는 #여행'
-					},
-					{
-						src : 'dj-2.jpg',
-						title : '4. Dj Playlist',
-						name : 'soundLAB',
-						date : '2018.09.02',
-						hash : '#여름 #신나는 #여행'
-					}
-					];
-				
-				$.each(djArr,(i,v)=>{
-					$('<div/>').addClass('item'+((i===0)?' active':'')).append(
-							$('<div/>')
-							.attr({'data-toggle':'collapse', 'data-target':'#dj-coll', 'aria-controls':'dj-coll'})
-							.addClass('col-md-4 col-sm-6 col-xs-12 sj-dj-item').append(
-									$('<img/>').attr({
-										src : $.ctx()+'/resources/img/sj/'+v.src,
-										alt : 'DJ-P-img' + i
-									}).addClass('img-responsive'),
-									$('<div/>').addClass('sj-dj-item-content').append(
-											$('<div/>').addClass('sj-dj-content-txt').append(
-													$('<h4/>').html(v.title),
-													$('<p/>').html(v.name),
-													$('<p/>').html(v.date),
-													$('<p/>').html(v.hash),
-													$('<div/>').addClass('bg-gradients')
-											)
-									)
-							)
-					).appendTo($item);
-				});
-				
-				
-				$('<a/>')
-				.attr({href:'#djCarousel', 'data-slide':'prev'})
-				.addClass('left carousel-control')
-				.append(
-						$('<i/>').addClass('glyphicon glyphicon-chevron-left')
-				).appendTo($('#djCarousel'));
-				$('<a/>')
-				.attr({href:'#djCarousel', 'data-slide':'next'})
-				.addClass('right carousel-control')
-				.append(
-						$('<i/>').addClass('glyphicon glyphicon-chevron-right')
-				).appendTo($('#djCarousel'));
-				
-				
-				$('#djCarousel .carousel-control').click(e=>{
-					console.log("CYCLE");
-					$('#djCarousel').carousel('cycle');
-				});
-				
-				
-				$('#djCarousel').carousel({
-					  interval: 4000
-					})
-				$('#djCarousel .item').each(function(){
-				  var next = $(this).next();
-				  if (!next.length) {
-				    next = $(this).siblings(':first');
-				  }
-				  next.children(':first-child').clone().appendTo($(this));
-
-				  if (next.next().length>0) {
-				    next.next().children(':first-child').clone().appendTo($(this));
-				  }
-				  else {
-				    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-				  }
-				});
-				
-				
+				sj.service.dj_pl({});
 				
 			}
 		},
@@ -416,11 +279,120 @@ sj ={
 			
 			
 			}
+		}
+};
+
+sj.service = {
+		dj_pl : x=>{
+			
+			$.getJSON($.ctx()+'/dj',d=>{
+				$('<div/>').addClass('container').append(
+						$('<div/>').addClass('row').append(
+								$('<div/>')
+								.addClass('col-xs-12 sj-dj-carousel').append(
+										$('<h2/>').attr('style','margin-left: 1.2rem;').addClass('my-4').html('DJ PLAYLIST'),
+										$('<div/>').attr({id : 'djCarousel'}).addClass('carousel slide')
+								).on('click','.item>div',function(e){
+									
+									console.log("PAUSE");
+									$('#djCarousel').carousel('pause');
+									
+									let $this = $(this);
+									
+									if($this.find('h4').text() != $('#dj-detail .sj-songs-info-title>h4').text()){
+										$('#dj-coll').remove();
+										sj.service.dj_pld({
+											src : $this.find('img').attr('src'),
+											title: $this.find('h4').text()
+										})
+										
+									}
+								})
+						)
+				).appendTo($('#djSec'));
+				
+				/*
+				동적으로 생성하여 on function을 사용한다.
+				  
+				$('#djCarousel').on('click','.item>div',function(e){
+					$('#dj-detail').remove();
+					let $this = $(this);
+					sj.djDetail({
+						src : $this.find('img').attr('src'),
+						title: $this.find('h4').text()
+						});
+					$('#dj-detail').slideDown("slow");
+				});
+				 */
+				
+				let $item = $('<div/>').addClass('carousel-inner').appendTo($('#djCarousel'))
+				
+				let djArr = d.list; 
+				
+				$.each(djArr,(i,v)=>{
+					$('<div/>').addClass('item'+((i===0)?' active':'')).append(
+							$('<div/>')
+							.attr({'data-toggle':'collapse', 'data-target':'#dj-coll', 'aria-controls':'dj-coll'})
+							.addClass('col-md-4 col-sm-6 col-xs-12 sj-dj-item').append(
+									$('<img/>').attr({
+										src : $.ctx()+'/resources/img/sj/'+v.src
+									}).addClass('img-responsive'),
+									$('<div/>').addClass('sj-dj-item-content').append(
+											$('<div/>').addClass('sj-dj-content-txt').append(
+													$('<h4/>').html(v.title),
+													$('<p/>').html(v.memberId),
+													$('<p/>').html(v.regidate),
+													$('<p/>').html(v.hash),
+													$('<div/>').addClass('bg-gradients')
+											)
+									)
+							)
+					).appendTo($item);
+				});
+				
+				$('<a/>')
+				.attr({href:'#djCarousel', 'data-slide':'prev'})
+				.addClass('left carousel-control')
+				.append(
+						$('<i/>').addClass('glyphicon glyphicon-chevron-left')
+				).appendTo($('#djCarousel'));
+				$('<a/>')
+				.attr({href:'#djCarousel', 'data-slide':'next'})
+				.addClass('right carousel-control')
+				.append(
+						$('<i/>').addClass('glyphicon glyphicon-chevron-right')
+				).appendTo($('#djCarousel'));
+				
+				// Carousel jqeury
+				
+				$('#djCarousel .carousel-control').click(e=>{
+					console.log("CYCLE");
+					$('#djCarousel').carousel('cycle');
+				});
+				$('#djCarousel').carousel({
+					  interval: 4000
+					})
+				$('#djCarousel .item').each(function(){
+				  var next = $(this).next();
+				  if (!next.length) {
+				    next = $(this).siblings(':first');
+				  }
+				  next.children(':first-child').clone().appendTo($(this));
+
+				  if (next.next().length>0) {
+				    next.next().children(':first-child').clone().appendTo($(this));
+				  }
+				  else {
+				    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+				  }
+				});
+				
+			}); // getJSON end
+			
 		},
-		djDetail : x=>{
+		dj_pld : x=>{
 			
 			$('<div/>').attr({id:'dj-coll'}).addClass('collapse').appendTo($('#djSec'));
-			// 'style':'display:none;'
 			$('<div/>')
 			.addClass('sj-padding-5r clearfix')
 			.attr({id:'dj-detail', 'style':'margin-bottom:0px;'})
@@ -507,6 +479,9 @@ sj ={
 						)
 				).appendTo($pl)
 			}
+
 		}
 		
 };
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.soundlab.web.dj.ArticleMapper">
+  	<resultMap type="map" id="atc">
+  		<id property="articleSeq" column="ARTICLE_SEQ"/>
+  		<result property="memberId" column="MEMBER_ID"/>
+  		<result property="boardSeq" column="BOARD_SEQ"/>
+  		<result property="title" column="TITLE"/>
+  		<result property="contents" column="CONTENTS"/>
+  		<result property="hash" column="HASH"/>
+  		<result property="regidate" column="REGI_DATE"/>
+  		<result property="viewCnt" column="VIEW_CNT"/>
+  	</resultMap>
+	<select id="get" resultMap="atc">
+		SELECT *
+		FROM (
+			SELECT
+				ROW_NUMBER() OVER(ORDER BY VIEW_CNT DESC, TITLE ASC) AS 'BNO',
+				A.*,
+				I.IMG_NAME,
+				I.EXT
+			FROM
+				ARTICLE A
+					JOIN IMG I
+						ON A.ARTICLE_SEQ LIKE I.SEQ)B
+		WHERE B.BNO BETWEEN 1 AND 5
+		ORDER BY B.BNO;
+	</select>  
+  </mapper>
