@@ -1,5 +1,7 @@
 package com.soundlab.web.music;
 
-public interface MusicMapper {
+import java.util.Map;
 
+public interface MusicMapper {
+	// public Map<String,Object> getRealChart(Map<?,?> p);
 }
