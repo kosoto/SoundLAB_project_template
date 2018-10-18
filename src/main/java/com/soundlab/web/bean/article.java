@@ -9,5 +9,5 @@ import lombok.Data;
 @Data
 public class article {
 	private int articleSeq;
-	private String memberId, boardSeq, title, contents, playtime, regidate, viewCnt;
+	private String memberId, boardSeq, title, contents, regidate, viewCnt, hash;
 }

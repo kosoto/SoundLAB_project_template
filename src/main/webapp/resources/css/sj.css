@@ -198,7 +198,7 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 .sj-music-content .sj-music-list-area {
 	position: relative;
 	z-index: 2;
-	height: 80%;
+	height: 70%;
 	width: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -329,10 +329,6 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 	height: 5rem;
 }
 
-.sj-music-content .sj-music-content-songs .single-music:last-child {
-	margin-bottom: 3rem;
-}
-
 .sj-music-content .sj-music-content-songs .single-music h6 {
 	position: absolute;
 	font-weight: 500;
@@ -355,7 +351,7 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 	color: white;
 }
 
-.sj-music-content .sj-music-content-songs .sj-songs-footer {
+/* .sj-music-content .sj-music-content-songs .sj-songs-footer {
 	position: absolute;
 	width: 100%;
 	height: 2.5rem;
@@ -372,7 +368,7 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 		padding: 30px;
 		height: 10rem;
 	}
-}
+} */
 
 #album-scroll::-webkit-scrollbar {
 	width: 5px;
@@ -468,24 +464,24 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 	color: #fff;
 }
 
-#check-con label {
+label.check-con {
 	margin: auto;
 	height: 25px;
 	width: 25px
 }
 
-#check-con input {
+.check-con input {
 	opacity: 0;
 	cursor: pointer;
 	height: 0;
 	width: 0;
 }
 
-#check-con input:checked ~ .sj-checkmark {
+.check-con input:checked ~ .sj-checkmark {
 	background-color: #ff3385;
 }
 
-#check-con input:checked ~ .sj-checkmark:after {
+.check-con input:checked ~ .sj-checkmark:after {
 	display: block;
 }
 
@@ -505,7 +501,7 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 	display: none;
 }
 
-#check-con .sj-checkmark:after {
+.check-con .sj-checkmark:after {
 	left: 9px;
 	top: 5px;
 	width: 5px;
@@ -553,4 +549,62 @@ sj을 포함시켜서 겹치지 않게 부탁드려요
 	margin-bottom: 0;
 	font-weight: 900;
 	color: #ffffff;
+}
+
+/* foryou artist */
+#for-artist.accordian {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+#for-artist.accordian ul {
+	width: 100%;
+	padding-inline-start: 0;
+}
+
+
+#for-artist.accordian ul li {
+	position: relative;
+	display: block;
+	width: 20%;
+	float: left;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+#for-artist.accordian ul:hover li {
+	width: 10%;
+}
+
+#for-artist.accordian ul li:hover {
+	width: 60%;
+}
+#for-artist.accordian ul li:hover .sj-acc-img-cnt{
+	opacity: 1;
+}
+#for-artist.accordian li div.sj-bg-img {
+	display: block;
+	height: 470px;
+}
+
+.sj-acc-img-cnt {
+	opacity: 0;
+	transition: opacity 1.5s;
+	background: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	left: 0;
+	bottom: 50%;
+	width: 100%;
+	text-align: center;
+}
+
+.sj-acc-img-cnt a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 20px;
+	font-size: 16px;
 }
