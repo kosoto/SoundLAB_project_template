@@ -10,7 +10,7 @@ create table BOARD(
 
 CREATE SEQUENCE mseq START WITH 1 INCREMENT BY 1;
 
-
+ 
 CREATE TABLE MASTER_SEQ(
 	seq INT AUTO_INCREMENT PRIMARY KEY,
 	seq_name VARCHAR(20) 
@@ -1560,6 +1560,28 @@ WHERE MEMBER_ID LIKE 'shin';
  select seq_group,count(*) from view_record group by seq_group;
  select music_seq, music_title from music;
  select seq_group from view_record where view_date >= '2018-10-15%' and view_date <= '2018-10-17%';
+
+UPDATE artist
+SET intro1 = 
+'장범준은 대한민국의 싱어송라이터이다. 2011년 Mnet "슈퍼스타 K3"에서 준우승 하며 이름을 알린 밴드 버스커버스커의 리더이며, 그룹의 작사, 작곡 편곡을 담당하고 있다. 프로그램 방
+영 중에 무대에서 선보인 곡들이 음원으로 엄청난 사랑을 받았는데, 동경소녀 , 막걸리나 , 서울사람들 등의 편곡을 도맡아 하며 팀의 무대를 이끌었다.'
+where artist_seq like 61;
+
+UPDATE artist
+SET intro2 = 
+'2012년 3월 발표한 [버스커 버스커1집]에 전곡 작사, 작곡으로 참여해 독보적인 인기를 얻었다. 특히 타이틀 곡인 벚꽃 엔딩 은 봄을 상징하는 노래로 회자되며 매년 봄마다 차트에 진입하고 
+ 있어 "벚꽃연금"이라는 신조어를 만들어내기도 했다. 타이틀 곡 뿐 아니라 수록곡 첫사랑, 여수 밤바다, 외로움증폭장치 등 수록곡 전체가 사랑을 받았으며 장범준 표 음악의 대중성이 증명된 앨
+ 범이다.
+
+ 2014년에 첫 솔로 앨범인 [장범준 1집]을 발표하게 되는데, 버스커 버스커 때의 장난기 있는 모습보다는 가을에 어울리는 감성적인 곡들을 수록했으며, 웹툰과 함께 앨범을 발표하는 독특한 프로
+ 모션으로 화제가 되기도 했다.'
+where artist_seq like 61;
+
+
+
+
+
+
 
  
  

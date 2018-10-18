@@ -103,18 +103,19 @@ sh = (()=>{
          });
         
          $('#searchBtn').click(e=>{
-     /*   	 alert('서치검색22:::'+$('#artistName').val());*/
-    		 jt.search();
+        	 $.getJSON(sh.ctx()+'/service/search/'+$('#searchInput').val(),d=>{
+					 jt.search(d);
+    			 
+			 });
+    		
     		 fn.scroll({ id : $("#jt_search"), len : 400});
 
     	 });
     	 $('#searchInput').keyup(e=>{
     		 if(e.keyCode == 13) { 
     			 alert('서치검색:::'+$('#searchInput').val());
-    			 alert('서치 url :::'+sh.ctx()+'/service/search');
-    			 $.getJSON(sh.ctx()+'/service/artist/'+$('#searchInput').val(),d=>{
-    				 alert('성공:::아티스트이름::'+d.artistName);
-					 jt.search(d.artistName);
+    			 $.getJSON(sh.ctx()+'/service/search/'+$('#searchInput').val(),d=>{
+					 jt.search(d);
     			 });
     			
     			 fn.scroll({ id : $("#jt_search"), len : 400});

@@ -9,4 +9,5 @@ import lombok.Data;
 @Data
 public class music {
 	private int musicSeq, albumSeq, artistSeq, genreSeq;
+	private String musicTitle;
 }
