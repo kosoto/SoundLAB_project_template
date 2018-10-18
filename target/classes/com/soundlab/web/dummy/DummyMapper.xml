@@ -5,9 +5,52 @@
 <mapper namespace="com.soundlab.web.dummy.DummyMapper">
 	  <insert id="post">
 	  	INSERT INTO VIEW_RECORD
-	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT)
+	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, VIEW_DATE)
 	  	VALUES
-	  	(#{memberId},#{seq},#{element})
+	  	(#{memberId},#{seq},'music','2018-10-18 13:30:34')
 	  </insert>
+	  <insert id="genreUp">
+	  	INSERT INTO UPDOWN
+	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, TYPES)
+	  	VALUES
+	  	(#{memberId},#{seq},'genre', 'u')
+	  </insert>
+	  
+	   <insert id="artistUp">
+	  	INSERT INTO UPDOWN
+	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, TYPES)
+	  	VALUES
+	  	(#{memberId},#{seq},'artist', 'u')
+	  </insert>
+	  
+	   <insert id="artistDown">
+	  	INSERT INTO UPDOWN
+	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, TYPES)
+	  	VALUES
+	  	(#{memberId},#{seq},'artist', 'd')
+	  </insert>
+	  
+	   <insert id="musicUp">
+	  	INSERT INTO UPDOWN
+	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, TYPES)
+	  	VALUES
+	  	(#{memberId},#{seq},'music', 'u')
+	  </insert>
+	  
+	  <insert id="musicDown">
+	  	INSERT INTO UPDOWN
+	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, TYPES)
+	  	VALUES
+	  	(#{memberId},#{seq},'music', 'd')
+	  </insert>
+	  
+	  
+	  <insert id="bangRecord">
+	  	INSERT INTO VIEW_RECORD
+	  	(MEMBER_ID, SEQ_GROUP, SG_ELEMENT, VIEW_DATE)
+	  	VALUES
+	  	(#{memberId},#{seq},'music', '2019-01-01 20:20:34')
+	  </insert>
+	  
 	  
 </mapper>

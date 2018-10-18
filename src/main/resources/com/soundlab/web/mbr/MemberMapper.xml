@@ -37,7 +37,7 @@
 	  </select>
 	  <insert id="post">
 	  	INSERT INTO MEMBER
-	  	(MEMBER_ID, PASS, NAME, BIRTH, PHONE, NICK, SEX, E_MAIL)
+	  	(MEMBER_ID, PASS, NAME, BIRTH, PHONE, NICK, SEX, E_MAIL, join_date)
 	  	VALUES
 	  	(#{memberId},#{pass},#{name},#{ssn},#{phone},#{nick},#{sex},#{email})
 	  </insert>

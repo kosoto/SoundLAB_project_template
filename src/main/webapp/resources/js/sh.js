@@ -160,7 +160,7 @@ sh = (()=>{
          });
          
         $('#logoImg').click(()=>{
-        	/*$.getJSON(sh.ctx()+'/view/dummy',d=>{
+        	/*$.getJSON(sh.ctx()+'/dummy/chart',d=>{
         		alert('seq ::' + d.seq);
         	});*/
              home();

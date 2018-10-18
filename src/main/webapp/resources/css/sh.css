@@ -49,6 +49,14 @@ font-family: 'Do Hyeon', sans-serif;
 }
 
 
+.logoImg {
+	margin: 2rem 0rem 0rem 2rem;
+	width: 8rem;
+	height: 8rem;
+}
+
+
+
 #contents {
 	padding-top: 18rem;
 }
@@ -194,7 +202,7 @@ font-family: 'Do Hyeon', sans-serif;
 
 .loginLogo {
 	height: 16rem;
-	margin: 0rem 3rem 3rem 8rem;
+	margin: 0rem 3rem 3rem 11rem;
 }
 .loginBox {
 	margin: 4rem 0 20rem 0;
@@ -262,7 +270,7 @@ font-family: 'Do Hyeon', sans-serif;
 
 .joinLogo {
 	height: 16rem;
-	margin: 0rem 3rem 3rem 13rem;
+	margin: 0rem 3rem 3rem 16rem;
 }
 
 .joinInput {
