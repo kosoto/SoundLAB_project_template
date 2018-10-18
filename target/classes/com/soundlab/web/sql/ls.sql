@@ -1,20 +1,4 @@
 
-<<<<<<< HEAD
-
-select *from view_record;
-
-
-SELECT
-  V.SEQ_GROUP,
-  MEM.MEMBER_ID,
-  
-  V.COUNT(*)
-  
-  
-FROM VIEW_RECORD V 
-  JOIN MEMBER MEM
-  ON MEM.MEMBER_ID LIKE V.MEMBER_ID
-=======
 select *from MUSIC
 ;
   SELECT
@@ -67,6 +51,5 @@ GROUP BY SEQ_GROUP
 ORDER BY VIEW_COUNT DESC LIMIT 50)AS A,
 ( SELECT @RNUM := 0 )AS B
 
->>>>>>> refs/remotes/origin/ls
 
 ;
