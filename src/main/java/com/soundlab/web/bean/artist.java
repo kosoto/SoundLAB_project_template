@@ -9,5 +9,5 @@ import lombok.Data;
 @Data
 public class artist {
 	private int artistSeq;
-	private String artistName, sex, birth, debut, nation, groupName;
+	private String artistName, sex, birth, debut, nation, groupName,intro1, intro2;
 }

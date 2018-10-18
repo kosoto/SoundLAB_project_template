@@ -103,13 +103,21 @@ sh = (()=>{
          });
         
          $('#searchBtn').click(e=>{
-    		 jt.search();
+        	 $.getJSON(sh.ctx()+'/service/search/'+$('#searchInput').val(),d=>{
+					 jt.search(d);
+    			 
+			 });
+    		
     		 fn.scroll({ id : $("#jt_search"), len : 400});
 
     	 });
     	 $('#searchInput').keyup(e=>{
     		 if(e.keyCode == 13) { 
-    			 jt.search();
+    			 alert('서치검색:::'+$('#searchInput').val());
+    			 $.getJSON(sh.ctx()+'/service/search/'+$('#searchInput').val(),d=>{
+					 jt.search(d);
+    			 });
+    			
     			 fn.scroll({ id : $("#jt_search"), len : 400});
 
     		 } 

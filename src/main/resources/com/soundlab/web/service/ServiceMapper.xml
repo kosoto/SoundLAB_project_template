@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soundlab.web.service.ServiceMapper">
+	<select id="getArtist" resultType="com.soundlab.web.bean.artist">
+		SELECT
+		 ARTIST_SEQ 'ARTISTSEQ',
+		 ARTIST_NAME 'ARTISTNAME', SEX, BIRTH, DEBUT, NATION,
+		 GROUP_NAME 'GROUPNAME',
+		 INTRO1, INTRO2
+		FROM ARTIST WHERE ARTIST_NAME LIKE #{artist}
+	</select>
+	<select id="musicList" resultType="com.soundlab.web.bean.music">
+		SELECT
+		 MUSIC_TITLE 'MUSICTITLE',
+		 ARTIST_SEQ 'ARTISTSEQ'
+		FROM MUSIC WHERE ARTIST_SEQ LIKE #{artistSeq}
+	</select>
+	<select id="albumList"  resultType="com.soundlab.web.bean.album">
+		SELECT
+		 ALBUM_TYPE 'ALBUMTYPE',
+		 ALBUM_TITLE 'ALBUMTITLE',
+		 ARTIST_NAME 'ARTISTNAME',
+		 RELEASE_DATE 'RELEASEDATE'
+		FROM ALBUM
+		WHERE ARTIST_NAME LIKE #{artist};
+		
+	</select>
+
+</mapper>
+
