@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.soundlab.web.music.MusicMapper">
 
-<select id="getRealChart" resultType="map">
+<select id="getRealChart" resultType="java.util.Map">
 	SELECT
- @RNUM := @RNUM + 1  AS NO , A.*
+ CAST(@RNUM := @RNUM + 1 AS signed integer  )AS NO , A.*
 FROM
 (SELECT
   AL.ALBUM_TITLE,
@@ -15,7 +15,7 @@ FROM
   V.VIEW_DATE,
   COUNT(SEQ_GROUP)AS VIEW_COUNT,
   (SELECT CONCAT(IMG_NAME,'.', EXT)
-    FROM IMG   WHM ERE SEQ LIKE AL.ALBUM_SEQ )IMG 
+    FROM IMG   WHERE SEQ LIKE AL.ALBUM_SEQ )IMG 
 FROM  MUSIC MUS
   JOIN VIEW_RECORD V ON V.SEQ_GROUP LIKE MUS.MUSIC_SEQ
   JOIN ALBUM AL ON MUS.ALBUM_SEQ LIKE AL.ALBUM_SEQ

@@ -1,6 +1,7 @@
 package com.soundlab.web.music;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -26,12 +27,14 @@ public class MusicCtrl {
 	@Autowired MusicMapper musMapper;
 	@Autowired HashMap<String, Object> map;
 	@GetMapping("/top50")
-	private @ResponseBody Map<String, Object> top50() {
-	/*	Util.log.accept(":: MusicCtrl :: list() :: page :: " );
-		map.put("realChart", musMapper.getRealChart(map));
-		Util.log.accept("mapper넘어온값" + map.get("realChart"));*/
+	private @ResponseBody List<Map<String, Object>> top50() {
+		Util.log.accept(":: MusicCtrl :: list() :: page :: " );
+		List<Map<String, Object>> topList = musMapper.getRealChart();
 		
-		return map;
+		map.put("top50", topList);
+		Util.log.accept("mapper넘어온값map" +topList.get(1));
+		
+		return topList;
 		
 	}
 }

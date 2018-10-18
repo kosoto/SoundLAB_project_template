@@ -2,9 +2,11 @@
 var ls = ls || {};
 ls ={
 		chart :()=>{
-	
-		
-					if(!($("#chartSec").length >0)){ 
+			 $.getJSON(sh.ctx()+'/music/top50',d=>{
+				 
+			
+				
+				 if(!($("#chartSec").length >0)){ 
 						let $chartSec = $('<section/>').attr({id:'chartSec'});
 						$chartSec.appendTo($('#contents')).append(
 								// Top100 헤더
@@ -103,89 +105,61 @@ ls ={
 					).appendTo($('#topTable'));
 					
 					
-					let arrTop100 = [
-						{src : '선미_가시나.jpg',
-							musTtl : '사이렌',
-							atist : '선미',
-							title : 'WARNING'
-						},
-						{src : '로이킴_그때_헤어지면_돼.jpg',
-							musTtl : '우리 그만하자',
-							atist : '로이킴',
-							title : '우리 그만하자'
-						},
-						{src : 'VIBE_가을타나봐.jpg',
-							musTtl : '가을 타나 봐 ',
-							atist : '바이브',
-							title : '가을 타나 봐 '
-						},
-						{src : '윤종신_좋니.jpg',
-							musTtl : '좋니',
-							atist : '윤종신',
-							title : '좋니'
-						},
-						{src : 'IU_삐삐.jpg',
-							musTtl : '삐삐',
-							atist : '아이유',
-							title : '삐삐'
-						},
-						{src : '폴킴_키스_먼저_할까요.jpg',
-							musTtl : '모든 날, 모든 순간',
-							atist : '폴킴',
-							title : '키스 먼저 할까요?'}
-					];
-					//
 				
-					$.each(arrTop100,(i,v)=>{
+		
+				
+						 for(var i =0; i<d.length;i++){
+
+							 $('<tr/>').append(
+										$('<td/>').append(
+												$('<div/>').addClass('ckbox').append(
+														$('<input/>').attr({type : 'checkbox', id :'checkbox'+i, name :'chk'}),
+														$('<label for="checkbox'+i+'">') 
+												)
+										),
+										$('<td/>').attr('width','5%').html(i+1).append(
+										),
+										$('<td/>').append(
+														$('<img/>').attr({
+															src : $.ctx()+'/resources/img/album/'+d[i].IMG,
+															id : 'ls_album_photo'
+														}).click(()=>{
+															alert('앨범 사진 클릭');
+														})
+										),
+										$('<td/>').html(d[i].MUSIC_TITLE).click(()=>{
+											alert('제목 클릭');
+										}),
+										$('<td/>').html(d[i].ARTIST_NAME).click(()=>{
+											alert('아티스트 클릭');
+										}),
+										$('<td/>').html(d[i].ALBUM_TITLE).click(()=>{
+											alert('앨범명 클릭');
+										}),
+										$('<td/>').append(
+												$('<i/>').addClass('ls_fa fa fa-play-circle-o')
+												.click(()=>{
+													alert('듣기 클릭');
+												})),
+										$('<td/>').append(
+												$('<i/>').addClass('ls_fa fa fa-heart')
+												.click(()=>{
+													alert('하트 클릭');
+												})),
+										$('<td/>').append(
+												$('<i/>').addClass('ls_fa glyphicon glyphicon-facetime-video')
+												.click(()=>{
+													alert('뮤비 클릭');
+												})),
+										$('<td/>').append(
+												$('<i/>').addClass('ls_fa fa fa-thumbs-down')
+												.click(()=>{
+													alert('싫어요 클릭');
+												}))
+								).appendTo($('#topTable'));
+						 }
 						
-						$('<tr/>').append(
-								$('<td/>').append(
-										$('<div/>').addClass('ckbox').append(
-												$('<input/>').attr({type : 'checkbox', id :'checkbox'+i, name :'chk'}),
-												$('<label for="checkbox'+i+'">') 
-										)
-								),
-								$('<td/>').attr('width','5%').html(i+1).append(
-								),
-								$('<td/>').append(
-												$('<img/>').attr({
-													src : $.ctx()+'/resources/img/album/'+v.src,
-													id : 'ls_album_photo'
-												}).click(()=>{
-													alert('앨범 사진 클릭');
-												})
-								),
-								$('<td/>').html(v.musTtl).click(()=>{
-									alert('제목 클릭');
-								}),
-								$('<td/>').html(v.atist).click(()=>{
-									alert('아티스트 클릭');
-								}),
-								$('<td/>').html(v.title).click(()=>{
-									alert('앨범명 클릭');
-								}),
-								$('<td/>').append(
-										$('<i/>').addClass('ls_fa fa fa-play-circle-o')
-										.click(()=>{
-											alert('듣기 클릭');
-										})),
-								$('<td/>').append(
-										$('<i/>').addClass('ls_fa fa fa-heart')
-										.click(()=>{
-											alert('하트 클릭');
-										})),
-								$('<td/>').append(
-										$('<i/>').addClass('ls_fa glyphicon glyphicon-facetime-video')
-										.click(()=>{
-											alert('뮤비 클릭');
-										})),
-								$('<td/>').append(
-										$('<i/>').addClass('ls_fa fa fa-thumbs-down')
-										.click(()=>{
-											alert('싫어요 클릭');
-										}))
-						).appendTo($('#topTable'));
-					})
+					
 				//전체선택 클릭시
 				$('#allCheck').click(()=>{
 						if($("#allCheck").is(':checked')){
@@ -198,6 +172,9 @@ ls ={
 					
 					
 					}
+	        	});
+		
+					
 					
 				
 			

@@ -117,16 +117,11 @@ sh = (()=>{
          
     	 $('#chartBtn').click(e=>{
     		 alert('하이 제이슨');
- 			$('#contents').html(banner()+cloud()+topFive());
-	       		ls.chart();
-	       		sh.service.removeSec('#chartSec');
-				fn.scroll({ id : $("#chartSec"), len : 200});
-			/*	 $.getJSON(sh.ctx()+'/music/top50',d=>{
-						
-		        	});*/
+	 			$('#contents').html(banner()+cloud()+topFive());
+		       		ls.chart();
+		       		sh.service.removeSec('#chartSec');
+					fn.scroll({ id : $("#chartSec"), len : 200});
 			
-			    
-				
 			
          });
          $('#albumBtn').click(e=>{

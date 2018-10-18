@@ -1,7 +1,8 @@
 package com.soundlab.web.music;
 
+import java.util.List;
 import java.util.Map;
 
 public interface MusicMapper {
-	// public Map<String,Object> getRealChart(Map<?,?> p);
+	 public List<Map<String,Object>> getRealChart();
 }
