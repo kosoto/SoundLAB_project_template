@@ -1,8 +1,8 @@
 "use strict";
 var ls = ls || {};
 ls ={
-		chart :()=>{
-			 $.getJSON(sh.ctx()+'/music/top50',d=>{
+		chart :x=>{
+			$.getJSON(sh.ctx()+'/music/top50/'+x,d=>{
 				 
 			
 				
@@ -24,20 +24,33 @@ ls ={
 														 $('<li/>').append(
 																 $('<a/>').attr({id : 'liveChr'}).html('실시간'))
 																 .click(()=>{ 
-																	 alert('liveChr click'); 
+																	 alert('liveChr click');
+																	 let realChart = 'realChart';
+																		$.getJSON(sh.ctx()+'/music/top50/'+realChart,d=>{
+																			$('#topTable').empty();
+																			 ls.top50table(d);
+																	 })
 																	 
 																 }),
 														 $('<li/>').append(
 																 $('<a/>').attr({id : 'wklChr'}).html('일간'))
 																 .click(()=>{ 
 																	 alert('wklChr click'); 
-																	 
+																	 	let dayChart = 'dayChart';
+																		$.getJSON(sh.ctx()+'/music/top50/'+dayChart,d=>{
+																			$('#topTable').empty();
+																			 ls.top50table(d);
+																	 })
 																	 }),
 														 $('<li/>').append(
 																$('<a/>').attr({id : 'dayChr'}).html('주간'))
 																.click(()=>{ 
 																	alert('dayChr click'); 
-																	
+																	 let weelChart = 'weekChart';
+																		$.getJSON(sh.ctx()+'/music/top50/'+weelChart,d=>{
+																			$('#topTable').empty();
+																			 ls.top50table(d);
+																	 })
 																	})
 																
 																
@@ -79,87 +92,10 @@ ls ={
 											)
 					).appendTo($('#chart-top100'));
 						
-					
-					//Top 100 table
-					$('<section/>').addClass("ls_topTable table-container").append(
-							$('<table/>').addClass("ls_table table ls_table-filter").attr({id :'topTable'})
-					).appendTo($('#pull-left'));
-					
-					$('<tbody/>').append(
-							$('<tr/>').attr({id : 'ls_topTable_tr'}).append(
-											$('<th/>').attr({style : 'width:5%'}).append(
-													$('<input/>').attr({type : 'checkbox', id :'allCheck' }).attr({style : 'width:15px'}),
-													$('<label for="allCheck">')
-											
-									),
-									$('<th/>').attr('width','3%').html('NO'),
-									$('<th/>').attr('width','10%').html('앨범사진'),
-									$('<th/>').attr('width','20%').html('제목'),
-									$('<th/>').attr('width','10%').html('아티스트'),
-									$('<th/>').attr('width','10%').html('앨범명'),
-									$('<th/>').attr('width','5%').html('듣기'),
-									$('<th/>').attr('width','5%').html('하트'),
-									$('<th/>').attr('width','5%').html('영상'),
-									$('<th/>').attr('width','8%').html('싫어요')
-							)
-					).appendTo($('#topTable'));
-					
-					
 				
-		
-				
-						 for(var i =0; i<d.length;i++){
-
-							 $('<tr/>').append(
-										$('<td/>').append(
-												$('<div/>').addClass('ckbox').append(
-														$('<input/>').attr({type : 'checkbox', id :'checkbox'+i, name :'chk'}),
-														$('<label for="checkbox'+i+'">') 
-												)
-										),
-										$('<td/>').attr('width','5%').html(i+1).append(
-										),
-										$('<td/>').append(
-														$('<img/>').attr({
-															src : $.ctx()+'/resources/img/album/'+d[i].IMG,
-															id : 'ls_album_photo'
-														}).click(()=>{
-															alert('앨범 사진 클릭');
-														})
-										),
-										$('<td/>').html(d[i].MUSIC_TITLE).click(()=>{
-											alert('제목 클릭');
-										}),
-										$('<td/>').html(d[i].ARTIST_NAME).click(()=>{
-											alert('아티스트 클릭');
-										}),
-										$('<td/>').html(d[i].ALBUM_TITLE).click(()=>{
-											alert('앨범명 클릭');
-										}),
-										$('<td/>').append(
-												$('<i/>').addClass('ls_fa fa fa-play-circle-o')
-												.click(()=>{
-													alert('듣기 클릭');
-												})),
-										$('<td/>').append(
-												$('<i/>').addClass('ls_fa fa fa-heart')
-												.click(()=>{
-													alert('하트 클릭');
-												})),
-										$('<td/>').append(
-												$('<i/>').addClass('ls_fa glyphicon glyphicon-facetime-video')
-												.click(()=>{
-													alert('뮤비 클릭');
-												})),
-										$('<td/>').append(
-												$('<i/>').addClass('ls_fa fa fa-thumbs-down')
-												.click(()=>{
-													alert('싫어요 클릭');
-												}))
-								).appendTo($('#topTable'));
-						 }
-						
 					
+					ls.top50table(d);
+						 
 				//전체선택 클릭시
 				$('#allCheck').click(()=>{
 						if($("#allCheck").is(':checked')){
@@ -173,12 +109,6 @@ ls ={
 					
 					}
 	        	});
-		
-					
-					
-				
-			
-			
 		},
 				
 		album :()=>{
@@ -241,18 +171,6 @@ ls ={
 								)
 								
 						),
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
 						
 						
 						
@@ -462,20 +380,88 @@ ls ={
 							next.children(':first-child').clone().appendTo($(this));
 						}
 				    });
-			  
-			  
-			  
-			  
-			  
-			  
-			  
 		}
 			
-			
 		},
+		 top50table :d=>{
+				$('<section/>').addClass("ls_topTable table-container").append(
+						$('<table/>').addClass("ls_table table ls_table-filter").attr({id :'topTable'})
+				).appendTo($('#pull-left'));
+				
+				$('<tbody/>').append(
+						$('<tr/>').attr({id : 'ls_topTable_tr'}).append(
+										$('<th/>').attr({style : 'width:5%'}).append(
+												$('<input/>').attr({type : 'checkbox', id :'allCheck' }).attr({style : 'width:15px'}),
+												$('<label for="allCheck">')
+										
+								),
+								$('<th/>').attr('width','3%').html('NO'),
+								$('<th/>').attr('width','10%').html('앨범사진'),
+								$('<th/>').attr('width','20%').html('제목'),
+								$('<th/>').attr('width','10%').html('아티스트'),
+								$('<th/>').attr('width','10%').html('앨범명'),
+								$('<th/>').attr('width','5%').html('듣기'),
+								$('<th/>').attr('width','5%').html('하트'),
+								$('<th/>').attr('width','5%').html('영상'),
+								$('<th/>').attr('width','8%').html('싫어요')
+						)
+				).appendTo($('#topTable'));
+			for(var i =0; i<d.length;i++){
+
+				 $('<tr/>').append(
+							$('<td/>').append(
+									$('<div/>').addClass('ckbox').append(
+											$('<input/>').attr({type : 'checkbox', id :'checkbox'+i, name :'chk'}),
+											$('<label for="checkbox'+i+'">') 
+									)
+							),
+							$('<td/>').attr('width','5%').html(i+1).append(
+							),
+							$('<td/>').append(
+											$('<img/>').attr({
+												src : $.ctx()+'/resources/img/album/'+d[i].IMG,
+												id : 'ls_album_photo'
+											}).click(()=>{
+												alert('앨범 사진 클릭');
+											})
+							),
+							$('<td/>').html(d[i].MUSIC_TITLE).click(()=>{
+								alert('제목 클릭');
+							}),
+							$('<td/>').html(d[i].ARTIST_NAME).click(()=>{
+								alert('아티스트 클릭');
+							}),
+							$('<td/>').html(d[i].ALBUM_TITLE).click(()=>{
+								alert('앨범명 클릭');
+							}),
+							$('<td/>').append(
+									$('<i/>').addClass('ls_fa fa fa-play-circle-o')
+									.click(()=>{
+										alert('듣기 클릭');
+									})),
+							$('<td/>').append(
+									$('<i/>').addClass('ls_fa fa fa-heart')
+									.click(()=>{
+										alert('하트 클릭');
+									})),
+							$('<td/>').append(
+									$('<i/>').addClass('ls_fa glyphicon glyphicon-facetime-video')
+									.click(()=>{
+										alert('뮤비 클릭');
+									})),
+							$('<td/>').append(
+									$('<i/>').addClass('ls_fa fa fa-thumbs-down')
+									.click(()=>{
+										alert('싫어요 클릭');
+									}))
+					).appendTo($('#topTable'));
+			 }
+			
+		}
+		
 
 		 
 }
 
-			
+
 
